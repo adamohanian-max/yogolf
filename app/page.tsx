@@ -445,7 +445,7 @@ function CourseCard({ r, showDates }: { r: CourseResult; showDates: boolean }) {
             </a>
           </div>
           <div className="card-meta">
-            <span className="livedot" title="Live availability">● Live</span>
+            <span className="livedot" title="Live availability">Live</span>
             <span>
               {r.course.town} · {r.distanceMiles} mi
             </span>
