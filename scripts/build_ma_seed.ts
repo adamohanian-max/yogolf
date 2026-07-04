@@ -37,6 +37,8 @@ interface Harvest {
 
 const PUBLIC_RE = /public|guest|online|non.?member|daily|resident/i;
 const MEMBER_RE = /member|league|staff|employee|twilight only/i;
+// Indoor simulators / ranges / lessons are not real courses — exclude them.
+const NON_COURSE_RE = /simulator|indoor|lounge|igolf|driving range|\brange\b|lesson|academy|topgolf|entertainment/i;
 
 function slug(s: string): string {
   return s
@@ -84,6 +86,7 @@ function main() {
       continue;
     }
     if (h.state !== state) continue;
+    if (NON_COURSE_RE.test(h.name)) continue;
     if (/private|semi-private members/i.test(h.courseType)) {
       skippedPrivate++;
       continue;
