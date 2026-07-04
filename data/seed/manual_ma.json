@@ -1,0 +1,29 @@
+[
+  {
+    "id": "ma-george-wright",
+    "name": "George Wright Golf Course",
+    "address": "420 West St",
+    "town": "Hyde Park",
+    "state": "MA",
+    "zip": "02136",
+    "lat": 42.2559,
+    "lng": -71.1289,
+    "phone": "617-364-2300",
+    "website": "https://cityofbostongolf.com/",
+    "holes_total": 18,
+    "provider": "cps",
+    "provider_config": {
+      "host": "georgewright.cps.golf",
+      "siteName": "georgewright",
+      "courseId": 2
+    },
+    "booking_url": "https://georgewright.cps.golf/onlineresweb/search-teetime",
+    "google_rating": 4.6,
+    "google_reviews": 900,
+    "golfpass_rating": 4.5,
+    "other_ratings": null,
+    "list_bonuses": 1,
+    "is_public": 1,
+    "notes": "Donald Ross muni, CPS site also hosts William J. Devine (courseId 1)"
+  }
+]

@@ -67,9 +67,19 @@ export const foreupAdapter: Adapter = {
     if (cfg.bookingClass) qs.set('booking_class', String(cfg.bookingClass));
 
     const url = `https://foreupsoftware.com/index.php/api/booking/times?${qs}`;
-    const data = await fetchJson<ForeupTime[]>(url, {
-      headers: { 'X-Requested-With': 'XMLHttpRequest' },
-    });
+    let data: ForeupTime[];
+    try {
+      data = await fetchJson<ForeupTime[]>(url, {
+        headers: { 'X-Requested-With': 'XMLHttpRequest' },
+      });
+    } catch (e) {
+      // 401/403 = this course gates its tee sheet behind login. Fall back to
+      // the booking link rather than failing the whole result.
+      if (/HTTP 40[13]/.test(String(e))) {
+        return { unavailable: true, bookingUrl: course.booking_url };
+      }
+      throw e;
+    }
     if (!Array.isArray(data)) return { unavailable: true, bookingUrl: course.booking_url };
 
     const slots: TeeTimeSlot[] = data

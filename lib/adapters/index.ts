@@ -2,12 +2,14 @@ import type { Adapter } from '../types';
 import { foreupAdapter } from './foreup';
 import { chronogolfAdapter } from './chronogolf';
 import { teeitupAdapter } from './teeitup';
+import { cpsAdapter } from './cps';
 import { fallbackAdapter } from './fallback';
 
 const registry: Record<string, Adapter> = {
   foreup: foreupAdapter,
   chronogolf: chronogolfAdapter,
   teeitup: teeitupAdapter,
+  cps: cpsAdapter,
   fallback: fallbackAdapter,
 };
 

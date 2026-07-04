@@ -1,0 +1,25 @@
+{
+  "_comment": "Rating/ranking overrides applied by slug(name) during seed. golfpass_rating + review counts from GolfPass Golfers' Choice 2026 (Best Public Courses in MA). list_bonus = editorial top-list appearances. Merged onto matching course records; unmatched keys are ignored.",
+  "courses": [
+    { "name": "South Shore Country Club", "town": "Hingham", "golfpass_rating": 4.74, "google_reviews": 379, "list_bonus": 1 },
+    { "name": "Pinehills Golf Club", "town": "Plymouth", "golfpass_rating": 4.89, "google_reviews": 337, "list_bonus": 2 },
+    { "name": "Miacomet Golf Course", "town": "Nantucket", "golfpass_rating": 4.84, "google_reviews": 53, "list_bonus": 1 },
+    { "name": "Crumpin-Fox Club", "town": "Bernardston", "golfpass_rating": 4.78, "google_reviews": 643, "list_bonus": 2 },
+    { "name": "Cranberry Valley Golf Course", "town": "Harwich", "golfpass_rating": 4.64, "google_reviews": 70, "list_bonus": 1 },
+    { "name": "The Ranch Golf Club", "town": "Southwick", "golfpass_rating": 4.70, "google_reviews": 536, "list_bonus": 1 },
+    { "name": "Acushnet River Valley Golf Course", "town": "Acushnet", "golfpass_rating": 4.60, "google_reviews": 718, "list_bonus": 1 },
+    { "name": "The Cape Club", "town": "North Falmouth", "golfpass_rating": 4.58, "google_reviews": 156, "list_bonus": 1 },
+    { "name": "Ledgemont Country Club", "town": "Seekonk", "golfpass_rating": 4.84, "google_reviews": 48, "list_bonus": 1 },
+    { "name": "Chicopee Country Club", "town": "Chicopee", "golfpass_rating": 4.59, "google_reviews": 493, "list_bonus": 1 },
+    { "name": "Ledges Golf Club", "town": "South Hadley", "golfpass_rating": 4.58, "google_reviews": 672, "list_bonus": 1 },
+    { "name": "Westover Golf Club", "town": "Granby", "golfpass_rating": 4.50, "google_reviews": 523, "list_bonus": 1 },
+    { "name": "The Brookside Club", "town": "Bourne", "golfpass_rating": 4.55, "google_reviews": 763, "list_bonus": 1 },
+    { "name": "Olde Scotland Links", "town": "Bridgewater", "golfpass_rating": 4.49, "google_reviews": 1130, "list_bonus": 1 },
+    { "name": "Waverly Oaks Golf Club", "town": "Plymouth", "golfpass_rating": 4.46, "google_reviews": 546, "list_bonus": 1 },
+    { "name": "Merrimack Valley Golf Club", "town": "Methuen", "golfpass_rating": 4.36, "google_reviews": 387, "list_bonus": 1 },
+    { "name": "Cold Spring Country Club", "town": "Belchertown", "golfpass_rating": 4.47, "google_reviews": 579, "list_bonus": 1 },
+    { "name": "West Bridgewater Country Club", "town": "West Bridgewater", "golfpass_rating": 4.42, "google_reviews": 508, "list_bonus": 1 },
+    { "name": "Cyprian Keyes Golf Club", "town": "Boylston", "golfpass_rating": 4.25, "google_reviews": 87, "list_bonus": 1 },
+    { "name": "George Wright Golf Course", "town": "Hyde Park", "golfpass_rating": 4.5, "google_rating": 4.6, "google_reviews": 900, "list_bonus": 1 }
+  ]
+}
