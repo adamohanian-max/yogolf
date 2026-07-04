@@ -171,6 +171,14 @@ a { color: inherit; text-decoration: none; }
 .rating { color: var(--ink-2); }
 .rating .star { color: #d9a514; }
 
+.livedot {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.01em;
+}
+.livedot::first-letter { font-size: 8px; vertical-align: 1.5px; }
+
 .scorepill {
   flex-shrink: 0;
   font-size: 11.5px; font-weight: 600;

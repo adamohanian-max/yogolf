@@ -20,6 +20,12 @@
     { "name": "Cold Spring Country Club", "town": "Belchertown", "golfpass_rating": 4.47, "google_reviews": 579, "list_bonus": 1 },
     { "name": "West Bridgewater Country Club", "town": "West Bridgewater", "golfpass_rating": 4.42, "google_reviews": 508, "list_bonus": 1 },
     { "name": "Cyprian Keyes Golf Club", "town": "Boylston", "golfpass_rating": 4.25, "google_reviews": 87, "list_bonus": 1 },
-    { "name": "George Wright Golf Course", "town": "Hyde Park", "golfpass_rating": 4.5, "google_rating": 4.6, "google_reviews": 900, "list_bonus": 1 }
+    { "name": "George Wright Golf Course", "town": "Hyde Park", "golfpass_rating": 4.5, "google_rating": 4.6, "google_reviews": 900, "list_bonus": 1 },
+    { "name": "Presidents Golf Course", "town": "Quincy", "google_rating": 4.2, "google_reviews": 579 },
+    { "name": "Granite Links", "town": "Quincy", "google_rating": 4.6, "google_reviews": 1600, "list_bonus": 2 },
+    { "name": "Newton Commonwealth Golf Course", "town": "Newton", "google_rating": 4.1, "google_reviews": 400 },
+    { "name": "Highfields Golf & Country Club", "town": "Grafton", "google_rating": 4.4, "google_reviews": 470 },
+    { "name": "Far Corner Golf Club", "town": "Boxford", "google_rating": 4.3, "google_reviews": 480 },
+    { "name": "William Devine Golf Course At Franklin Park", "town": "Dorchester", "google_rating": 4.3, "google_reviews": 650 }
   ]
 }

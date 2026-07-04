@@ -330,7 +330,7 @@ export default function Home() {
                     : phase === 'loading'
                       ? 'Searching…'
                       : liveCount > 0
-                        ? <><strong>{liveCount}</strong> {liveCount === 1 ? 'course has' : 'courses have'} open tee times</>
+                        ? <><strong>{liveCount}</strong> with live tee times · <strong>{meta?.total ?? results.length}</strong> public courses nearby</>
                         : ''}
                 </span>
                 <div className="sortrow">
@@ -445,6 +445,7 @@ function CourseCard({ r, showDates }: { r: CourseResult; showDates: boolean }) {
             </a>
           </div>
           <div className="card-meta">
+            <span className="livedot" title="Live availability">● Live</span>
             <span>
               {r.course.town} · {r.distanceMiles} mi
             </span>
@@ -456,7 +457,7 @@ function CourseCard({ r, showDates }: { r: CourseResult; showDates: boolean }) {
             )}
           </div>
         </div>
-        <span className="scorepill">{Math.round(r.course.score)} / 100</span>
+        <span className="scorepill" title="YoGolf course score">{Math.round(r.course.score)} / 100</span>
       </div>
 
       {byDate.map(([date, slots]) => {

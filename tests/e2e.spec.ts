@@ -48,7 +48,7 @@ test('best-course sort orders by score', async ({ page }) => {
   await expect(page.locator('.card').first()).toBeVisible({ timeout: 30_000 });
   await page.waitForFunction(() => {
     const el = document.querySelector('.results-head .count');
-    return el && /courses have|course has/.test(el.textContent || '');
+    return el && /live tee times/.test(el.textContent || '');
   }, { timeout: 30_000 });
 
   await page.selectOption('#sort', 'best');
