@@ -36,6 +36,28 @@ function slug(s: string): string {
 const seedDir = path.join(process.cwd(), 'data', 'seed');
 const files = fs.readdirSync(seedDir).filter((f) => f.endsWith('.json'));
 
+// Public-courses-only enforcement: junk/test/duplicate accounts and known
+// members-only clubs are dropped here regardless of which seed file they came
+// from. Semi-private courses that sell public tee times are kept.
+interface ExcludeConfig {
+  junkPatterns: string[];
+  duplicateIds: string[];
+  privateClubs: string[];
+}
+let exclude: ExcludeConfig = { junkPatterns: [], duplicateIds: [], privateClubs: [] };
+const excludePath = path.join(seedDir, '_exclude_ma.json');
+if (fs.existsSync(excludePath)) exclude = JSON.parse(fs.readFileSync(excludePath, 'utf8'));
+const junkRe = exclude.junkPatterns.map((p) => new RegExp(p, 'i'));
+const privateSet = new Set(exclude.privateClubs.map((n) => n.toLowerCase().trim()));
+const duplicateIdSet = new Set(exclude.duplicateIds);
+
+function excludedReason(rec: { id: string; name: string }): string | null {
+  if (duplicateIdSet.has(rec.id)) return 'duplicate';
+  if (privateSet.has(rec.name.toLowerCase().trim())) return 'private';
+  for (const re of junkRe) if (re.test(rec.name)) return `junk (${re.source})`;
+  return null;
+}
+
 // Load rating overrides first.
 const overrides = new Map<string, RatingOverride>();
 for (const file of files) {
@@ -53,6 +75,7 @@ function applyOverride(rec: SeedCourse): RatingOverride | undefined {
 getDb();
 let count = 0;
 let enriched = 0;
+let excludedCount = 0;
 const ids = new Set<string>();
 
 for (const file of files) {
@@ -61,6 +84,11 @@ for (const file of files) {
   for (const rec of records) {
     if (ids.has(rec.id)) {
       console.warn(`DUPLICATE id '${rec.id}' in ${file} — skipping`);
+      continue;
+    }
+    const reason = excludedReason(rec);
+    if (reason) {
+      excludedCount++;
       continue;
     }
     ids.add(rec.id);
@@ -86,5 +114,5 @@ for (const file of files) {
 }
 
 console.log(
-  `Seeded ${count} courses (${enriched} rating-enriched) from ${files.length} files → data/courses.db`
+  `Seeded ${count} courses (${enriched} rating-enriched, ${excludedCount} excluded as private/junk/dup) from ${files.length} files → data/courses.db`
 );
