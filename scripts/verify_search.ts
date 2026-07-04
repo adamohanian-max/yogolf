@@ -1,3 +1,5 @@
+export {};
+
 /**
  * End-to-end verification of the /api/search filters against the live server.
  * Asserts each filter actually constrains results. Run with `npm run dev` up.

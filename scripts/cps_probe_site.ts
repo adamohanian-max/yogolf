@@ -1,3 +1,5 @@
+export {};
+
 /**
  * Inspect a CPS golf site: list the courses it hosts (id, name, GUID) and its
  * webSiteId, so they can be added to the seed.

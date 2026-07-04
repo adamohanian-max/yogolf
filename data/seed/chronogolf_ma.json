@@ -283,5 +283,140 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "chronogolf club 7254"
+  },
+  {
+    "id": "ma-blackstone-national-golf-club",
+    "name": "Blackstone National Golf Club",
+    "address": null,
+    "town": "Sutton",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.12046025453121,
+    "lng": -71.76694152698511,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 19793,
+      "courses": [
+        {
+          "id": 28106,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 148879
+    },
+    "booking_url": "https://www.chronogolf.com/club/blackstone-national-golf-club-massachusetts-sutton",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 19793"
+  },
+  {
+    "id": "ma-sassamon-trace-golf-course",
+    "name": "Sassamon Trace Golf Course",
+    "address": null,
+    "town": "Natick",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.2664049,
+    "lng": -71.3630218,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7397,
+      "courses": [
+        {
+          "id": 8444,
+          "holes": [
+            9
+          ]
+        }
+      ],
+      "affiliationTypeId": 30410
+    },
+    "booking_url": "https://www.chronogolf.com/club/sassamon-trace",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7397"
+  },
+  {
+    "id": "ma-scituate-country-club",
+    "name": "Scituate Country Club",
+    "address": null,
+    "town": "Scituate",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.177427,
+    "lng": -70.722228,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7398,
+      "courses": [
+        {
+          "id": 8445,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 30414
+    },
+    "booking_url": "https://www.chronogolf.com/club/scituate-country-club",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7398"
+  },
+  {
+    "id": "ma-cherry-hill-golf-course",
+    "name": "Cherry Hill Golf Course",
+    "address": null,
+    "town": "Amherst",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.42114550781083,
+    "lng": -72.52585797583382,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 19823,
+      "courses": [
+        {
+          "id": 28186,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 149962
+    },
+    "booking_url": "https://www.chronogolf.com/club/cherry-hill-golf-course",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 19823"
   }
 ]
