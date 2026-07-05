@@ -201,5 +201,34 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "teeitup {\"alias\":\"unicorn-golf-course\",\"facilityIds\":[13988],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://unicorn-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-waverly-oaks-golf-club",
+    "name": "Waverly Oaks Golf Club",
+    "address": null,
+    "town": "Plymouth",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.94643,
+    "lng": -70.67023,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "waverly-oaks-golf-club",
+      "facilityIds": [
+        6345
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://waverly-oaks-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://waverly-oaks-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"waverly-oaks-golf-club\",\"facilityIds\":[6345],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://waverly-oaks-golf-club.book.teeitup.golf/\"}"
   }
 ]

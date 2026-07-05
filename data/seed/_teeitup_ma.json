@@ -1,12 +1,77 @@
 {
   "_comment": "TeeItUp alias + facilityIds (kenna.io). timeZone for UTC->local. Consumed by build_provider_seed.ts.",
   "courses": [
-    { "match": "Chelmsford Country Club", "alias": "chelmsford-country-club", "facilityIds": [5723], "timeZone": "America/New_York", "bookingUrl": "https://chelmsford-country-club.book.teeitup.golf/" },
-    { "match": "Chicopee Country Club", "alias": "chicopee-country-club", "facilityIds": [5659], "timeZone": "America/New_York", "bookingUrl": "https://chicopee-country-club.book.teeitup.golf/" },
-    { "match": "Little Harbor Golf Club", "alias": "little-harbor-country-club", "facilityIds": [11466], "timeZone": "America/New_York", "bookingUrl": "https://little-harbor-country-club.book.teeitup.golf/" },
-    { "match": "Merrimack Valley Golf Course", "alias": "merrimack-valley-golf-club", "facilityIds": [16619], "timeZone": "America/New_York", "bookingUrl": "https://merrimack-valley-golf-club.book.teeitup.golf/" },
-    { "match": "Olde Scotland Links", "alias": "7c60cf72-5f0a-45cc-bfcb-2075f12c45ab", "facilityIds": [15419], "timeZone": "America/New_York", "bookingUrl": "https://7c60cf72-5f0a-45cc-bfcb-2075f12c45ab.book.teeitup.com/" },
-    { "match": "Stoneham Oaks Golf Course", "alias": "stoneham-oaks-golf-course", "facilityIds": [13987], "timeZone": "America/New_York", "bookingUrl": "https://stoneham-oaks-golf-course.book.teeitup.golf/" },
-    { "match": "Unicorn Golf Course", "alias": "unicorn-golf-course", "facilityIds": [13988], "timeZone": "America/New_York", "bookingUrl": "https://unicorn-golf-course.book.teeitup.golf/" }
+    {
+      "match": "Chelmsford Country Club",
+      "alias": "chelmsford-country-club",
+      "facilityIds": [
+        5723
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://chelmsford-country-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Chicopee Country Club",
+      "alias": "chicopee-country-club",
+      "facilityIds": [
+        5659
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://chicopee-country-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Little Harbor Golf Club",
+      "alias": "little-harbor-country-club",
+      "facilityIds": [
+        11466
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://little-harbor-country-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Merrimack Valley Golf Course",
+      "alias": "merrimack-valley-golf-club",
+      "facilityIds": [
+        16619
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://merrimack-valley-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Olde Scotland Links",
+      "alias": "7c60cf72-5f0a-45cc-bfcb-2075f12c45ab",
+      "facilityIds": [
+        15419
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://7c60cf72-5f0a-45cc-bfcb-2075f12c45ab.book.teeitup.com/"
+    },
+    {
+      "match": "Stoneham Oaks Golf Course",
+      "alias": "stoneham-oaks-golf-course",
+      "facilityIds": [
+        13987
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://stoneham-oaks-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Unicorn Golf Course",
+      "alias": "unicorn-golf-course",
+      "facilityIds": [
+        13988
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://unicorn-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Waverly Oaks Golf Club",
+      "alias": "waverly-oaks-golf-club",
+      "facilityIds": [
+        6345
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://waverly-oaks-golf-club.book.teeitup.golf/"
+    }
   ]
 }

@@ -525,5 +525,38 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "chronogolf club 7429"
+  },
+  {
+    "id": "ma-new-meadows-golf-club",
+    "name": "New Meadows Golf Club",
+    "address": null,
+    "town": "Topsfield",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.638,
+    "lng": -70.95,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7346,
+      "courses": [
+        {
+          "id": 8390,
+          "holes": [
+            9
+          ]
+        }
+      ],
+      "affiliationTypeId": 30206
+    },
+    "booking_url": "https://www.chronogolf.com/club/new-meadows-golf-club",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7346"
   }
 ]
