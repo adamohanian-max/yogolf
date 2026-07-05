@@ -230,5 +230,498 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "teeitup {\"alias\":\"waverly-oaks-golf-club\",\"facilityIds\":[6345],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://waverly-oaks-golf-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-agawam-municipal-golf-course",
+    "name": "Agawam Municipal Golf Course",
+    "address": null,
+    "town": "Agawam",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.0702,
+    "lng": -72.6227,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "agawam-municipal-golf-course",
+      "facilityIds": [
+        8592
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://agawam-municipal-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://agawam-municipal-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"agawam-municipal-golf-course\",\"facilityIds\":[8592],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://agawam-municipal-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-braintree-municipal-golf-course",
+    "name": "Braintree Municipal Golf Course",
+    "address": null,
+    "town": "Braintree",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.19465,
+    "lng": -71.04275,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "braintree-municipal-golf-course",
+      "facilityIds": [
+        16026
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://braintree-municipal-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://braintree-municipal-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"braintree-municipal-golf-course\",\"facilityIds\":[16026],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://braintree-municipal-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-the-brookside-club",
+    "name": "The Brookside Club",
+    "address": null,
+    "town": "Bourne",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.7415,
+    "lng": -70.5998,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "the-brookside-club",
+      "facilityIds": [
+        5684
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://the-brookside-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://the-brookside-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"the-brookside-club\",\"facilityIds\":[5684],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://the-brookside-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-cranberry-valley-golf-course",
+    "name": "Cranberry Valley Golf Course",
+    "address": null,
+    "town": "Harwich",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.7008,
+    "lng": -70.0579,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "cranberry-valley-golf-course",
+      "facilityIds": [
+        5212
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://cranberry-valley-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://cranberry-valley-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"cranberry-valley-golf-course\",\"facilityIds\":[5212],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://cranberry-valley-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-gardner-municipal-golf-course",
+    "name": "Gardner Municipal Golf Course",
+    "address": null,
+    "town": "Gardner",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.574,
+    "lng": -71.9898,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "gardner-municipal-golf-course",
+      "facilityIds": [
+        13110
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://gardner-municipal-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://gardner-municipal-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"gardner-municipal-golf-course\",\"facilityIds\":[13110],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://gardner-municipal-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-hyannis-golf-course",
+    "name": "Hyannis Golf Course",
+    "address": null,
+    "town": "Hyannis",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.6601,
+    "lng": -70.2967,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "hyannis-golf-club",
+      "facilityIds": [
+        5476
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://hyannis-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://hyannis-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"hyannis-golf-club\",\"facilityIds\":[5476],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://hyannis-golf-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-lakeville-country-club",
+    "name": "Lakeville Country Club",
+    "address": null,
+    "town": "Lakeville",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.84165,
+    "lng": -70.95385,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "lakeville-country-club",
+      "facilityIds": [
+        6696
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://lakeville-country-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://lakeville-country-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"lakeville-country-club\",\"facilityIds\":[6696],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://lakeville-country-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-ledges-golf-club",
+    "name": "Ledges Golf Club",
+    "address": null,
+    "town": "South Hadley",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.2375,
+    "lng": -72.5811,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "ledges-golf-club",
+      "facilityIds": [
+        4934
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://ledges-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://ledges-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"ledges-golf-club\",\"facilityIds\":[4934],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://ledges-golf-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-maynard-golf-course",
+    "name": "Maynard Golf Course",
+    "address": null,
+    "town": "Maynard",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.4321,
+    "lng": -71.455,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "maynard-golf-course",
+      "facilityIds": [
+        15974
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://maynard-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://maynard-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"maynard-golf-course\",\"facilityIds\":[15974],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://maynard-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-norwood-country-club",
+    "name": "Norwood Country Club",
+    "address": null,
+    "town": "Norwood",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.1868,
+    "lng": -71.2033,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "norwood-country-club",
+      "facilityIds": [
+        5720
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://norwood-country-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://norwood-country-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"norwood-country-club\",\"facilityIds\":[5720],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://norwood-country-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-rockland-golf-course",
+    "name": "Rockland Golf Course",
+    "address": null,
+    "town": "Rockland",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.1293,
+    "lng": -70.9133,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "rockland-golf-course",
+      "facilityIds": [
+        11063
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://rockland-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://rockland-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"rockland-golf-course\",\"facilityIds\":[11063],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://rockland-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-sandwich-hollows-golf-club",
+    "name": "Sandwich Hollows Golf Club",
+    "address": null,
+    "town": "Sandwich",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.7113,
+    "lng": -70.4775,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "sandwich-hollows-golf-club",
+      "facilityIds": [
+        11207
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://sandwich-hollows-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://sandwich-hollows-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"sandwich-hollows-golf-club\",\"facilityIds\":[11207],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://sandwich-hollows-golf-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-st-anne-country-club",
+    "name": "St. Anne Country Club",
+    "address": null,
+    "town": "Feeding Hills",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.0718,
+    "lng": -72.6751,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "st-anne-country-club",
+      "facilityIds": [
+        13629
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://st-anne-country-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://st-anne-country-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"st-anne-country-club\",\"facilityIds\":[13629],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://st-anne-country-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-south-shore-country-club",
+    "name": "South Shore Country Club",
+    "address": null,
+    "town": "Hingham",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.23315,
+    "lng": -70.89045,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "south-shore-country-club",
+      "facilityIds": [
+        4926
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://south-shore-country-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://south-shore-country-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"south-shore-country-club\",\"facilityIds\":[4926],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://south-shore-country-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-cold-spring-country-club",
+    "name": "Cold Spring Country Club",
+    "address": null,
+    "town": "Belchertown",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.2751,
+    "lng": -72.411,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "cold-spring-country-club",
+      "facilityIds": [
+        9516
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://cold-spring-country-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://cold-spring-country-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"cold-spring-country-club\",\"facilityIds\":[9516],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://cold-spring-country-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-river-run-golf-club",
+    "name": "River Run Golf Club",
+    "address": null,
+    "town": "Brookfield",
+    "state": "MA",
+    "zip": "01535",
+    "lat": 42.2665,
+    "lng": -72.0821,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"river-run-golf-club\",\"facilityIds\":[950],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://river-run-golf-club.book.teeitup.golf/\"}",
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "river-run-golf-club",
+      "facilityIds": [
+        950
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://river-run-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://river-run-golf-club.book.teeitup.golf/"
+  },
+  {
+    "id": "ma-kings-way-golf-club",
+    "name": "Kings Way Golf Club",
+    "address": null,
+    "town": "Yarmouth Port",
+    "state": "MA",
+    "zip": "02675",
+    "lat": 41.711971830028,
+    "lng": -70.227,
+    "phone": "508-362-8870",
+    "website": null,
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"kings-way-golf-club\",\"facilityIds\":[8376],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://kings-way-golf-club.book.teeitup.golf/\"}",
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "kings-way-golf-club",
+      "facilityIds": [
+        8376
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://kings-way-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://kings-way-golf-club.book.teeitup.golf/"
   }
 ]

@@ -72,6 +72,159 @@
       ],
       "timeZone": "America/New_York",
       "bookingUrl": "https://waverly-oaks-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Agawam Municipal Golf Course",
+      "alias": "agawam-municipal-golf-course",
+      "facilityIds": [
+        8592
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://agawam-municipal-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Braintree Municipal Golf Course",
+      "alias": "braintree-municipal-golf-course",
+      "facilityIds": [
+        16026
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://braintree-municipal-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "The Brookside Club",
+      "alias": "the-brookside-club",
+      "facilityIds": [
+        5684
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://the-brookside-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Cranberry Valley Golf Course",
+      "alias": "cranberry-valley-golf-course",
+      "facilityIds": [
+        5212
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://cranberry-valley-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Gardner Municipal Golf Course",
+      "alias": "gardner-municipal-golf-course",
+      "facilityIds": [
+        13110
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://gardner-municipal-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Hyannis Golf Course",
+      "alias": "hyannis-golf-club",
+      "facilityIds": [
+        5476
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://hyannis-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Lakeville Country Club",
+      "alias": "lakeville-country-club",
+      "facilityIds": [
+        6696
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://lakeville-country-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Ledges Golf Club",
+      "alias": "ledges-golf-club",
+      "facilityIds": [
+        4934
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://ledges-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Maynard Golf Course",
+      "alias": "maynard-golf-course",
+      "facilityIds": [
+        15974
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://maynard-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Norwood Country Club",
+      "alias": "norwood-country-club",
+      "facilityIds": [
+        5720
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://norwood-country-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Rockland Golf Course",
+      "alias": "rockland-golf-course",
+      "facilityIds": [
+        11063
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://rockland-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Sandwich Hollows Golf Club",
+      "alias": "sandwich-hollows-golf-club",
+      "facilityIds": [
+        11207
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://sandwich-hollows-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "St. Anne Country Club",
+      "alias": "st-anne-country-club",
+      "facilityIds": [
+        13629
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://st-anne-country-club.book.teeitup.golf/"
+    },
+    {
+      "match": "South Shore Country Club",
+      "alias": "south-shore-country-club",
+      "facilityIds": [
+        4926
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://south-shore-country-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Cold Spring Country Club",
+      "alias": "cold-spring-country-club",
+      "facilityIds": [
+        9516
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://cold-spring-country-club.book.teeitup.golf/"
+    },
+    {
+      "match": "River Run Golf Club",
+      "alias": "river-run-golf-club",
+      "facilityIds": [
+        950
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://river-run-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Kings Way Golf Club",
+      "alias": "kings-way-golf-club",
+      "facilityIds": [
+        8376
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://kings-way-golf-club.book.teeitup.golf/"
     }
   ]
 }
