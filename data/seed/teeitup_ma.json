@@ -1,0 +1,205 @@
+[
+  {
+    "id": "ma-chelmsford-country-club",
+    "name": "Chelmsford Country Club",
+    "address": null,
+    "town": "Chelmsford",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.5911,
+    "lng": -71.3556,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "chelmsford-country-club",
+      "facilityIds": [
+        5723
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://chelmsford-country-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://chelmsford-country-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"chelmsford-country-club\",\"facilityIds\":[5723],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://chelmsford-country-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-chicopee-country-club",
+    "name": "Chicopee Country Club",
+    "address": null,
+    "town": "Chicopee",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.17198,
+    "lng": -72.5896,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "chicopee-country-club",
+      "facilityIds": [
+        5659
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://chicopee-country-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://chicopee-country-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"chicopee-country-club\",\"facilityIds\":[5659],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://chicopee-country-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-little-harbor-golf-club",
+    "name": "Little Harbor Golf Club",
+    "address": null,
+    "town": "Wareham",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.7541,
+    "lng": -70.7116,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "little-harbor-country-club",
+      "facilityIds": [
+        11466
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://little-harbor-country-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://little-harbor-country-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"little-harbor-country-club\",\"facilityIds\":[11466],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://little-harbor-country-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-merrimack-valley-golf-course",
+    "name": "Merrimack Valley Golf Course",
+    "address": null,
+    "town": "Methuen",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.728,
+    "lng": -71.181,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "merrimack-valley-golf-club",
+      "facilityIds": [
+        16619
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://merrimack-valley-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://merrimack-valley-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"merrimack-valley-golf-club\",\"facilityIds\":[16619],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://merrimack-valley-golf-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-olde-scotland-links",
+    "name": "Olde Scotland Links",
+    "address": null,
+    "town": "Bridgewater",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.9823,
+    "lng": -70.97255,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "7c60cf72-5f0a-45cc-bfcb-2075f12c45ab",
+      "facilityIds": [
+        15419
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://7c60cf72-5f0a-45cc-bfcb-2075f12c45ab.book.teeitup.com/"
+    },
+    "booking_url": "https://7c60cf72-5f0a-45cc-bfcb-2075f12c45ab.book.teeitup.com/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"7c60cf72-5f0a-45cc-bfcb-2075f12c45ab\",\"facilityIds\":[15419],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://7c60cf72-5f0a-45cc-bfcb-2075f12c45ab.book.teeitup.com/\"}"
+  },
+  {
+    "id": "ma-stoneham-oaks-golf-course",
+    "name": "Stoneham Oaks Golf Course",
+    "address": null,
+    "town": "Stoneham",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.4828,
+    "lng": -71.0978,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "stoneham-oaks-golf-course",
+      "facilityIds": [
+        13987
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://stoneham-oaks-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://stoneham-oaks-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"stoneham-oaks-golf-course\",\"facilityIds\":[13987],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://stoneham-oaks-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-unicorn-golf-course",
+    "name": "Unicorn Golf Course",
+    "address": null,
+    "town": "Stoneham",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.4828,
+    "lng": -71.0978,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "unicorn-golf-course",
+      "facilityIds": [
+        13988
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://unicorn-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://unicorn-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"unicorn-golf-course\",\"facilityIds\":[13988],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://unicorn-golf-course.book.teeitup.golf/\"}"
+  }
+]
