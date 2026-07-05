@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ma-chemawa-golf-course",
+    "name": "Chemawa Golf Course",
+    "address": null,
+    "town": "North Attleboro",
+    "state": "MA",
+    "zip": "02760",
+    "lat": 41.939268,
+    "lng": -71.3298,
+    "phone": "5083997330",
+    "website": "http://www.chemawagolf.com/",
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teesnap {\"subdomain\":\"chemawagolf\",\"courseId\":788}",
+    "provider": "teesnap",
+    "provider_config": {
+      "subdomain": "chemawagolf",
+      "courseId": 788
+    },
+    "booking_url": "https://chemawagolf.teesnap.net/"
+  },
+  {
+    "id": "ma-whaling-city-golf-course",
+    "name": "Whaling City Golf Course",
+    "address": null,
+    "town": "New Bedford",
+    "state": "MA",
+    "zip": "02740",
+    "lat": 41.656117,
+    "lng": -70.9372,
+    "phone": "(508) 996-9393",
+    "website": "http://whalingcitygolfcourse.com/",
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teesnap {\"subdomain\":\"whalingcitygc\",\"courseId\":1643}",
+    "provider": "teesnap",
+    "provider_config": {
+      "subdomain": "whalingcitygc",
+      "courseId": 1643
+    },
+    "booking_url": "https://whalingcitygc.teesnap.net/"
+  }
+]

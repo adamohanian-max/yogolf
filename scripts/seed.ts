@@ -73,44 +73,49 @@ function applyOverride(rec: SeedCourse): RatingOverride | undefined {
 }
 
 getDb();
-let count = 0;
 let enriched = 0;
 let excludedCount = 0;
-const ids = new Set<string>();
 
+// Collect every record, then dedupe by id preferring a live provider over a
+// fallback (file order is alphabetical and shouldn't decide which wins).
+const chosen = new Map<string, SeedCourse>();
+const isFallback = (r: SeedCourse) => r.provider === 'fallback';
 for (const file of files) {
   if (file.startsWith('ratings_') || file.startsWith('_')) continue;
   const records = JSON.parse(fs.readFileSync(path.join(seedDir, file), 'utf8')) as SeedCourse[];
   for (const rec of records) {
-    if (ids.has(rec.id)) {
-      console.warn(`DUPLICATE id '${rec.id}' in ${file} — skipping`);
-      continue;
-    }
-    const reason = excludedReason(rec);
-    if (reason) {
+    if (excludedReason(rec)) {
       excludedCount++;
       continue;
     }
-    ids.add(rec.id);
-
-    const ov = applyOverride(rec);
-    if (ov) {
-      enriched++;
-      if (ov.google_rating != null) rec.google_rating = ov.google_rating;
-      if (ov.google_reviews != null) rec.google_reviews = ov.google_reviews;
-      if (ov.golfpass_rating != null) rec.golfpass_rating = ov.golfpass_rating;
-      if (ov.list_bonus != null) rec.list_bonuses = ov.list_bonus;
+    const existing = chosen.get(rec.id);
+    if (!existing) {
+      chosen.set(rec.id, rec);
+    } else if (isFallback(existing) && !isFallback(rec)) {
+      chosen.set(rec.id, rec); // upgrade fallback → live provider
     }
-
-    const score = computeScore({
-      googleRating: rec.google_rating,
-      googleReviews: rec.google_reviews,
-      golfpassRating: rec.golfpass_rating,
-      listBonuses: rec.list_bonuses ?? 0,
-    });
-    upsertCourse({ ...rec, score });
-    count++;
+    // else keep existing (first live wins; fallback never overrides live)
   }
+}
+
+let count = 0;
+for (const rec of chosen.values()) {
+  const ov = applyOverride(rec);
+  if (ov) {
+    enriched++;
+    if (ov.google_rating != null) rec.google_rating = ov.google_rating;
+    if (ov.google_reviews != null) rec.google_reviews = ov.google_reviews;
+    if (ov.golfpass_rating != null) rec.golfpass_rating = ov.golfpass_rating;
+    if (ov.list_bonus != null) rec.list_bonuses = ov.list_bonus;
+  }
+  const score = computeScore({
+    googleRating: rec.google_rating,
+    googleReviews: rec.google_reviews,
+    golfpassRating: rec.golfpass_rating,
+    listBonuses: rec.list_bonuses ?? 0,
+  });
+  upsertCourse({ ...rec, score });
+  count++;
 }
 
 console.log(

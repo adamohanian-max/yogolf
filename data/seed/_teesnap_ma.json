@@ -1,0 +1,7 @@
+{
+  "_comment": "TeeSnap {subdomain}.teesnap.net + course id. Consumed by build_teesnap_seed.ts.",
+  "courses": [
+    { "match": "Chemawa Golf Course", "subdomain": "chemawagolf", "courseId": 788 },
+    { "match": "Whaling City Golf Course", "subdomain": "whalingcitygc", "courseId": 1643 }
+  ]
+}
