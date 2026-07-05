@@ -5,8 +5,8 @@ from golf courses onto a single map-free search page — filter by location,
 radius, date range, players, tee-off window, price, and 9/18 holes; sort by
 nearest, price, or best course.
 
-Phase 1 covers **Massachusetts**: 148 public courses, 61 on live-availability
-providers (the rest appear with a booking link). Private / members-only clubs
+Phase 1 covers **Massachusetts**: 147 public courses, **101 on live-availability
+providers** (the rest appear with a booking link). Private / members-only clubs
 are deliberately excluded — every course shown is open to the public.
 
 ![search results](docs/results.png)
@@ -25,25 +25,33 @@ Browser ──► /api/search (NDJSON stream)
                 │  radius filter (SQLite + haversine)
                 │  fan-out to adapters, 9s timeout each, 2-min cache
                 ▼
-        ┌───────────────┬───────────────┬──────────┬──────────┐
-     ForeUp        Chronogolf        TeeItUp       CPS      fallback
-   (live JSON)   (marketplace)   (kenna.io)   (cps.golf)  (book link)
+   TeeItUp · ForeUp · Chronogolf · CPS · TeeSnap · Club Caddie · fallback
 ```
 
 ### Providers
 
 | Provider | Status | Notes |
 |----------|--------|-------|
-| **ForeUp** | ✅ live | `foreupsoftware.com` booking API. 39 MA courses. |
+| **TeeItUp** | ✅ live | `kenna.io` `/v2/tee-times` (alias + facilityIds; UTC→local). 25 MA courses — the dominant MA public platform. |
+| **ForeUp** | ✅ live | `foreupsoftware.com` booking API (`api_key=no_limits`). 39 MA courses. |
+| **Chronogolf** | ✅ live | Lightspeed marketplace (`/marketplace/clubs/{id}/teetimes` + the club's affiliation id). 16 MA courses. |
 | **CPS Golf** | ✅ live | `*.cps.golf` (token → options → txn → teetimes). 10 MA courses inc. Boston municipals. |
-| **Chronogolf** | ✅ live | Lightspeed marketplace (`/marketplace/clubs/{id}/teetimes` with the club's affiliation id). 12 MA courses. |
-| **TeeItUp** | ⚙️ built | `kenna.io` API; adapter ready — little MA public presence to onboard. |
-| **fallback** | ✅ | Any course with no readable live sheet → booking deep-link (ForeUp page or a course-booking search). |
+| **TeeSnap** | ✅ live | `{sub}.teesnap.net/customer-api/teetimes-day` JSON. 6 MA courses. |
+| **Club Caddie** | ✅ live | `apimanager-cc{N}.clubcaddie.com/webapi/TeeTimes` (session + apikey; parse slot HTML). 5 MA courses. |
+| **fallback** | ✅ | Booking deep-link for the rest. |
 
-61 of 148 MA courses resolve live tee times; the remainder are bookable links.
-Discovery/onboarding scripts per provider: `foreup_harvest.ts`,
-`cps_discover.ts` / `cps_probe_site.ts`, `chronogolf_harvest.ts`, and the
-matching `build_*_seed.ts`.
+**101 of 147** MA courses resolve live tee times across six reverse-engineered
+platforms; the remaining 46 are bookable links. Each provider has a
+`*_harvest.ts` / `*_discover.ts` finder and a `build_*_seed.ts`;
+`detect_provider.ts` + `find_sites_detect.ts` classify a course's system from
+its website.
+
+The 46 fallbacks are genuinely un-scrapable server-side, in three buckets:
+**login-gated portals** (login-only ForeUp tee sheets, TeeQuest — availability
+needs an account), **Cloudflare bot-walls** (GolfNow, EZLinks/Pinehills, two
+`cps.golf` sites that front their API with a managed challenge), and
+**town-custom / legacy** widgets (TeeOn's stateful servlet, bespoke municipal
+booking pages). All still appear in results with a real booking link.
 
 ## Run it
 
@@ -76,10 +84,13 @@ data/
 scripts/
   seed.ts               (re)build courses.db
   probe.ts              probe one course or --all live; pass/fail table
+  detect_provider.ts    classify a course's booking system from its website
+  find_sites_detect.ts  guess a course's domain, then detect its provider
   foreup_harvest.ts     scan ForeUp ids → course metadata + schedule ids
-  build_ma_seed.ts      scan NDJSON → MA seed records
-  build_directory_seed.ts  add directory courses as bookable fallbacks
-  cps_probe_site.ts     list courses hosted on a cps.golf site
+  teeitup_harvest.ts / teeitup_discover.ts    kenna.io alias + facilityIds
+  chronogolf_harvest.ts · cps_discover.ts · teesnap_discover.ts · clubcaddie_harvest.ts
+  build_*_seed.ts       turn harvested config into <provider>_ma.json
+  build_ma_seed.ts / build_directory_seed.ts  ForeUp scan + directory fallbacks
 ```
 
 ## "Best course" score
@@ -117,7 +128,7 @@ zip dataset (`data/zips.csv`) is already national.
 - Provider endpoints are unofficial and per-course config varies; the probe
   script + per-course `provider_config` absorb the differences.
 - Some ForeUp courses hide green-fee rates until login → slots show "see price".
-- The ~90 fallback courses (GolfNow, TeeCommerce, muni-custom, or login-gated
-  ForeUp sheets) appear with a booking link rather than live times.
+- The 46 fallback courses (login-gated portals, Cloudflare-walled
+  GolfNow/EZLinks/CPS, or town-custom widgets) appear with a booking link.
 - Google ratings are enriched for a subset; the "best course" score falls back
   to a statewide-mean prior for the rest.
