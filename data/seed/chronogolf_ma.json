@@ -418,5 +418,112 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "chronogolf club 19823"
+  },
+  {
+    "id": "ma-crumpin-fox-club",
+    "name": "Crumpin-Fox Club",
+    "address": null,
+    "town": "Bernardston",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.67296,
+    "lng": -72.531332,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7255,
+      "courses": [
+        {
+          "id": 8295,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 29842
+    },
+    "booking_url": "https://www.chronogolf.com/club/crumpin-fox-club",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7255"
+  },
+  {
+    "id": "ma-falmouth-country-club",
+    "name": "Falmouth Country Club",
+    "address": null,
+    "town": "East Falmouth",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.598815,
+    "lng": -70.556069,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7675,
+      "courses": [
+        {
+          "id": 8751,
+          "holes": [
+            18
+          ]
+        },
+        {
+          "id": 8750,
+          "holes": [
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 31522
+    },
+    "booking_url": "https://www.chronogolf.com/club/falmouth-country-club",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7675"
+  },
+  {
+    "id": "ma-black-swan-country-club",
+    "name": "Black Swan Country Club",
+    "address": null,
+    "town": "Georgetown",
+    "state": "MA",
+    "zip": "01833",
+    "lat": 42.71801729620578,
+    "lng": -71.01120367724491,
+    "phone": "(978) 352-7926",
+    "website": "https://blackswancountryclub.com/",
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7429,
+      "courses": [
+        {
+          "id": 8478,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 30538
+    },
+    "booking_url": "https://www.chronogolf.com/club/black-swan-country-club",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7429"
   }
 ]
