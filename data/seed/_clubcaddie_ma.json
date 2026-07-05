@@ -1,0 +1,10 @@
+{
+  "_comment": "Harvested Club Caddie booking configs (shard/apikey/courseId). Consumed by build_clubcaddie_seed.ts, which reuses the matching existing course record's id/coords/ratings.",
+  "courses": [
+    { "match": "Chatham Seaside Links", "shard": "cc31", "apikey": "fjedabab", "courseId": 103396 },
+    { "match": "North Hill Country Club", "shard": "cc31", "apikey": "bafdabab", "courseId": 103402 },
+    { "match": "West Bridgewater Country Club", "shard": "cc31", "apikey": "dafdabab", "courseId": 103404 },
+    { "match": "Allendale Country Club", "shard": "cc29", "apikey": "cbfdabab", "courseId": 103413 },
+    { "match": "Trull Brook Golf Course", "shard": "cc29", "apikey": "gafdabab", "courseId": 103407 }
+  ]
+}

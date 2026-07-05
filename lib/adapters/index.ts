@@ -3,6 +3,7 @@ import { foreupAdapter } from './foreup';
 import { chronogolfAdapter } from './chronogolf';
 import { teeitupAdapter } from './teeitup';
 import { cpsAdapter } from './cps';
+import { clubcaddieAdapter } from './clubcaddie';
 import { fallbackAdapter } from './fallback';
 
 const registry: Record<string, Adapter> = {
@@ -10,6 +11,7 @@ const registry: Record<string, Adapter> = {
   chronogolf: chronogolfAdapter,
   teeitup: teeitupAdapter,
   cps: cpsAdapter,
+  clubcaddie: clubcaddieAdapter,
   fallback: fallbackAdapter,
 };
 
