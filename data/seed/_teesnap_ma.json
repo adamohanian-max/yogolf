@@ -1,7 +1,11 @@
 {
-  "_comment": "TeeSnap {subdomain}.teesnap.net + course id. Consumed by build_teesnap_seed.ts.",
+  "_comment": "TeeSnap {subdomain}.teesnap.net + course id. Consumed by build_provider_seed.ts.",
   "courses": [
     { "match": "Chemawa Golf Course", "subdomain": "chemawagolf", "courseId": 788 },
-    { "match": "Whaling City Golf Course", "subdomain": "whalingcitygc", "courseId": 1643 }
+    { "match": "Whaling City Golf Course", "subdomain": "whalingcitygc", "courseId": 1643 },
+    { "match": "Heritage Country Club", "subdomain": "heritagecountryclub", "courseId": 464 },
+    { "match": "Quaboag Country Club", "subdomain": "quaboagcountryclub", "courseId": 530 },
+    { "match": "Stone-E-Lea Golf Course", "subdomain": "stoneeleagc", "courseId": 1312 },
+    { "match": "Sandy Burr Country Club", "subdomain": "sandyburr", "courseId": 471 }
   ]
 }

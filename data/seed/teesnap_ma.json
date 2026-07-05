@@ -48,5 +48,105 @@
       "courseId": 1643
     },
     "booking_url": "https://whalingcitygc.teesnap.net/"
+  },
+  {
+    "id": "ma-heritage-country-club",
+    "name": "Heritage Country Club",
+    "address": null,
+    "town": "Charlton",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.1379,
+    "lng": -71.9664,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teesnap",
+    "provider_config": {
+      "subdomain": "heritagecountryclub",
+      "courseId": 464
+    },
+    "booking_url": "https://heritagecountryclub.teesnap.net/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teesnap {\"subdomain\":\"heritagecountryclub\",\"courseId\":464}"
+  },
+  {
+    "id": "ma-quaboag-country-club",
+    "name": "Quaboag Country Club",
+    "address": null,
+    "town": "Monson",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.101,
+    "lng": -72.3196,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teesnap",
+    "provider_config": {
+      "subdomain": "quaboagcountryclub",
+      "courseId": 530
+    },
+    "booking_url": "https://quaboagcountryclub.teesnap.net/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teesnap {\"subdomain\":\"quaboagcountryclub\",\"courseId\":530}"
+  },
+  {
+    "id": "ma-stone-e-lea-golf-course",
+    "name": "Stone-E-Lea Golf Course",
+    "address": null,
+    "town": "Attleboro",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.9296,
+    "lng": -71.3009,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teesnap",
+    "provider_config": {
+      "subdomain": "stoneeleagc",
+      "courseId": 1312
+    },
+    "booking_url": "https://stoneeleagc.teesnap.net/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teesnap {\"subdomain\":\"stoneeleagc\",\"courseId\":1312}"
+  },
+  {
+    "id": "ma-sandy-burr-country-club",
+    "name": "Sandy Burr Country Club",
+    "address": null,
+    "town": "Wayland",
+    "state": "MA",
+    "zip": "01778",
+    "lat": 42.354636,
+    "lng": -71.3588,
+    "phone": "(508) 358-7211",
+    "website": "http://sandyburr.com/index.htm",
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teesnap {\"subdomain\":\"sandyburr\",\"courseId\":471}",
+    "provider": "teesnap",
+    "provider_config": {
+      "subdomain": "sandyburr",
+      "courseId": 471
+    },
+    "booking_url": "https://sandyburr.teesnap.net/"
   }
 ]
