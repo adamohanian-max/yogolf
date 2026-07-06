@@ -839,5 +839,34 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "teeitup {\"alias\":\"ponkapoag-golf-course\",\"facilityIds\":[17927],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://ponkapoag-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-winthrop-golf-club",
+    "name": "Winthrop Golf Club",
+    "address": null,
+    "town": "Winthrop",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.3763,
+    "lng": -70.98,
+    "phone": null,
+    "website": null,
+    "holes_total": 9,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "winthrop-golf-club",
+      "facilityIds": [
+        15263
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://winthrop-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://winthrop-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"winthrop-golf-club\",\"facilityIds\":[15263],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://winthrop-golf-club.book.teeitup.golf/\"}"
   }
 ]

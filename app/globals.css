@@ -187,6 +187,14 @@ input[type="date"].control::-webkit-calendar-picker-indicator:hover { opacity: 0
 
 .results { padding: 22px 26px 72px; }
 
+.resultsearch { position: relative; margin-bottom: 12px; }
+.resultsearch .rs-icon {
+  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+  font-size: 16px; color: var(--faint); pointer-events: none;
+}
+.resultsearch input.control { padding-left: 32px; }
+.resultsearch input[type="search"]::-webkit-search-cancel-button { cursor: pointer; }
+
 .results-head {
   display: flex; align-items: baseline; justify-content: space-between;
   margin-bottom: 14px; gap: 12px; flex-wrap: wrap;

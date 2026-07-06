@@ -354,5 +354,45 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "chronogolf club 7429"
+  },
+  {
+    "id": "ma-stow-acres-country-club",
+    "name": "Stow Acres Country Club",
+    "address": null,
+    "town": "Stow",
+    "state": "MA",
+    "zip": "01775",
+    "lat": 42.417,
+    "lng": -71.515,
+    "phone": "978-568-1100",
+    "website": "https://www.stowacres.com/",
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 19738 (migrated from ForeUp)",
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 19738,
+      "courses": [
+        {
+          "id": 27974,
+          "holes": [
+            9,
+            18
+          ]
+        },
+        {
+          "id": 28002,
+          "holes": [
+            9
+          ]
+        }
+      ],
+      "affiliationTypeId": 146786
+    },
+    "booking_url": "https://www.chronogolf.com/club/stow-acres-country-club"
   }
 ]

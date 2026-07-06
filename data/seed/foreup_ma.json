@@ -1571,32 +1571,6 @@
     "booking_url": "https://foreupsoftware.com/index.php/booking/22086"
   },
   {
-    "id": "ma-winthrop-golf-club",
-    "name": "Winthrop Golf Club",
-    "address": null,
-    "town": "Winthrop",
-    "state": "MA",
-    "zip": "02152",
-    "lat": 42.37986,
-    "lng": -70.98,
-    "phone": "617-539-0482",
-    "website": "www.winthropgolfclub.com",
-    "holes_total": 9,
-    "google_rating": null,
-    "google_reviews": null,
-    "golfpass_rating": null,
-    "other_ratings": null,
-    "is_public": 1,
-    "notes": "foreup course 22088",
-    "provider": "foreup",
-    "provider_config": {
-      "courseId": 22088,
-      "scheduleId": 9933,
-      "bookingClass": 51370
-    },
-    "booking_url": "https://foreupsoftware.com/index.php/booking/22088/9933"
-  },
-  {
     "id": "ma-mount-hood-golf-course",
     "name": "Mount Hood Golf Course",
     "address": null,

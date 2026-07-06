@@ -19,9 +19,15 @@ function slug(s: string): string {
 
 type Rec = Record<string, unknown> & { id: string; name: string };
 const byslug = new Map<string, Rec>();
-for (const f of fs.readdirSync(seedDir)) {
-  if (!f.endsWith('.json') || f.startsWith('ratings_') || f.startsWith('_') || f === `${provider}_ma.json`) continue;
-  for (const r of JSON.parse(fs.readFileSync(path.join(seedDir, f), 'utf8')) as Rec[]) byslug.set(slug(r.name), r);
+// Index other seed files first, then this provider's own previous output LAST
+// as a fallback base — so courses that now live only in <provider>_ma.json
+// (migrated in from another platform) keep their coords/ratings on rebuild.
+const ownFile = `${provider}_ma.json`;
+const files = fs.readdirSync(seedDir).filter((f) => f.endsWith('.json') && !f.startsWith('ratings_') && !f.startsWith('_'));
+for (const f of [...files.filter((f) => f !== ownFile), ...files.filter((f) => f === ownFile)]) {
+  for (const r of JSON.parse(fs.readFileSync(path.join(seedDir, f), 'utf8')) as Rec[]) {
+    if (!byslug.has(slug(r.name))) byslug.set(slug(r.name), r);
+  }
 }
 
 const cfg = JSON.parse(fs.readFileSync(path.join(seedDir, `_${provider}_ma.json`), 'utf8')) as { courses: Record<string, unknown>[] };

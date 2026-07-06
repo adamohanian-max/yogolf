@@ -72,6 +72,30 @@ export function getCourse(id: string): Course | null {
   return row ? rowToCourse(row) : null;
 }
 
+export interface CatalogCourse {
+  id: string;
+  name: string;
+  town: string;
+  state: string;
+  lat: number;
+  lng: number;
+  google_rating: number | null;
+  google_reviews: number | null;
+  score: number;
+  booking_url: string;
+  website: string | null;
+}
+
+/** Lightweight list of every public course, for whole-catalog name search. */
+export function catalogCourses(): CatalogCourse[] {
+  return getDb()
+    .prepare(
+      `SELECT id, name, town, state, lat, lng, google_rating, google_reviews, score, booking_url, website
+       FROM courses WHERE is_public = 1 ORDER BY name`
+    )
+    .all() as CatalogCourse[];
+}
+
 export function allCourses(): Course[] {
   const rows = getDb().prepare('SELECT * FROM courses ORDER BY name').all() as CourseRow[];
   return rows.map(rowToCourse);

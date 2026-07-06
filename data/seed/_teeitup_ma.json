@@ -261,6 +261,15 @@
       ],
       "timeZone": "America/New_York",
       "bookingUrl": "https://ponkapoag-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Winthrop Golf Club",
+      "alias": "winthrop-golf-club",
+      "facilityIds": [
+        15263
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://winthrop-golf-club.book.teeitup.golf/"
     }
   ]
 }

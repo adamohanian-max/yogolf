@@ -58,6 +58,7 @@ export default function Home() {
   const [timeEnd, setTimeEnd] = useState('18:00');
   const [maxPrice, setMaxPrice] = useState('');
   const [sort, setSort] = useState<Sort>('nearest');
+  const [filter, setFilter] = useState('');
 
   const [phase, setPhase] = useState<'idle' | 'loading' | 'done'>('idle');
   const [results, setResults] = useState<CourseResult[]>([]);
@@ -177,6 +178,13 @@ export default function Home() {
 
   const liveCount = results.filter((r) => r.slots.length > 0).length;
   const showDates = dateFrom !== dateTo;
+
+  const q = filter.trim().toLowerCase();
+  const shown = q
+    ? sorted.filter(
+        (r) => r.course.name.toLowerCase().includes(q) || r.course.town.toLowerCase().includes(q)
+      )
+    : sorted;
 
   return (
     <>
@@ -337,6 +345,20 @@ export default function Home() {
 
           {phase !== 'idle' && (
             <>
+              {results.length > 0 && (
+                <div className="resultsearch">
+                  <span className="rs-icon" aria-hidden>⌕</span>
+                  <input
+                    className="control"
+                    type="search"
+                    placeholder={`Filter ${results.length} courses by name or town…`}
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
+                    aria-label="Filter courses"
+                  />
+                </div>
+              )}
+
               <div className="results-head">
                 <span className="count">
                   {phase === 'loading' && meta
@@ -364,9 +386,18 @@ export default function Home() {
                 </div>
               )}
 
-              {sorted.map((r) => (
+              {shown.map((r) => (
                 <CourseCard key={r.course.id} r={r} showDates={showDates} ride={ride} />
               ))}
+
+              {q && shown.length === 0 && results.length > 0 && (
+                <div className="empty">
+                  <p>
+                    <strong>No courses match “{filter.trim()}”.</strong>
+                  </p>
+                  <p>Clear the filter to see all {results.length} nearby courses.</p>
+                </div>
+              )}
 
               {phase === 'loading' &&
                 Array.from({ length: Math.max(0, 3 - sorted.length) }).map((_, i) => (
