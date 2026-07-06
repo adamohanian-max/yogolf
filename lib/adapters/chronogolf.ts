@@ -17,6 +17,7 @@ interface ChronoGreenFee {
   green_fee?: number;
   price?: number;
   subtotal?: number;
+  half_cart?: number;
 }
 interface ChronoTeetime {
   start_time: string; // "07:20"
@@ -61,14 +62,24 @@ export const chronogolfAdapter: Adapter = {
           if (!Array.isArray(data)) continue;
           for (const t of data) {
             if (t.out_of_capacity || t.frozen) continue;
-            const prices = (t.green_fees ?? [])
+            const fees = t.green_fees ?? [];
+            const prices = fees
               .map((g) => g.green_fee ?? g.price)
               .filter((p): p is number => typeof p === 'number' && p > 0);
+            const cartPrices = fees
+              .map((g) => {
+                const green = g.green_fee ?? g.price;
+                return typeof green === 'number' && typeof g.half_cart === 'number' && g.half_cart > 0
+                  ? green + g.half_cart
+                  : null;
+              })
+              .filter((p): p is number => p != null);
             const date = t.date ?? params.date;
             const hhmm = t.start_time.length === 5 ? `${t.start_time}:00` : t.start_time;
             slots.push({
               time: `${date}T${hhmm}`,
               price: prices.length ? Math.min(...prices) : null,
+              cartPrice: cartPrices.length ? Math.min(...cartPrices) : null,
               spots: params.players, // API returns only times that fit the party
               holes,
               bookingUrl: course.booking_url,

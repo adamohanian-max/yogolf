@@ -87,6 +87,9 @@ export const teeitupAdapter: Adapter = {
         const prices = rates
           .map((r) => centsToDollars(r.greenFeeWalking) ?? centsToDollars(r.greenFeeCart))
           .filter((p): p is number => p != null);
+        const cartPrices = rates
+          .map((r) => centsToDollars(r.greenFeeCart))
+          .filter((p): p is number => p != null);
         const holes: TeeTimeSlot['holes'] =
           params.holes !== 0
             ? params.holes
@@ -96,6 +99,7 @@ export const teeitupAdapter: Adapter = {
         slots.push({
           time: toCourseLocalISO(t.teetime, tz), // UTC → course-local wall clock
           price: prices.length ? Math.min(...prices) : null,
+          cartPrice: cartPrices.length ? Math.min(...cartPrices) : null,
           spots: open,
           holes,
           bookingUrl: course.booking_url,

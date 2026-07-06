@@ -21,6 +21,14 @@ function priceFor(prices: TSPrice[] | undefined, holes: 9 | 18): number | null {
   return Number.isFinite(v) && v > 0 ? v : null;
 }
 
+// priceWithAddOn includes the cart add-on (TeeSnap's "addons=on").
+function cartPriceFor(prices: TSPrice[] | undefined, holes: 9 | 18): number | null {
+  const want = holes === 9 ? 'NINE_HOLE' : 'EIGHTEEN_HOLE';
+  const p = prices?.find((x) => x.roundType === want);
+  const v = p?.priceWithAddOn ? parseFloat(p.priceWithAddOn) : NaN;
+  return Number.isFinite(v) && v > 0 ? v : null;
+}
+
 export const teesnapAdapter: Adapter = {
   name: 'teesnap',
   async fetchTeeTimes(course: Course, params: FetchParams): Promise<AdapterResult> {
@@ -50,12 +58,12 @@ export const teesnapAdapter: Adapter = {
       if (params.holes !== 9) {
         const p18 = priceFor(t.prices, 18);
         if (p18 != null || params.holes === 18)
-          slots.push({ time: t.teeTime, price: p18, spots: params.players, holes: 18, bookingUrl: course.booking_url });
+          slots.push({ time: t.teeTime, price: p18, cartPrice: cartPriceFor(t.prices, 18), spots: params.players, holes: 18, bookingUrl: course.booking_url });
       }
       if (params.holes !== 18) {
         const p9 = priceFor(t.prices, 9);
         if (p9 != null)
-          slots.push({ time: t.teeTime, price: p9, spots: params.players, holes: 9, bookingUrl: course.booking_url });
+          slots.push({ time: t.teeTime, price: p9, cartPrice: cartPriceFor(t.prices, 9), spots: params.players, holes: 9, bookingUrl: course.booking_url });
       }
     }
     return slots;

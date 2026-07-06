@@ -91,15 +91,15 @@ export const clubcaddieAdapter: Adapter = {
     for (const s of raw) {
       const time = `${s.date}T${s.fromtime}`;
       if (params.holes !== 9 && s.price18 != null) {
-        slots.push({ time, price: s.price18, spots: params.players, holes: 18, bookingUrl: course.booking_url });
+        slots.push({ time, price: s.price18, cartPrice: null, spots: params.players, holes: 18, bookingUrl: course.booking_url });
       }
       if (params.holes !== 18 && s.price9 != null) {
-        slots.push({ time, price: s.price9, spots: params.players, holes: 9, bookingUrl: course.booking_url });
+        slots.push({ time, price: s.price9, cartPrice: null, spots: params.players, holes: 9, bookingUrl: course.booking_url });
       }
       // No rate parsed but slot exists → still surface it (price unknown).
       if (s.price9 == null && s.price18 == null) {
         const holes: TeeTimeSlot['holes'] = params.holes === 9 ? 9 : 18;
-        slots.push({ time, price: null, spots: params.players, holes, bookingUrl: course.booking_url });
+        slots.push({ time, price: null, cartPrice: null, spots: params.players, holes, bookingUrl: course.booking_url });
       }
     }
     return slots;

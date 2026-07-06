@@ -24,10 +24,19 @@ export interface Course {
 
 export interface TeeTimeSlot {
   time: string; // ISO datetime, course-local
-  price: number | null; // USD cheapest rate for the slot, null if unknown
+  price: number | null; // USD walking green fee (base rate), null if unknown
+  cartPrice: number | null; // USD rate riding a cart (green fee + cart), null if unknown/unavailable
   spots: number; // open player slots
   holes: 9 | 18 | 0; // 0 = both/either
   bookingUrl: string;
+}
+
+export type Ride = 'any' | 'walking' | 'cart';
+
+/** The price a golfer pays for the selected ride mode (cart-inclusive when riding). */
+export function effectivePrice(slot: TeeTimeSlot, ride: Ride): number | null {
+  if (ride === 'cart') return slot.cartPrice ?? slot.price;
+  return slot.price;
 }
 
 export interface AdapterUnavailable {
@@ -58,6 +67,7 @@ export interface SearchCriteria {
   timeEnd: string;
   maxPrice: number | null;
   holes: 9 | 18 | 0;
+  ride: Ride;
   sort: 'nearest' | 'price_asc' | 'price_desc' | 'best';
 }
 

@@ -1,7 +1,8 @@
 'use client';
 
 import { useCallback, useMemo, useRef, useState } from 'react';
-import type { CourseResult, TeeTimeSlot } from '@/lib/types';
+import type { CourseResult, Ride, TeeTimeSlot } from '@/lib/types';
+import { effectivePrice } from '@/lib/types';
 
 type Sort = 'nearest' | 'price_asc' | 'price_desc' | 'best';
 type Holes = 'both' | '9' | '18';
@@ -29,8 +30,8 @@ function fmtDateLabel(date: string): string {
   return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 }
 
-function cheapest(r: CourseResult): number {
-  const prices = r.slots.map((s) => s.price).filter((p): p is number => p != null);
+function cheapest(r: CourseResult, ride: Ride): number {
+  const prices = r.slots.map((s) => effectivePrice(s, ride)).filter((p): p is number => p != null);
   return prices.length ? Math.min(...prices) : Infinity;
 }
 
@@ -50,6 +51,7 @@ export default function Home() {
   const [radius, setRadius] = useState('25');
   const [players, setPlayers] = useState(2);
   const [holes, setHoles] = useState<Holes>('both');
+  const [ride, setRide] = useState<Ride>('any');
   const [dateFrom, setDateFrom] = useState(todayStr(1));
   const [dateTo, setDateTo] = useState(todayStr(1));
   const [timeStart, setTimeStart] = useState('06:00');
@@ -109,6 +111,7 @@ export default function Home() {
       radius,
       players: String(players),
       holes,
+      ride,
       dateFrom,
       dateTo: dateTo < dateFrom ? dateFrom : dateTo,
       timeStart,
@@ -150,16 +153,16 @@ export default function Home() {
         setPhase('idle');
       }
     }
-  }, [zip, useGeo, radius, players, holes, dateFrom, dateTo, timeStart, timeEnd, maxPrice, sort]);
+  }, [zip, useGeo, radius, players, holes, ride, dateFrom, dateTo, timeStart, timeEnd, maxPrice, sort]);
 
   const sorted = useMemo(() => {
     const withTimes = results.filter((r) => r.slots.length > 0);
     const without = results.filter((r) => r.slots.length === 0);
     const cmp: Record<Sort, (a: CourseResult, b: CourseResult) => number> = {
       nearest: (a, b) => a.distanceMiles - b.distanceMiles,
-      price_asc: (a, b) => cheapest(a) - cheapest(b),
+      price_asc: (a, b) => cheapest(a, ride) - cheapest(b, ride),
       price_desc: (a, b) => {
-        const pa = cheapest(a), pb = cheapest(b);
+        const pa = cheapest(a, ride), pb = cheapest(b, ride);
         if (pa === Infinity && pb === Infinity) return 0;
         if (pa === Infinity) return 1;
         if (pb === Infinity) return -1;
@@ -170,7 +173,7 @@ export default function Home() {
     withTimes.sort(cmp[sort]);
     without.sort((a, b) => a.distanceMiles - b.distanceMiles);
     return [...withTimes, ...without];
-  }, [results, sort]);
+  }, [results, sort, ride]);
 
   const liveCount = results.filter((r) => r.slots.length > 0).length;
   const showDates = dateFrom !== dateTo;
@@ -270,6 +273,17 @@ export default function Home() {
           </div>
 
           <div className="field">
+            <label>Getting around</label>
+            <div className="seg" role="group" aria-label="Walking or cart">
+              {([['any', 'Any'], ['walking', 'Walk'], ['cart', 'Cart']] as const).map(([v, lbl]) => (
+                <button key={v} type="button" data-on={ride === v} onClick={() => setRide(v)}>
+                  {lbl}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="field">
             <label>Tee-off between</label>
             <div className="row2">
               <select className="control" value={timeStart} onChange={(e) => setTimeStart(e.target.value)} aria-label="Earliest time">
@@ -351,7 +365,7 @@ export default function Home() {
               )}
 
               {sorted.map((r) => (
-                <CourseCard key={r.course.id} r={r} showDates={showDates} />
+                <CourseCard key={r.course.id} r={r} showDates={showDates} ride={ride} />
               ))}
 
               {phase === 'loading' &&
@@ -387,7 +401,7 @@ export default function Home() {
   );
 }
 
-function CourseCard({ r, showDates }: { r: CourseResult; showDates: boolean }) {
+function CourseCard({ r, showDates, ride }: { r: CourseResult; showDates: boolean; ride: Ride }) {
   const [expanded, setExpanded] = useState(false);
   const byDate = useMemo(() => {
     const m = new Map<string, TeeTimeSlot[]>();
@@ -476,10 +490,16 @@ function CourseCard({ r, showDates }: { r: CourseResult; showDates: boolean }) {
                   rel="noopener noreferrer"
                 >
                   <span className="t">{fmtTime(s.time)}</span>
-                  <span className={s.price != null ? 'p' : 'p unknown'}>
-                    {s.price != null ? `$${Math.round(s.price)}` : 'see price'}
-                  </span>
+                  {(() => {
+                    const p = effectivePrice(s, ride);
+                    return (
+                      <span className={p != null ? 'p' : 'p unknown'}>
+                        {p != null ? `$${Math.round(p)}` : 'see price'}
+                      </span>
+                    );
+                  })()}
                   <span className="s">
+                    {ride === 'cart' ? (s.cartPrice != null ? 'w/ cart · ' : 'walk rate · ') : ''}
                     {s.holes === 0 ? '9/18' : s.holes}h · {s.spots} spots
                   </span>
                 </a>

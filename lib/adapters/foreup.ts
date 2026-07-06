@@ -27,6 +27,7 @@ interface ForeupTime {
   guest_green_fee?: number;
   cart_fee?: number;
   cart_fee_18?: number;
+  cart_fee_9?: number;
   holes?: number | string;
   schedule_id?: number;
   course_id?: number;
@@ -56,6 +57,13 @@ function slotPrice(t: ForeupTime, holes: 9 | 18 | 0): number | null {
     if (typeof c === 'number' && c > 0) return c;
   }
   return null;
+}
+
+function slotCartPrice(t: ForeupTime, holes: 9 | 18 | 0): number | null {
+  const green = slotPrice(t, holes);
+  if (green == null) return null;
+  const cart = holes === 9 ? (t.cart_fee_9 ?? t.cart_fee) : (t.cart_fee_18 ?? t.cart_fee);
+  return typeof cart === 'number' && cart > 0 ? green + cart : null;
 }
 
 /** Log in and return the authenticated PHPSESSID cookie, cached ~20 min. */
@@ -184,6 +192,7 @@ export const foreupAdapter: Adapter = {
         return {
           time: toIso(t.time),
           price: slotPrice(t, params.holes),
+          cartPrice: slotCartPrice(t, params.holes),
           spots: Number(t.available_spots),
           holes,
           bookingUrl: course.booking_url,

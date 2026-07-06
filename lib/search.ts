@@ -3,6 +3,7 @@ import { haversineMiles, boundingBox } from './distance';
 import { getAdapter } from './adapters';
 import { cacheGet, cacheSet } from './cache';
 import type { AdapterResult, Course, CourseResult, SearchCriteria, TeeTimeSlot } from './types';
+import { effectivePrice } from './types';
 
 const ADAPTER_TIMEOUT_MS = 9000;
 const CACHE_TTL_MS = 120_000;
@@ -53,7 +54,11 @@ export function filterSlots(slots: TeeTimeSlot[], c: SearchCriteria): TeeTimeSlo
     .filter((s) => s.spots >= c.players)
     .filter((s) => c.holes === 0 || s.holes === c.holes || s.holes === 0)
     .filter((s) => inTimeRange(s.time, c.timeStart, c.timeEnd))
-    .filter((s) => c.maxPrice == null || s.price == null || s.price <= c.maxPrice)
+    .filter((s) => {
+      if (c.maxPrice == null) return true;
+      const p = effectivePrice(s, c.ride);
+      return p == null || p <= c.maxPrice; // price for the selected ride mode
+    })
     .sort((a, b) => a.time.localeCompare(b.time));
 }
 
@@ -105,9 +110,13 @@ export async function resolveCourse(
   }
 }
 
-export function sortResults(results: CourseResult[], sort: SearchCriteria['sort']): CourseResult[] {
+export function sortResults(
+  results: CourseResult[],
+  sort: SearchCriteria['sort'],
+  ride: SearchCriteria['ride'] = 'any'
+): CourseResult[] {
   const cheapest = (r: CourseResult) => {
-    const prices = r.slots.map((s) => s.price).filter((p): p is number => p != null);
+    const prices = r.slots.map((s) => effectivePrice(s, ride)).filter((p): p is number => p != null);
     return prices.length ? Math.min(...prices) : Infinity;
   };
   const copy = [...results];

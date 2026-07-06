@@ -83,12 +83,24 @@ function cpsDate(date: string): string {
   return d.toDateString();
 }
 
+function itemPrice(p: CpsRatePrice | undefined): number | null {
+  const v = p?.displayPrice ?? p?.price ?? p?.taxInclusivePrice;
+  return typeof v === 'number' && v > 0 ? v : null;
+}
+
 function priceFor(prices: CpsRatePrice[] | undefined, holes: 9 | 18 | 0): number | null {
   if (!prices?.length) return null;
   const want = holes === 9 ? 'GreenFee9' : 'GreenFee18';
-  const green = prices.find((p) => p.shItemCode === want) ?? prices.find((p) => p.shItemCode?.startsWith('GreenFee'));
-  const v = green?.displayPrice ?? green?.price ?? green?.taxInclusivePrice;
-  return typeof v === 'number' && v > 0 ? v : null;
+  return itemPrice(prices.find((p) => p.shItemCode === want) ?? prices.find((p) => p.shItemCode?.startsWith('GreenFee')));
+}
+
+// CPS lists the cart as a separate HalfCart18/HalfCart9 line item.
+function cartPriceFor(prices: CpsRatePrice[] | undefined, holes: 9 | 18 | 0): number | null {
+  const green = priceFor(prices, holes);
+  if (green == null || !prices?.length) return null;
+  const want = holes === 9 ? 'HalfCart9' : 'HalfCart18';
+  const cart = itemPrice(prices.find((p) => p.shItemCode === want) ?? prices.find((p) => /cart/i.test(p.shItemCode ?? '')));
+  return cart != null ? green + cart : null;
 }
 
 export const cpsAdapter: Adapter = {
@@ -137,6 +149,7 @@ export const cpsAdapter: Adapter = {
         return {
           time: t.startTime,
           price: priceFor(t.shItemPrices, params.holes),
+          cartPrice: cartPriceFor(t.shItemPrices, params.holes),
           spots: Number(t.participants ?? 0),
           holes,
           bookingUrl: course.booking_url,

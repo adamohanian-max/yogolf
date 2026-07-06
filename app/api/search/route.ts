@@ -44,7 +44,12 @@ function parseCriteria(req: NextRequest): SearchCriteria | { error: string } {
     ? (sortRaw as SearchCriteria['sort'])
     : 'nearest';
 
-  return { lat, lng, radiusMiles, players, dates, timeStart, timeEnd, maxPrice, holes, sort };
+  const rideRaw = q.get('ride') ?? 'any';
+  const ride = (['any', 'walking', 'cart'] as const).includes(rideRaw as never)
+    ? (rideRaw as SearchCriteria['ride'])
+    : 'any';
+
+  return { lat, lng, radiusMiles, players, dates, timeStart, timeEnd, maxPrice, holes, ride, sort };
 }
 
 /**
