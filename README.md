@@ -5,7 +5,7 @@ from golf courses onto a single map-free search page — filter by location,
 radius, date range, players, tee-off window, price, and 9/18 holes; sort by
 nearest, price, or best course.
 
-Phase 1 covers **Massachusetts**: 147 public courses, **101 on live-availability
+Phase 1 covers **Massachusetts**: 147 public courses, **106 on live-availability
 providers** (the rest appear with a booking link). Private / members-only clubs
 are deliberately excluded — every course shown is open to the public.
 
@@ -33,22 +33,22 @@ Browser ──► /api/search (NDJSON stream)
 | Provider | Status | Notes |
 |----------|--------|-------|
 | **TeeItUp** | ✅ live | `kenna.io` `/v2/tee-times` (alias + facilityIds; UTC→local). 25 MA courses — the dominant MA public platform. |
-| **ForeUp** | ✅ live | `foreupsoftware.com` booking API (`api_key=no_limits`). 39 MA courses. |
+| **ForeUp** | ✅ live | `foreupsoftware.com` booking API (`api_key=no_limits`). 44 MA courses. |
 | **Chronogolf** | ✅ live | Lightspeed marketplace (`/marketplace/clubs/{id}/teetimes` + the club's affiliation id). 16 MA courses. |
 | **CPS Golf** | ✅ live | `*.cps.golf` (token → options → txn → teetimes). 10 MA courses inc. Boston municipals. |
 | **TeeSnap** | ✅ live | `{sub}.teesnap.net/customer-api/teetimes-day` JSON. 6 MA courses. |
 | **Club Caddie** | ✅ live | `apimanager-cc{N}.clubcaddie.com/webapi/TeeTimes` (session + apikey; parse slot HTML). 5 MA courses. |
 | **fallback** | ✅ | Booking deep-link for the rest. |
 
-**101 of 147** MA courses resolve live tee times across six reverse-engineered
-platforms; the remaining 46 are bookable links. Each provider has a
+**106 of 147** MA courses resolve live tee times across six reverse-engineered
+platforms; the remaining 41 are bookable links. Each provider has a
 `*_harvest.ts` / `*_discover.ts` finder and a `build_*_seed.ts`;
 `detect_provider.ts` + `find_sites_detect.ts` classify a course's system from
 its website.
 
-The 46 fallbacks are genuinely un-scrapable server-side, in three buckets:
-**login-gated portals** (login-only ForeUp tee sheets, TeeQuest — availability
-needs an account), **Cloudflare bot-walls** (GolfNow, EZLinks/Pinehills, two
+The 41 fallbacks are genuinely un-scrapable server-side, in three buckets:
+**login-gated portals** — ForeUp tee sheets whose operator requires an account
+(the API answers `You are not logged in`) and TeeQuest; **Cloudflare bot-walls** (GolfNow, EZLinks/Pinehills, two
 `cps.golf` sites that front their API with a managed challenge), and
 **town-custom / legacy** widgets (TeeOn's stateful servlet, bespoke municipal
 booking pages). All still appear in results with a real booking link.
@@ -120,6 +120,9 @@ in YoGolf. To extend coverage:
    filters against a running server.
 5. `npx tsx scripts/seed.ts` and re-run.
 
+ForeUp schedules are seasonal: a course marked fallback with SCHEDULES=false
+can become bookable in-season — re-harvest periodically (scripts/foreup_harvest.ts).
+
 To grow beyond MA, drop new `data/seed/*.json` files for the target state; the
 zip dataset (`data/zips.csv`) is already national.
 
@@ -128,7 +131,7 @@ zip dataset (`data/zips.csv`) is already national.
 - Provider endpoints are unofficial and per-course config varies; the probe
   script + per-course `provider_config` absorb the differences.
 - Some ForeUp courses hide green-fee rates until login → slots show "see price".
-- The 46 fallback courses (login-gated portals, Cloudflare-walled
+- The 41 fallback courses (login-gated portals, Cloudflare-walled
   GolfNow/EZLinks/CPS, or town-custom widgets) appear with a booking link.
 - Google ratings are enriched for a subset; the "best course" score falls back
   to a statewide-mean prior for the rest.
