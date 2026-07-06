@@ -723,5 +723,121 @@
       "bookingUrl": "https://kings-way-golf-club.book.teeitup.golf/"
     },
     "booking_url": "https://kings-way-golf-club.book.teeitup.golf/"
+  },
+  {
+    "id": "ma-presidents-golf-course",
+    "name": "Presidents Golf Course",
+    "address": null,
+    "town": "Quincy",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.2629,
+    "lng": -71.0107,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "presidents-golf-course",
+      "facilityIds": [
+        17943
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://presidents-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://presidents-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"presidents-golf-course\",\"facilityIds\":[17943],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://presidents-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-crosswinds-golf-club",
+    "name": "Crosswinds Golf Club",
+    "address": null,
+    "town": "Plymouth",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.94643,
+    "lng": -70.67023,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "crosswinds-golf-club",
+      "facilityIds": [
+        4839
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://crosswinds-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://crosswinds-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"crosswinds-golf-club\",\"facilityIds\":[4839],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://crosswinds-golf-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-hillview-golf-club",
+    "name": "Hillview Golf Club",
+    "address": null,
+    "town": "North Reading",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.5762,
+    "lng": -71.09433,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "hillview-golf-course",
+      "facilityIds": [
+        4404
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://hillview-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://hillview-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"hillview-golf-course\",\"facilityIds\":[4404],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://hillview-golf-course.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-ponkapoag-golf-club",
+    "name": "Ponkapoag Golf Club",
+    "address": null,
+    "town": "Canton",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.1645,
+    "lng": -71.1355,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "ponkapoag-golf-course",
+      "facilityIds": [
+        17927
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://ponkapoag-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://ponkapoag-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"ponkapoag-golf-course\",\"facilityIds\":[17927],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://ponkapoag-golf-course.book.teeitup.golf/\"}"
   }
 ]

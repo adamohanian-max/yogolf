@@ -225,6 +225,42 @@
       ],
       "timeZone": "America/New_York",
       "bookingUrl": "https://kings-way-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Presidents Golf Course",
+      "alias": "presidents-golf-course",
+      "facilityIds": [
+        17943
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://presidents-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Crosswinds Golf Club",
+      "alias": "crosswinds-golf-club",
+      "facilityIds": [
+        4839
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://crosswinds-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Hillview Golf Course",
+      "alias": "hillview-golf-course",
+      "facilityIds": [
+        4404
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://hillview-golf-course.book.teeitup.golf/"
+    },
+    {
+      "match": "Ponkapoag Golf Club",
+      "alias": "ponkapoag-golf-course",
+      "facilityIds": [
+        17927
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://ponkapoag-golf-course.book.teeitup.golf/"
     }
   ]
 }

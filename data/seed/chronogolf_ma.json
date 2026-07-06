@@ -40,111 +40,6 @@
     "notes": "chronogolf club 7299"
   },
   {
-    "id": "ma-ponkapoag-golf-club",
-    "name": "Ponkapoag Golf Club",
-    "address": null,
-    "town": "Canton",
-    "state": "MA",
-    "zip": null,
-    "lat": 42.19135,
-    "lng": -71.11768,
-    "phone": null,
-    "website": null,
-    "holes_total": 18,
-    "provider": "chronogolf",
-    "provider_config": {
-      "clubId": 7375,
-      "courses": [
-        {
-          "id": 8422,
-          "holes": [
-            18
-          ]
-        },
-        {
-          "id": 8421,
-          "holes": [
-            18
-          ]
-        }
-      ],
-      "affiliationTypeId": 30322
-    },
-    "booking_url": "https://www.chronogolf.com/club/ponkapoag-golf-club",
-    "google_rating": null,
-    "google_reviews": null,
-    "golfpass_rating": null,
-    "other_ratings": null,
-    "is_public": 1,
-    "notes": "chronogolf club 7375"
-  },
-  {
-    "id": "ma-presidents-golf-course",
-    "name": "Presidents Golf Course",
-    "address": null,
-    "town": "Quincy",
-    "state": "MA",
-    "zip": null,
-    "lat": 42.268576,
-    "lng": -71.039581,
-    "phone": null,
-    "website": null,
-    "holes_total": 18,
-    "provider": "chronogolf",
-    "provider_config": {
-      "clubId": 7377,
-      "courses": [
-        {
-          "id": 8424,
-          "holes": [
-            18
-          ]
-        }
-      ],
-      "affiliationTypeId": 30330
-    },
-    "booking_url": "https://www.chronogolf.com/club/presidents-golf-course",
-    "google_rating": null,
-    "google_reviews": null,
-    "golfpass_rating": null,
-    "other_ratings": null,
-    "is_public": 1,
-    "notes": "chronogolf club 7377"
-  },
-  {
-    "id": "ma-hillview-golf-club",
-    "name": "Hillview Golf Course",
-    "address": null,
-    "town": "North Reading",
-    "state": "MA",
-    "zip": null,
-    "lat": 42.5906321,
-    "lng": -71.1075375,
-    "phone": null,
-    "website": null,
-    "holes_total": 18,
-    "provider": "chronogolf",
-    "provider_config": {
-      "clubId": 7303,
-      "courses": [
-        {
-          "id": 8346,
-          "holes": [
-            18
-          ]
-        }
-      ],
-      "affiliationTypeId": 30034
-    },
-    "booking_url": "https://www.chronogolf.com/club/hillview-golf-course-massachusetts",
-    "google_rating": null,
-    "google_reviews": null,
-    "golfpass_rating": null,
-    "other_ratings": null,
-    "is_public": 1,
-    "notes": "chronogolf club 7303"
-  },
-  {
     "id": "ma-amherst-golf-club",
     "name": "Amherst Golf Club",
     "address": null,
@@ -217,39 +112,6 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "chronogolf club 19572"
-  },
-  {
-    "id": "ma-crosswinds-golf-club",
-    "name": "Crosswinds Golf Club",
-    "address": null,
-    "town": "Plymouth",
-    "state": "MA",
-    "zip": null,
-    "lat": 41.884364,
-    "lng": -70.62456,
-    "phone": null,
-    "website": null,
-    "holes_total": 18,
-    "provider": "chronogolf",
-    "provider_config": {
-      "clubId": 7254,
-      "courses": [
-        {
-          "id": 8294,
-          "holes": [
-            18
-          ]
-        }
-      ],
-      "affiliationTypeId": 29838
-    },
-    "booking_url": "https://www.chronogolf.com/club/crosswinds-golf-club--2",
-    "google_rating": null,
-    "google_reviews": null,
-    "golfpass_rating": null,
-    "other_ratings": null,
-    "is_public": 1,
-    "notes": "chronogolf club 7254"
   },
   {
     "id": "ma-blackstone-national-golf-club",
@@ -492,38 +354,5 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "chronogolf club 7429"
-  },
-  {
-    "id": "ma-new-meadows-golf-club",
-    "name": "New Meadows Golf Club",
-    "address": null,
-    "town": "Topsfield",
-    "state": "MA",
-    "zip": null,
-    "lat": 42.638,
-    "lng": -70.95,
-    "phone": null,
-    "website": null,
-    "holes_total": 18,
-    "provider": "chronogolf",
-    "provider_config": {
-      "clubId": 7346,
-      "courses": [
-        {
-          "id": 8390,
-          "holes": [
-            9
-          ]
-        }
-      ],
-      "affiliationTypeId": 30206
-    },
-    "booking_url": "https://www.chronogolf.com/club/new-meadows-golf-club",
-    "google_rating": null,
-    "google_reviews": null,
-    "golfpass_rating": null,
-    "other_ratings": null,
-    "is_public": 1,
-    "notes": "chronogolf club 7346"
   }
 ]
