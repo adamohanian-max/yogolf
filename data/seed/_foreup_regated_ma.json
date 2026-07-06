@@ -1,0 +1,10 @@
+{
+  "_comment": "ForeUp courses whose public schedule was off-season during the initial scan but is now live. courseId + scheduleId (teesheet). Consumed by build_provider_seed.ts (provider foreup).",
+  "courses": [
+    { "match": "Kettle Brook Golf Club", "courseId": 20840, "scheduleId": 5788, "bookingUrl": "https://foreupsoftware.com/index.php/booking/20840/5788" },
+    { "match": "Green Hill Golf Course (MA)", "courseId": 21206, "scheduleId": 7270, "bookingUrl": "https://foreupsoftware.com/index.php/booking/21206/7270" },
+    { "match": "Thomas Memorial Golf", "courseId": 22549, "scheduleId": 11370, "bookingUrl": "https://foreupsoftware.com/index.php/booking/22549/11370" },
+    { "match": "Franconia Golf Course", "courseId": 22868, "scheduleId": 12165, "bookingUrl": "https://foreupsoftware.com/index.php/booking/22868/12165" },
+    { "match": "The Club at Southport", "courseId": 21047, "scheduleId": 6615, "bookingUrl": "https://foreupsoftware.com/index.php/booking/21047/6615" }
+  ]
+}
