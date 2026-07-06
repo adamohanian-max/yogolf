@@ -8,3 +8,4 @@ data/seed/test_smoke.json
 *.log
 .DS_Store
 
+data/credentials.json
