@@ -46,12 +46,22 @@ platforms; the remaining 41 are bookable links. Each provider has a
 `detect_provider.ts` + `find_sites_detect.ts` classify a course's system from
 its website.
 
-The 41 fallbacks are genuinely un-scrapable server-side, in three buckets:
-**login-gated portals** — ForeUp tee sheets whose operator requires an account
-(the API answers `You are not logged in`) and TeeQuest; **Cloudflare bot-walls** (GolfNow, EZLinks/Pinehills, two
-`cps.golf` sites that front their API with a managed challenge), and
-**town-custom / legacy** widgets (TeeOn's stateful servlet, bespoke municipal
-booking pages). All still appear in results with a real booking link.
+The 41 fallbacks expose **no public tee-time data through any channel** — this
+is verified, not assumed. Their buckets:
+- **Login-gated** — ForeUp tee sheets that answer `You are not logged in`,
+  Chelsea Reservations and TeeQuest portals (ASP.NET login, "NonMember #").
+  The operator requires a registered account to see availability.
+- **No online booking** — small municipals that take tee times by phone only;
+  there is no inventory to show.
+- **Cloudflare-walled front-ends** — EZLinks/Pinehills and two `cps.golf` sites.
+
+Cross-check via **GolfNow** (the master aggregator, whose summaries API *is*
+reachable server-side, `/api/tee-times/tee-times/facility/{id}/summaries/...`):
+every one of these courses returns `204` / `numberOfTeeTimesAvailable: 0`.
+GolfNow only carries courses already on the TeeItUp network (same parent), so it
+adds no course we don't already have live. In short, the courses without live
+times have *chosen not to publish tee times publicly* — to appear live they'd
+need to enable public online booking. All still show a real booking link.
 
 ## Run it
 
