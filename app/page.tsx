@@ -429,10 +429,10 @@ function CourseCard({ r, showDates, ride }: { r: CourseResult; showDates: boolea
                   {r.course.google_reviews ? ` (${r.course.google_reviews.toLocaleString()})` : ''}
                 </span>
               )}
-              {!r.unavailable && <span className="nolive">No times match your filters</span>}
+              {!r.unavailable && <span className="nolive">No open times right now</span>}
             </div>
           </div>
-          {r.unavailable && (r.course.booking_url || r.course.website) && (
+          {(r.course.booking_url || r.course.website) && (
             <a
               className="linkout"
               href={r.course.booking_url || r.course.website || '#'}
