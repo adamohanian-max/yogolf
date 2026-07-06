@@ -22,6 +22,7 @@ const CPS: [string, string, number, string][] = [
   ['westover.cps.golf', 'westover', 1, 'Westover Golf Course'],
   ['indianpond.cps.golf', 'indianpond', 1, 'Indian Pond Country Club'],
   ['veteransmemorial.cps.golf', 'veteransmemorial', 1, 'Veterans Memorial Golf Course'],
+  ['redtailgc.cps.golf', 'redtailgc', 2, 'Red Tail Golf Club'],
 ];
 
 function slug(s: string): string {

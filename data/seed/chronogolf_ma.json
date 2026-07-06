@@ -112,39 +112,6 @@
     "notes": "chronogolf club 7377"
   },
   {
-    "id": "ma-red-tail-golf-club",
-    "name": "Red Tail Golf Club",
-    "address": null,
-    "town": "Devens",
-    "state": "MA",
-    "zip": null,
-    "lat": 42.5334379,
-    "lng": -71.6003939,
-    "phone": null,
-    "website": null,
-    "holes_total": 18,
-    "provider": "chronogolf",
-    "provider_config": {
-      "clubId": 7382,
-      "courses": [
-        {
-          "id": 8429,
-          "holes": [
-            18
-          ]
-        }
-      ],
-      "affiliationTypeId": 30350
-    },
-    "booking_url": "https://www.chronogolf.com/club/red-tail-golf-club-massachusetts",
-    "google_rating": null,
-    "google_reviews": null,
-    "golfpass_rating": null,
-    "other_ratings": null,
-    "is_public": 1,
-    "notes": "chronogolf club 7382"
-  },
-  {
     "id": "ma-hillview-golf-club",
     "name": "Hillview Golf Course",
     "address": null,

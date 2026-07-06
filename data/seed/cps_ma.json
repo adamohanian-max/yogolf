@@ -232,5 +232,31 @@
       "courseId": 1
     },
     "booking_url": "https://veteransmemorial.cps.golf/onlineresweb/search-teetime"
+  },
+  {
+    "id": "ma-red-tail-golf-club",
+    "name": "Red Tail Golf Club",
+    "address": null,
+    "town": "Devens",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.5385,
+    "lng": -71.6115,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "cps",
+    "provider_config": {
+      "host": "redtailgc.cps.golf",
+      "siteName": "redtailgc",
+      "courseId": 2
+    },
+    "booking_url": "https://redtailgc.cps.golf/onlineresweb/search-teetime",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "cps redtailgc course 2"
   }
 ]
