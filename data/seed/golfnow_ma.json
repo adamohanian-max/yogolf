@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ma-kelley-greens-golf-course",
+    "name": "Kelley Greens Golf Course",
+    "address": "1 Willow Rd",
+    "town": "Nahant",
+    "state": "MA",
+    "zip": "01908",
+    "lat": 42.423355,
+    "lng": -70.92892,
+    "phone": "781-581-9000",
+    "website": "http://www.nahantgolfclub.com/",
+    "holes_total": 9,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "golfnow facilityId=16067 (NOT the 1031242 'productReviewId' used on /courses/ review pages) -- verified live 2026-07-07, no auth/Cloudflare, 32-48 slots/day. holes_total corrected 18->9 (executive course, par 30) per GolfNow's own listing.",
+    "provider": "golfnow",
+    "provider_config": {
+      "facilityId": 16067,
+      "lat": 42.423355,
+      "lng": -70.92892
+    },
+    "booking_url": "https://www.golfnow.com/tee-times/facility/16067-kelley-greens-golf-course-formerly-nahant-golf-club/search"
+  }
+]

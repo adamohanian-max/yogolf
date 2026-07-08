@@ -394,5 +394,209 @@
       "affiliationTypeId": 146786
     },
     "booking_url": "https://www.chronogolf.com/club/stow-acres-country-club"
+  },
+  {
+    "id": "ma-blue-rock-golf-course",
+    "name": "Blue Rock Golf Course",
+    "address": "48 Todd Rd",
+    "town": "South Yarmouth",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.686605,
+    "lng": -70.17763,
+    "phone": null,
+    "website": "http://www.bluerockgolfcourse.com/",
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7221,
+      "courses": [
+        {
+          "id": 8260,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 29706
+    },
+    "booking_url": "https://www.chronogolf.com/club/blue-rock-golf-course",
+    "google_rating": 4.4,
+    "google_reviews": 78,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7221"
+  },
+  {
+    "id": "ma-waubeeka-golf-links",
+    "name": "Waubeeka Golf Links",
+    "address": "137 New Ashford Rd",
+    "town": "Williamstown",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.65709,
+    "lng": -73.24023,
+    "phone": null,
+    "website": "https://www.waubeeka.com/",
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7453,
+      "courses": [
+        {
+          "id": 8503,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 30634
+    },
+    "booking_url": "https://www.chronogolf.com/club/waubeeka-golf-links",
+    "google_rating": 4.6,
+    "google_reviews": 133,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7453"
+  },
+  {
+    "id": "ma-tekoa-country-club",
+    "name": "Tekoa Country Club",
+    "address": "459 Russell Rd",
+    "town": "Westfield",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.132335,
+    "lng": -72.787042,
+    "phone": null,
+    "website": "http://www.tekoacc.com/",
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7424,
+      "courses": [
+        {
+          "id": 8473,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 30518
+    },
+    "booking_url": "https://www.chronogolf.com/club/tekoa-country-club",
+    "google_rating": 4.3,
+    "google_reviews": 272,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7424"
+  },
+  {
+    "id": "ma-westborough-country-club",
+    "name": "Westborough Country Club",
+    "address": "121 W Main St",
+    "town": "Westborough",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.263391,
+    "lng": -71.624114,
+    "phone": null,
+    "website": "http://www.westboroughgolfclub.com/",
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 19771,
+      "courses": [
+        {
+          "id": 28066,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 148025
+    },
+    "booking_url": "https://www.chronogolf.com/club/westborough-golf-club",
+    "google_rating": 4.4,
+    "google_reviews": 86,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 19771"
+  },
+  {
+    "id": "ma-wahconah-country-club",
+    "name": "Wahconah Country Club",
+    "address": "15 Orchard Rd",
+    "town": "Dalton",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.474398,
+    "lng": -73.145248,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7450,
+      "courses": [
+        {
+          "id": 8500,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 30622
+    },
+    "booking_url": "https://www.chronogolf.com/club/wahconah-country-club",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7450 (verified live 2026-07-07 iter4 -- NOT all MA chronogolf clubs are marketplace-empty)"
+  },
+  {
+    "id": "ma-cape-cod-country-club",
+    "name": "Cape Cod Country Club",
+    "address": "Theater Rd",
+    "town": "North Falmouth",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.6471,
+    "lng": -70.5999,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7231,
+      "courses": [
+        {
+          "id": 8270,
+          "holes": [
+            9,
+            18
+          ]
+        }
+      ],
+      "affiliationTypeId": 29746
+    },
+    "booking_url": "https://www.chronogolf.com/club/cape-cod-country-club",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "chronogolf club 7231 (verified live 2026-07-07 iter5, 77 slots)"
   }
 ]

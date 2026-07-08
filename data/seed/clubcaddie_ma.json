@@ -128,5 +128,31 @@
       "courseId": 103407
     },
     "booking_url": "https://apimanager-cc29.clubcaddie.com/webapi/view/gafdabab"
+  },
+  {
+    "id": "ma-pinecrest-golf-club",
+    "name": "Pinecrest Golf Club",
+    "address": null,
+    "town": "Holliston",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.2026,
+    "lng": -71.4361,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "clubcaddie",
+    "provider_config": {
+      "shard": "cc37",
+      "apikey": "cbfdabab",
+      "courseId": 103413
+    },
+    "booking_url": "https://apimanager-cc37.clubcaddie.com/webapi/view/cbfdabab",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "clubcaddie cc37 course 103413"
   }
 ]

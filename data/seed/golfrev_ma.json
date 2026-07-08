@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ma-southborough-golf-club",
+    "name": "Southborough Golf Club",
+    "address": null,
+    "town": "Southborough",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.2939,
+    "lng": -71.532,
+    "phone": null,
+    "website": "http://www.southboroughgolfclub.com/",
+    "holes_total": 9,
+    "google_rating": 3.8,
+    "google_reviews": 97,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "golfrev courseId=3998 htc=330 (verified live 2026-07-07 iter10, 70 slots/day); holes_total corrected 18->9 per real tee-sheet data",
+    "provider": "golfrev",
+    "provider_config": {
+      "courseId": 3998,
+      "htc": 330
+    },
+    "booking_url": "https://www.golfrev.com/go/tee_times/?htc=330&courseid=3998&r=1"
+  },
+  {
+    "id": "ma-pine-meadows-golf-course",
+    "name": "Pine Meadows Golf Course",
+    "address": "255 Cedar St",
+    "town": "Lexington",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.456987,
+    "lng": -71.251747,
+    "phone": null,
+    "website": "http://www.pinemeadowsgolfclub.com/",
+    "holes_total": 9,
+    "google_rating": 4.2,
+    "google_reviews": 222,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "golfrev courseId=3855 htc=381 (verified live 2026-07-07 iter16, 15 slots/day); holes_total corrected 18->9. Chronogolf marketplace listing for this course was confirmed empty in iter5 -- golfrev is the real separate system.",
+    "provider": "golfrev",
+    "provider_config": {
+      "courseId": 3855,
+      "htc": 381
+    },
+    "booking_url": "https://www.golfrev.com/go/tee_times/?htc=381&courseid=3855&r=1"
+  }
+]

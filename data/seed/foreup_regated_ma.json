@@ -123,5 +123,57 @@
       "scheduleId": 6615
     },
     "booking_url": "https://foreupsoftware.com/index.php/booking/21047/6615"
+  },
+  {
+    "id": "ma-edgewood-golf-club",
+    "name": "Edgewood Golf Club",
+    "address": null,
+    "town": "Auburn",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.2055,
+    "lng": -71.8391,
+    "phone": null,
+    "website": "http://edgewood4golf.com/",
+    "holes_total": 18,
+    "provider": "foreup",
+    "provider_config": {
+      "courseId": 19046,
+      "scheduleId": 964,
+      "bookingClass": 14860
+    },
+    "booking_url": "https://foreupsoftware.com/index.php/booking/19046/964",
+    "google_rating": 4.1,
+    "google_reviews": 151,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "foreup regated 19046/964"
+  },
+  {
+    "id": "ma-worcester-green-hill-municipal-golf-club",
+    "name": "Worcester Green Hill Municipal Golf Club",
+    "address": "2 Green Hill Ave",
+    "town": "Worcester",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.287844,
+    "lng": -71.778158,
+    "phone": null,
+    "website": "http://www.greenhillgc.com/",
+    "holes_total": 18,
+    "provider": "foreup",
+    "provider_config": {
+      "courseId": 21206,
+      "scheduleId": 7270,
+      "bookingClass": 9016
+    },
+    "booking_url": "https://foreupsoftware.com/index.php/booking/21206/7270",
+    "google_rating": 4.2,
+    "google_reviews": 176,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "foreup regated 21206/7270"
   }
 ]

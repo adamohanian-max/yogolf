@@ -1,11 +1,17 @@
 import { NextRequest } from 'next/server';
-import { coursesForCriteria, resolveCourse } from '@/lib/search';
+import { coursesForCriteria, resolveCourse, listCourse } from '@/lib/search';
+import { driveMinutes } from '@/lib/drivetime';
 import type { SearchCriteria } from '@/lib/types';
 
 export const dynamic = 'force-dynamic';
 
 const MAX_DATES = 7;
-const MAX_COURSES = 60;
+// Live tee-time lookups fan out one provider request per course per date, so we
+// only do them for the nearest LIVE_FETCH courses. Every other course in radius
+// (up to MAX_LISTED) is still returned as a booking-link listing, so a wider
+// radius surfaces more courses instead of silently capping at the same set.
+const LIVE_FETCH = 60;
+const MAX_LISTED = 300;
 
 function parseCriteria(req: NextRequest): SearchCriteria | { error: string } {
   const q = req.nextUrl.searchParams;
@@ -38,7 +44,7 @@ function parseCriteria(req: NextRequest): SearchCriteria | { error: string } {
   const maxPrice = maxPriceRaw ? parseFloat(maxPriceRaw) : null;
 
   const sortRaw = q.get('sort') ?? 'nearest';
-  const sort = (['nearest', 'price_asc', 'price_desc', 'best'] as const).includes(
+  const sort = (['nearest', 'drive', 'price_asc', 'price_desc', 'best'] as const).includes(
     sortRaw as never
   )
     ? (sortRaw as SearchCriteria['sort'])
@@ -66,19 +72,35 @@ export async function GET(req: NextRequest) {
     });
   }
 
-  const entries = coursesForCriteria(criteria).slice(0, MAX_COURSES);
+  const inRadius = coursesForCriteria(criteria).slice(0, MAX_LISTED);
+  const liveEntries = inRadius.slice(0, LIVE_FETCH);
+  const listEntries = inRadius.slice(LIVE_FETCH);
   const encoder = new TextEncoder();
+
+  // Road driving times for the live (nearest) set only — the listing-only
+  // courses are booking links, so a drive time adds little and OSRM shouldn't be
+  // asked for hundreds of points per search.
+  const driveMapP = driveMinutes(
+    { lat: criteria.lat, lng: criteria.lng },
+    liveEntries.map((e) => ({ id: e.course.id, lat: e.course.lat, lng: e.course.lng }))
+  );
 
   const stream = new ReadableStream({
     async start(controller) {
       const write = (obj: unknown) =>
         controller.enqueue(encoder.encode(JSON.stringify(obj) + '\n'));
-      write({ type: 'meta', total: entries.length, criteria });
+      write({ type: 'meta', total: inRadius.length, criteria });
 
-      // Resolve all courses concurrently, emit in completion order.
+      // Listing-only courses need no provider call — emit them right away.
+      for (const entry of listEntries) {
+        write({ type: 'course', result: listCourse(entry) });
+      }
+
+      // Live tee-time courses resolve concurrently, emitted in completion order.
       await Promise.all(
-        entries.map(async (entry) => {
-          const result = await resolveCourse(entry, criteria);
+        liveEntries.map(async (entry) => {
+          const [result, driveMap] = await Promise.all([resolveCourse(entry, criteria), driveMapP]);
+          result.driveMinutes = driveMap.get(entry.course.id) ?? null;
           write({ type: 'course', result });
         })
       );

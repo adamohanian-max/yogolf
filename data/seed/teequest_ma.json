@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ma-easton-country-club",
+    "name": "Easton Country Club",
+    "address": "265 Purchase St",
+    "town": "South Easton",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.023909,
+    "lng": -71.077481,
+    "phone": null,
+    "website": "https://www.eastoncountryclub.com",
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teequest embed 116 course 116-1",
+    "provider": "teequest",
+    "provider_config": {
+      "host": "bookateetime.teequest.com",
+      "embedId": 116,
+      "courseId": "116-1"
+    },
+    "booking_url": "https://bookateetime.teequest.com/course/116"
+  }
+]

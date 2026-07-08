@@ -270,6 +270,51 @@
       ],
       "timeZone": "America/New_York",
       "bookingUrl": "https://winthrop-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Bedrock Golf Club",
+      "alias": "bedrock-golf-club",
+      "facilityIds": [
+        13256
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://bedrock-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Crystal Lake Golf Club",
+      "alias": "crystal-lake-golf",
+      "facilityIds": [
+        13676
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://crystal-lake-golf.book.teeitup.golf/"
+    },
+    {
+      "match": "Olde Scotland Links at Bridgewater",
+      "alias": "7c60cf72-5f0a-45cc-bfcb-2075f12c45ab",
+      "facilityIds": [
+        15419
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://7c60cf72-5f0a-45cc-bfcb-2075f12c45ab.book.teeitup.golf/"
+    },
+    {
+      "match": "Squirrel Run Country Club",
+      "alias": "squirrel-run-golf-club",
+      "facilityIds": [
+        4328
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://squirrel-run-golf-club.book.teeitup.golf/"
+    },
+    {
+      "match": "Quail Hollow Country Club",
+      "alias": "quail-hollow-country-club-4",
+      "facilityIds": [
+        15927
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://quail-hollow-country-club-4.book.teeitup.golf/"
     }
   ]
 }

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "ma-cape-ann-golf-course",
+    "name": "Cape Ann Golf Course",
+    "address": "99 John Wise Ave",
+    "town": "Essex",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.650054,
+    "lng": -70.786895,
+    "phone": null,
+    "website": "http://www.capeanngolf.com/",
+    "holes_total": 9,
+    "google_rating": 4.6,
+    "google_reviews": 124,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "quick18 subdomain=capeann courseId=18498 (verified live 2026-07-07 iter16, 23 slots/day, real $35 pricing). holes_total corrected 18->9. New provider this session -- server-rendered HTML matrix at /teetimes/searchmatrix?teedate=YYYYMMDD, no login needed to view/book.",
+    "provider": "quick18",
+    "provider_config": {
+      "subdomain": "capeann",
+      "courseId": 18498
+    },
+    "booking_url": "https://capeann.quick18.com/teetimes"
+  }
+]

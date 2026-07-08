@@ -68,7 +68,7 @@ export interface SearchCriteria {
   maxPrice: number | null;
   holes: 9 | 18 | 0;
   ride: Ride;
-  sort: 'nearest' | 'price_asc' | 'price_desc' | 'best';
+  sort: 'nearest' | 'drive' | 'price_asc' | 'price_desc' | 'best';
 }
 
 export interface CourseResult {
@@ -77,6 +77,7 @@ export interface CourseResult {
     'id' | 'name' | 'town' | 'state' | 'lat' | 'lng' | 'website' | 'booking_url' | 'google_rating' | 'google_reviews' | 'score' | 'holes_total' | 'provider'
   >;
   distanceMiles: number;
+  driveMinutes: number | null; // road driving time (OSRM), null if unavailable
   slots: TeeTimeSlot[];
   unavailable: boolean; // true = no live adapter, show booking link
   error?: string;

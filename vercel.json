@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "app/api/course/route.ts": {
+      "includeFiles": "data/courses.db"
+    },
+    "app/api/courses/route.ts": {
+      "includeFiles": "data/courses.db"
+    },
+    "app/api/search/route.ts": {
+      "includeFiles": "data/courses.db"
+    }
+  }
+}

@@ -77,6 +77,41 @@ function cpsHeaders(token: string, websiteId: string): Record<string, string> {
   };
 }
 
+// Newer "v4" CPS sites drop the short-lived bearer-token flow entirely: reads
+// are authorised by a global public API key sent as x-apikey, there is no
+// RegisterTransactionId step, the TeeTimes query carries extra rule/pricing
+// params, and the response is a bare array instead of { isSuccess, content }.
+const CPS_V4_APIKEY = '8ea2914e-cac2-48a7-a3e5-e0f41350bf3a';
+
+function cpsV4Headers(websiteId: string): Record<string, string> {
+  return {
+    'User-Agent': UA,
+    Accept: 'application/json',
+    'x-apikey': CPS_V4_APIKEY,
+    'x-componentid': '1',
+    'x-productid': '1',
+    'x-siteid': '1',
+    'x-terminalid': '3',
+    'x-moduleid': '7',
+    'x-websiteid': websiteId,
+  };
+}
+
+async function getWebsiteIdV4(host: string, siteName: string): Promise<string> {
+  const key = `cps-wid:${host}`;
+  const cached = cacheGet<string>(key);
+  if (cached) return cached;
+  const res = await fetch(
+    `https://${host}/onlineres/onlineapi/api/v1/onlinereservation/GetAllOptions/${siteName}?version=1&product=3`,
+    { headers: cpsV4Headers('00000000-0000-0000-0000-000000000000') }
+  );
+  if (!res.ok) throw new Error(`CPS v4 options HTTP ${res.status}`);
+  const json = (await res.json()) as { webSiteId?: string };
+  const wid = json.webSiteId ?? '00000000-0000-0000-0000-000000000000';
+  cacheSet(key, wid, 30 * 60_000);
+  return wid;
+}
+
 function cpsDate(date: string): string {
   // "2026-07-05" → "Sun Jul 05 2026" (what the API expects)
   const d = new Date(date + 'T12:00:00');
@@ -103,13 +138,77 @@ function cartPriceFor(prices: CpsRatePrice[] | undefined, holes: 9 | 18 | 0): nu
   return cart != null ? green + cart : null;
 }
 
+function mapSlots(content: CpsTeeTime[], params: FetchParams, course: Course): TeeTimeSlot[] {
+  return content
+    .filter((t) => (t.participants ?? 0) >= params.players)
+    .map((t) => {
+      const holes: TeeTimeSlot['holes'] = Number(t.holes) === 9 ? 9 : 18;
+      return {
+        time: t.startTime,
+        price: priceFor(t.shItemPrices, params.holes),
+        cartPrice: cartPriceFor(t.shItemPrices, params.holes),
+        spots: Number(t.participants ?? 0),
+        holes,
+        bookingUrl: course.booking_url,
+      };
+    });
+}
+
 export const cpsAdapter: Adapter = {
   name: 'cps',
   async fetchTeeTimes(course: Course, params: FetchParams): Promise<AdapterResult> {
-    const cfg = course.provider_config as { host?: string; siteName?: string; courseId?: number };
+    const cfg = course.provider_config as {
+      host?: string;
+      siteName?: string;
+      courseId?: number | string; // string allows a multi-course "2,3" (e.g. front+back nines)
+      v4?: boolean;
+      needsTxn?: boolean; // some v4 deployments still validate a registered transactionId
+    };
     if (!cfg.host || !cfg.siteName || cfg.courseId == null) {
       return { unavailable: true, bookingUrl: course.booking_url };
     }
+
+    if (cfg.v4) {
+      const websiteId = await getWebsiteIdV4(cfg.host, cfg.siteName);
+      let txn: string | undefined;
+      if (cfg.needsTxn) {
+        txn = globalThis.crypto?.randomUUID?.() ?? '00000000-0000-4000-8000-' + Date.now().toString(16).padStart(12, '0');
+        await fetch(`https://${cfg.host}/onlineres/onlineapi/api/v1/onlinereservation/RegisterTransactionId`, {
+          method: 'POST',
+          headers: { ...cpsV4Headers(websiteId), 'Content-Type': 'application/json' },
+          body: JSON.stringify({ transactionId: txn }),
+        });
+      }
+      // Always request holes=0 (any): v4 sites 400 on holes=18 for 9-hole /
+      // cross-over courses. mapSlots labels each returned slot's hole count.
+      const qs = new URLSearchParams({
+        searchDate: cpsDate(params.date),
+        holes: '0',
+        numberOfPlayer: String(params.players),
+        courseIds: String(cfg.courseId),
+        searchTimeType: '0',
+        teeOffTimeMin: '0',
+        teeOffTimeMax: '23',
+        isChangeTeeOffTime: 'true',
+        teeSheetSearchView: '5',
+        classCode: 'R',
+        defaultOnlineRate: 'N',
+        isUseCapacityPricing: 'false',
+        memberStoreId: '1',
+        searchType: '1',
+        ...(txn ? { transactionId: txn } : {}),
+      });
+      const res = await fetch(
+        `https://${cfg.host}/onlineres/onlineapi/api/v1/onlinereservation/TeeTimes?${qs}`,
+        { headers: cpsV4Headers(websiteId) }
+      );
+      if (!res.ok) throw new Error(`CPS v4 teetimes HTTP ${res.status}`);
+      const json = (await res.json()) as CpsTeeTime[] | { content?: CpsTeeTime[] };
+      const content = Array.isArray(json) ? json : json.content;
+      if (!Array.isArray(content)) return { unavailable: true, bookingUrl: course.booking_url };
+      return mapSlots(content, params, course);
+    }
+
     const token = await getToken(cfg.host);
     const websiteId = await getWebsiteId(cfg.host, cfg.siteName, token);
     const headers = cpsHeaders(token, websiteId);
@@ -142,19 +241,6 @@ export const cpsAdapter: Adapter = {
       return { unavailable: true, bookingUrl: course.booking_url };
     }
 
-    const slots: TeeTimeSlot[] = json.content
-      .filter((t) => (t.participants ?? 0) >= params.players)
-      .map((t) => {
-        const holes: TeeTimeSlot['holes'] = Number(t.holes) === 9 ? 9 : 18;
-        return {
-          time: t.startTime,
-          price: priceFor(t.shItemPrices, params.holes),
-          cartPrice: cartPriceFor(t.shItemPrices, params.holes),
-          spots: Number(t.participants ?? 0),
-          holes,
-          bookingUrl: course.booking_url,
-        };
-      });
-    return slots;
+    return mapSlots(json.content, params, course);
   },
 };

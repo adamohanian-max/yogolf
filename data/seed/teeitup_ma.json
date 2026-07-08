@@ -868,5 +868,324 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "teeitup {\"alias\":\"winthrop-golf-club\",\"facilityIds\":[15263],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://winthrop-golf-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-bedrock-golf-club",
+    "name": "Bedrock Golf Club",
+    "address": "87 Barre-Paxton Rd",
+    "town": "Rutland",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.335998,
+    "lng": -71.973104,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "bedrock-golf-club",
+      "facilityIds": [
+        13256
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://bedrock-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://bedrock-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"bedrock-golf-club\",\"facilityIds\":[13256],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://bedrock-golf-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-crystal-lake-golf-club",
+    "name": "Crystal Lake Golf Club",
+    "address": null,
+    "town": "Haverhill",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.77218,
+    "lng": -71.097,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "crystal-lake-golf",
+      "facilityIds": [
+        13676
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://crystal-lake-golf.book.teeitup.golf/"
+    },
+    "booking_url": "https://crystal-lake-golf.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"crystal-lake-golf\",\"facilityIds\":[13676],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://crystal-lake-golf.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-olde-scotland-links-at-bridgewater",
+    "name": "Olde Scotland Links at Bridgewater",
+    "address": "690 Pine St",
+    "town": "Bridgewater",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.949267,
+    "lng": -71.010813,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "7c60cf72-5f0a-45cc-bfcb-2075f12c45ab",
+      "facilityIds": [
+        15419
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://7c60cf72-5f0a-45cc-bfcb-2075f12c45ab.book.teeitup.golf/"
+    },
+    "booking_url": "https://7c60cf72-5f0a-45cc-bfcb-2075f12c45ab.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"7c60cf72-5f0a-45cc-bfcb-2075f12c45ab\",\"facilityIds\":[15419],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://7c60cf72-5f0a-45cc-bfcb-2075f12c45ab.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-squirrel-run-country-club",
+    "name": "Squirrel Run Country Club",
+    "address": "Carver Rd",
+    "town": "Plymouth",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.93503,
+    "lng": -70.7226,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "squirrel-run-golf-club",
+      "facilityIds": [
+        4328
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://squirrel-run-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://squirrel-run-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"squirrel-run-golf-club\",\"facilityIds\":[4328],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://squirrel-run-golf-club.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-quail-hollow-country-club",
+    "name": "Quail Hollow Country Club",
+    "address": "1822 Turnpike Rd",
+    "town": "Oakham",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.360463,
+    "lng": -72.089674,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "quail-hollow-country-club-4",
+      "facilityIds": [
+        15927
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://quail-hollow-country-club-4.book.teeitup.golf/"
+    },
+    "booking_url": "https://quail-hollow-country-club-4.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup {\"alias\":\"quail-hollow-country-club-4\",\"facilityIds\":[15927],\"timeZone\":\"America/New_York\",\"bookingUrl\":\"https://quail-hollow-country-club-4.book.teeitup.golf/\"}"
+  },
+  {
+    "id": "ma-butternut-farm-golf-club",
+    "name": "Butternut Farm Golf Club",
+    "address": "115 Wheeler Rd",
+    "town": "Stow",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.429527,
+    "lng": -71.51493,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "butternut-farm-golf-club",
+      "facilityIds": [
+        17036
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://butternut-farm-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://butternut-farm-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup facility 17036 (verified live 2026-07-07 iter6, 31 slots)"
+  },
+  {
+    "id": "ma-pinehills-golf-club",
+    "name": "Pinehills Golf Club",
+    "address": null,
+    "town": "Plymouth",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.94643,
+    "lng": -70.67023,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "pinehills-golf-club",
+      "facilityIds": [
+        4981
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://pinehills-golf-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://pinehills-golf-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup facility 4981 (verified live 2026-07-07 iter6, sparse ~1 slot/day -- memory previously flagged Pinehills Cloudflare-walled via a different route, this teeitup facility bypasses that)"
+  },
+  {
+    "id": "ma-ridder-farm-golf-and-country-club",
+    "name": "Ridder Farm Golf & Country Club",
+    "address": "300 Oak St",
+    "town": "East Bridgewater",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.061702,
+    "lng": -70.917424,
+    "phone": null,
+    "website": "https://www.ridderfarm.com/",
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "ridder-farm-golf-club",
+      "facilityIds": [
+        4930
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://ridder-farm-golf-club.book.teeitup.com/"
+    },
+    "booking_url": "https://ridder-farm-golf-club.book.teeitup.com/",
+    "google_rating": 4.4,
+    "google_reviews": 339,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup facility 4930 (verified live 2026-07-07 iter8, 17-44 slots/day; alias found via .book.teeitup.com not .golf TLD variant -- my earlier batch slugify missed ridder-farm-golf-club as a candidate since db name is Ridder Farm Golf & Country Club)"
+  },
+  {
+    "id": "ma-acushnet-river-valley-golf-course",
+    "name": "Acushnet River Valley Golf Course",
+    "address": "685 Main St",
+    "town": "Acushnet",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.71223,
+    "lng": -70.885492,
+    "phone": null,
+    "website": "http://www.golfacushnet.com/",
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "677b9ba7-7e70-4e1a-a56d-d090c8490152",
+      "facilityIds": [
+        15464
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://677b9ba7-7e70-4e1a-a56d-d090c8490152.play.teeitup.golf/"
+    },
+    "booking_url": "https://677b9ba7-7e70-4e1a-a56d-d090c8490152.play.teeitup.golf/",
+    "google_rating": 4.1,
+    "google_reviews": 718,
+    "golfpass_rating": 4.6,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup facility 15464 (verified live 2026-07-07 iter11, 3-11 slots/day). Alias is a UUID (.play.teeitup.golf subdomain), not a name-slug -- my batch sweep only guesses name-based slugs so this was structurally unreachable by that method; found by inspecting the course own tee-times page iframe src directly."
+  },
+  {
+    "id": "ma-wampanoag-golf-course",
+    "name": "Wampanoag Golf Course",
+    "address": "168 Old Providence Rd",
+    "town": "North Swansea",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.771965,
+    "lng": -71.27596,
+    "phone": null,
+    "website": "http://wampanoaggolfcourseswansea.com/",
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "3ba7798a-60cb-453d-90ec-1bd1ef2f1345",
+      "facilityIds": [
+        15969
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://3ba7798a-60cb-453d-90ec-1bd1ef2f1345.play.teeitup.golf/"
+    },
+    "booking_url": "https://3ba7798a-60cb-453d-90ec-1bd1ef2f1345.play.teeitup.golf/",
+    "google_rating": 3.6,
+    "google_reviews": 74,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup facility 15969 (verified live 2026-07-07 iter15, 49-56 slots/day). Found via UUID iframe on courses own dedicated /teetimes/ page after chronogolf marketplace confirmed empty in iter5 -- same UUID-alias pattern as Acushnet (iter11), batch sweep structurally cannot find these."
+  },
+  {
+    "id": "ma-berlin-country-club",
+    "name": "Berlin Country Club",
+    "address": "25 Carr Rd",
+    "town": "Berlin",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.405144,
+    "lng": -71.632575,
+    "phone": null,
+    "website": "https://www.berlincountryclub.com/",
+    "holes_total": 18,
+    "google_rating": 5,
+    "google_reviews": 2,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup facility 16635, UUID alias a89cc128-41e4-4dc8-ad22-e24ddd3f1af3.play.teeitup.golf (verified live 2026-07-07 iter19, 42 slots/day both holes, 24 of which 18-hole). Found via own /tee-times/ page, chronogolf marketplace was already confirmed empty in iter5.",
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "a89cc128-41e4-4dc8-ad22-e24ddd3f1af3",
+      "facilityIds": [
+        16635
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://a89cc128-41e4-4dc8-ad22-e24ddd3f1af3.play.teeitup.golf"
+    },
+    "booking_url": "https://a89cc128-41e4-4dc8-ad22-e24ddd3f1af3.play.teeitup.golf"
   }
 ]

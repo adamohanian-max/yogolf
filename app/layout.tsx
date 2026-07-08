@@ -1,9 +1,23 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk, Space_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Display — course names, wordmark, headings. Printed-form character.
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-display",
+  subsets: ["latin"],
+});
+
+// Body — labels, meta, copy.
+const hanken = Hanken_Grotesk({
+  variable: "--font-body",
+  subsets: ["latin"],
+});
+
+// Numerals — tee times & prices, penciled-scorecard feel.
+const spaceMono = Space_Mono({
+  variable: "--font-mono",
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 
@@ -19,7 +33,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html
+      lang="en"
+      className={`${bricolage.variable} ${hanken.variable} ${spaceMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );

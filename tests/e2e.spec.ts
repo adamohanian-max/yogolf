@@ -58,6 +58,25 @@ test('best-course sort orders by score', async ({ page }) => {
   expect(nums).toEqual(sorted);
 });
 
+test('fastest-drive sort shows drive times in non-decreasing order', async ({ page }) => {
+  await search(page, { zip: '02134', radius: '40' });
+  await expect(page.locator('.chip').first()).toBeVisible({ timeout: 30_000 });
+  await page.waitForFunction(() => {
+    const el = document.querySelector('.results-head .count');
+    return el && /live tee times/.test(el.textContent || '');
+  }, { timeout: 30_000 });
+
+  await page.selectOption('#sort', 'drive');
+  await page.waitForTimeout(500);
+  // Live cards (those with tee-time chips) sort first; their drive times ("· N min")
+  // should be non-decreasing.
+  const metas = await page.locator('.card:has(.chip) .card-meta > span').filter({ hasText: /min$/ }).allTextContents();
+  const mins = metas.map((t) => Number(t.match(/·\s*(\d+)\s*min/)?.[1])).filter((n) => Number.isFinite(n));
+  expect(mins.length).toBeGreaterThan(0);
+  const nonDecreasing = mins.every((v, i) => i === 0 || v >= mins[i - 1]);
+  expect(nonDecreasing).toBe(true);
+});
+
 test('players filter constrains open spots', async ({ page }) => {
   await page.goto('/');
   await page.fill('#zip', '02134');

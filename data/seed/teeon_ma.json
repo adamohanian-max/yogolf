@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ma-groton-country-club",
+    "name": "Groton Country Club",
+    "address": "94 Lovers Ln",
+    "town": "Groton",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.601041,
+    "lng": -71.557932,
+    "phone": null,
+    "website": "https://www.grotoncountryclub.com/",
+    "holes_total": 9,
+    "google_rating": 3.8,
+    "google_reviews": 59,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeon (modern 'cloud' guest API, admin.teeon.com) facilityId=459, client_id=23 -- verified live 2026-07-07 iter13, 20 slots/day, no price exposed by guest endpoint. holes_total corrected 18->9. NOT the same platform as the legacy tee-on.com PubGolf stateful servlet flagged gated elsewhere.",
+    "provider": "teeon",
+    "provider_config": {
+      "facilityId": 459
+    },
+    "booking_url": "https://admin.teeon.com/portal/grotoncountryclub/teetimes/grotoncountryclub"
+  }
+]

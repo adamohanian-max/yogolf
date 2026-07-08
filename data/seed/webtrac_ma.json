@@ -1,0 +1,27 @@
+[
+  {
+    "id": "ma-fresh-pond-golf-course",
+    "name": "Fresh Pond Golf Course",
+    "address": "691 Huron Ave",
+    "town": "Cambridge",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.380519,
+    "lng": -71.153233,
+    "phone": null,
+    "website": "https://freshpondgolf.com",
+    "holes_total": 9,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "webtrac (Vermont Systems) secure.cambridgema.gov module=GR secondarycode=1; no price shown pre-login",
+    "provider": "webtrac",
+    "provider_config": {
+      "host": "secure.cambridgema.gov",
+      "secondarycode": "1"
+    },
+    "booking_url": "https://secure.cambridgema.gov/webtrac/web/search.html?module=GR"
+  }
+]

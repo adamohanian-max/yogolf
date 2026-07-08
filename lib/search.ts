@@ -62,13 +62,9 @@ export function filterSlots(slots: TeeTimeSlot[], c: SearchCriteria): TeeTimeSlo
     .sort((a, b) => a.time.localeCompare(b.time));
 }
 
-/** Fetch one course across all requested dates, merge + filter slots. */
-export async function resolveCourse(
-  entry: { course: Course; distanceMiles: number },
-  c: SearchCriteria
-): Promise<CourseResult> {
+function courseBase(entry: { course: Course; distanceMiles: number }) {
   const { course, distanceMiles } = entry;
-  const base = {
+  return {
     course: {
       id: course.id,
       name: course.name,
@@ -85,7 +81,27 @@ export async function resolveCourse(
       provider: course.provider,
     },
     distanceMiles: Math.round(distanceMiles * 10) / 10,
+    driveMinutes: null as number | null, // filled in by the API route from the OSRM batch
   };
+}
+
+/**
+ * A course listed without a live tee-time lookup — same shape as a fallback
+ * (booking link, no slots). Used for courses beyond the live-fetch budget so a
+ * wide-radius search still surfaces every course in range, not just the nearest
+ * batch we can afford to hit providers for.
+ */
+export function listCourse(entry: { course: Course; distanceMiles: number }): CourseResult {
+  return { ...courseBase(entry), slots: [], unavailable: true };
+}
+
+/** Fetch one course across all requested dates, merge + filter slots. */
+export async function resolveCourse(
+  entry: { course: Course; distanceMiles: number },
+  c: SearchCriteria
+): Promise<CourseResult> {
+  const { course } = entry;
+  const base = courseBase(entry);
 
   if (course.provider === 'fallback') {
     return { ...base, slots: [], unavailable: true };
@@ -123,6 +139,8 @@ export function sortResults(
   switch (sort) {
     case 'nearest':
       return copy.sort((a, b) => a.distanceMiles - b.distanceMiles);
+    case 'drive':
+      return copy.sort((a, b) => (a.driveMinutes ?? Infinity) - (b.driveMinutes ?? Infinity));
     case 'price_asc':
       return copy.sort((a, b) => cheapest(a) - cheapest(b));
     case 'price_desc':

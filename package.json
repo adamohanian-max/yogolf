@@ -4,9 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run seed && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "authoritative": "tsx scripts/build_authoritative.ts",
+    "directory": "tsx scripts/build_directory_seed.ts",
+    "seed": "YOGOLF_DB_WRITABLE=1 tsx scripts/seed.ts",
+    "ratings": "tsx scripts/fetch_ratings.ts",
+    "audit": "tsx scripts/audit_coverage.ts",
+    "build:data": "npm run directory && npm run seed && npm run audit",
+    "test": "playwright test"
   },
   "dependencies": {
     "better-sqlite3": "^12.11.1",

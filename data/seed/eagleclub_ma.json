@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ma-greenock-country-club",
+    "name": "Greenock Country Club",
+    "address": "220 W Park St",
+    "town": "Lee",
+    "state": "MA",
+    "zip": "01238",
+    "lat": 42.30158,
+    "lng": -73.26096,
+    "phone": "(413)243-3323",
+    "website": "http://www.greenockcc.com/",
+    "holes_total": 18,
+    "google_rating": 4.3,
+    "google_reviews": 88,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "eagleclub dbname=gc20220515 (verified live 2026-07-07 iter18, 31 slots/day real times, $60/9hole $75/18hole + cart addon). New provider this session -- Angular/SignalR app at player.eagleclubsystems.online, cracked via Playwright network capture (POST /api/online/OnlineCourseRetrieve then OnlineAppointmentRetrieve, no auth token).",
+    "provider": "eagleclub",
+    "provider_config": {
+      "dbname": "gc20220515"
+    },
+    "booking_url": "https://player.eagleclubsystems.online/#/tee-slot?dbname=gc20220515"
+  }
+]

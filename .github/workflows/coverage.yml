@@ -1,0 +1,33 @@
+name: Coverage
+
+# Hard gate: rebuild the catalog from the checked-in seed files and fail the
+# build if any MA public/semi-private/municipal course in the authoritative
+# roster is neither covered nor excused. Keeps "no course is ever missing" true.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # directory (fallbacks) → seed (build courses.db) → audit (hard gate).
+      # Does NOT re-scrape the roster; authoritative_ma.tsv is a reviewed artifact.
+      - name: Build catalog and enforce coverage
+        run: npm run build:data
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: End-to-end tests
+        run: npm test

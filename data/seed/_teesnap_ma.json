@@ -1,11 +1,65 @@
 {
   "_comment": "TeeSnap {subdomain}.teesnap.net + course id. Consumed by build_provider_seed.ts.",
   "courses": [
-    { "match": "Chemawa Golf Course", "subdomain": "chemawagolf", "courseId": 788 },
-    { "match": "Whaling City Golf Course", "subdomain": "whalingcitygc", "courseId": 1643 },
-    { "match": "Heritage Country Club", "subdomain": "heritagecountryclub", "courseId": 464 },
-    { "match": "Quaboag Country Club", "subdomain": "quaboagcountryclub", "courseId": 530 },
-    { "match": "Stone-E-Lea Golf Course", "subdomain": "stoneeleagc", "courseId": 1312 },
-    { "match": "Sandy Burr Country Club", "subdomain": "sandyburr", "courseId": 471 }
+    {
+      "match": "Chemawa Golf Course",
+      "subdomain": "chemawagolf",
+      "courseId": 788
+    },
+    {
+      "match": "Whaling City Golf Course",
+      "subdomain": "whalingcitygc",
+      "courseId": 1643
+    },
+    {
+      "match": "Heritage Country Club",
+      "subdomain": "heritagecountryclub",
+      "courseId": 464
+    },
+    {
+      "match": "Quaboag Country Club",
+      "subdomain": "quaboagcountryclub",
+      "courseId": 530
+    },
+    {
+      "match": "Stone-E-Lea Golf Course",
+      "subdomain": "stoneeleagc",
+      "courseId": 1312
+    },
+    {
+      "match": "Sandy Burr Country Club",
+      "subdomain": "sandyburr",
+      "courseId": 471
+    },
+    {
+      "match": "The New England Country Club",
+      "subdomain": "newenglandcc",
+      "courseId": 1590
+    },
+    {
+      "match": "Green Harbor Golf Club",
+      "subdomain": "greenharborgc",
+      "courseId": 660
+    },
+    {
+      "match": "Monoosnock Country Club",
+      "subdomain": "monoosnockcountryclub",
+      "courseId": 1263
+    },
+    {
+      "match": "Nichols College Golf Club",
+      "subdomain": "dudleylinks",
+      "courseId": 1486
+    },
+    {
+      "match": "Southers Marsh Golf Club",
+      "subdomain": "southersmarsh",
+      "courseId": 655
+    },
+    {
+      "match": "Quashnet Valley Country Club",
+      "subdomain": "quashnetvalleycc",
+      "courseId": 779
+    }
   ]
 }

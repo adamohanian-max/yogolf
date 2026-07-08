@@ -8,9 +8,18 @@ let db: Database.Database | null = null;
 
 export function getDb(): Database.Database {
   if (!db) {
-    db = new Database(DB_PATH, { readonly: false });
-    db.pragma('journal_mode = WAL');
-    ensureSchema(db);
+    // The seed script (build time) needs write access; the deployed app only
+    // reads. On a serverless host the filesystem is read-only, so opening
+    // read/write + WAL there would crash — gate writes behind an explicit env.
+    const writable = process.env.YOGOLF_DB_WRITABLE === '1';
+    db = new Database(DB_PATH, { readonly: !writable, fileMustExist: !writable });
+    if (writable) {
+      // Not WAL: the seed script is a one-shot bulk write, and WAL leaves the
+      // shipped .db requiring -wal/-shm sidecar files to open — impossible on
+      // read-only serverless filesystems, where the db is opened readonly.
+      db.pragma('journal_mode = DELETE');
+      ensureSchema(db);
+    }
   }
   return db;
 }

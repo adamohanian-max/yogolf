@@ -1,11 +1,25 @@
 'use client';
 
-import { useCallback, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CourseResult, Ride, TeeTimeSlot } from '@/lib/types';
 import { effectivePrice } from '@/lib/types';
 
-type Sort = 'nearest' | 'price_asc' | 'price_desc' | 'best';
+type Sort = 'nearest' | 'drive' | 'price_asc' | 'price_desc' | 'best';
 type Holes = 'both' | '9' | '18';
+
+interface CatalogCourse {
+  id: string;
+  name: string;
+  town: string;
+  state: string;
+  lat: number;
+  lng: number;
+  google_rating: number | null;
+  google_reviews: number | null;
+  score: number;
+  booking_url: string;
+  website: string | null;
+}
 
 interface StreamMeta {
   total: number;
@@ -67,6 +81,21 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
   const abortRef = useRef<AbortController | null>(null);
 
+  const [catalog, setCatalog] = useState<CatalogCourse[]>([]);
+  const [origin, setOrigin] = useState<{ lat: number; lng: number } | null>(null);
+  const [picked, setPicked] = useState<CatalogCourse[]>([]);
+
+  useEffect(() => {
+    let live = true;
+    fetch('/api/courses')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => live && d?.courses && setCatalog(d.courses))
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, []);
+
   const runSearch = useCallback(async () => {
     setError(null);
 
@@ -96,6 +125,8 @@ export default function Home() {
       setError('Location unavailable. Enter a zip code instead.');
       return;
     }
+
+    setOrigin({ lat, lng });
 
     abortRef.current?.abort();
     const controller = new AbortController();
@@ -161,6 +192,7 @@ export default function Home() {
     const without = results.filter((r) => r.slots.length === 0);
     const cmp: Record<Sort, (a: CourseResult, b: CourseResult) => number> = {
       nearest: (a, b) => a.distanceMiles - b.distanceMiles,
+      drive: (a, b) => (a.driveMinutes ?? Infinity) - (b.driveMinutes ?? Infinity),
       price_asc: (a, b) => cheapest(a, ride) - cheapest(b, ride),
       price_desc: (a, b) => {
         const pa = cheapest(a, ride), pb = cheapest(b, ride);
@@ -186,11 +218,52 @@ export default function Home() {
       )
     : sorted;
 
+  // Query string (sans id) for on-demand single-course tee-time fetches.
+  const liveParams = useMemo(() => {
+    const p = new URLSearchParams({
+      players: String(players),
+      holes,
+      dateFrom,
+      dateTo: dateTo < dateFrom ? dateFrom : dateTo,
+      timeStart,
+      timeEnd,
+      ride,
+    });
+    if (maxPrice) p.set('maxPrice', maxPrice);
+    if (origin) {
+      p.set('lat', String(origin.lat));
+      p.set('lng', String(origin.lng));
+    }
+    return p.toString();
+  }, [players, holes, dateFrom, dateTo, timeStart, timeEnd, ride, maxPrice, origin]);
+
+  // Whole-catalog matches not already in results / not already picked.
+  const shownIds = useMemo(() => new Set(results.map((r) => r.course.id)), [results]);
+  const pickedIds = useMemo(() => new Set(picked.map((c) => c.id)), [picked]);
+  const catalogMatches = q
+    ? catalog
+        .filter(
+          (c) =>
+            !shownIds.has(c.id) &&
+            !pickedIds.has(c.id) &&
+            (c.name.toLowerCase().includes(q) || c.town.toLowerCase().includes(q))
+        )
+        .slice(0, 8)
+    : [];
+
+  const pickCourse = useCallback((c: CatalogCourse) => {
+    setPicked((prev) => (prev.some((p) => p.id === c.id) ? prev : [c, ...prev]));
+  }, []);
+  const unpick = useCallback((id: string) => {
+    setPicked((prev) => prev.filter((c) => c.id !== id));
+  }, []);
+
   return (
     <>
       <header className="topbar">
         <span className="wordmark">
-          <span className="yo">Yo</span>Golf
+          <FlagMark />
+          <span><span className="yo">Yo</span>Golf</span>
         </span>
         <span className="topbar-tag">every tee time, one search</span>
       </header>
@@ -331,34 +404,80 @@ export default function Home() {
         </aside>
 
         <main className="results">
-          {phase === 'idle' && !error && (
-            <div className="intro">
-              <div className="mark">
-                <span className="yo">Yo</span>Golf
+          {catalog.length > 0 && (
+            <div className="resultsearch">
+              <span className="rs-icon" aria-hidden>⌕</span>
+              <input
+                className="control"
+                type="search"
+                placeholder={
+                  phase === 'idle'
+                    ? 'Search any course by name or town…'
+                    : `Filter ${results.length} results, or find any course…`
+                }
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                aria-label="Search courses"
+              />
+            </div>
+          )}
+
+          {catalogMatches.length > 0 && (
+            <div className="catsuggest">
+              <div className="catsuggest-h">
+                {phase === 'idle' ? 'Courses' : 'Not in your results'}
               </div>
-              <p>
-                One search across every course near you — live tee times, real prices, no tab
-                juggling. Set your criteria and hit search.
-              </p>
+              {catalogMatches.map((c) => (
+                <button key={c.id} className="catsuggest-item" onClick={() => pickCourse(c)}>
+                  <span className="ci-name">{c.name}</span>
+                  <span className="ci-town">
+                    {c.town} · {c.state}
+                    {c.google_rating ? ` · ★ ${c.google_rating.toFixed(1)}` : ''}
+                  </span>
+                  <span className="ci-go">Check live times →</span>
+                </button>
+              ))}
+            </div>
+          )}
+
+          {picked.map((c) => (
+            <CatalogCard
+              key={c.id}
+              course={c}
+              params={liveParams}
+              showDates={showDates}
+              ride={ride}
+              onRemove={() => unpick(c.id)}
+            />
+          ))}
+
+          {phase === 'idle' && !error && !q && picked.length === 0 && (
+            <div className="intro">
+              <div className="intro-head">
+                <span className="mark">
+                  <FlagMark />
+                  <span><span className="yo">Yo</span>Golf</span>
+                </span>
+                <span className="par">Tee sheet · live</span>
+              </div>
+              <div className="intro-body">
+                <h2>Every tee time, one search.</h2>
+                <p>
+                  Live availability and real prices from every course near you — no tab juggling.
+                  Set your criteria on the left and hit search, or find a course by name above.
+                </p>
+                <div className="intro-strip" aria-hidden>
+                  <span>Time</span>
+                  <span>Price</span>
+                  <span>Holes</span>
+                  <span>Players</span>
+                </div>
+              </div>
             </div>
           )}
 
           {phase !== 'idle' && (
             <>
-              {results.length > 0 && (
-                <div className="resultsearch">
-                  <span className="rs-icon" aria-hidden>⌕</span>
-                  <input
-                    className="control"
-                    type="search"
-                    placeholder={`Filter ${results.length} courses by name or town…`}
-                    value={filter}
-                    onChange={(e) => setFilter(e.target.value)}
-                    aria-label="Filter courses"
-                  />
-                </div>
-              )}
-
               <div className="results-head">
                 <span className="count">
                   {phase === 'loading' && meta
@@ -373,6 +492,7 @@ export default function Home() {
                   <label htmlFor="sort">Sort</label>
                   <select id="sort" value={sort} onChange={(e) => setSort(e.target.value as Sort)}>
                     <option value="nearest">Nearest</option>
+                    <option value="drive">Fastest drive</option>
                     <option value="price_asc">Price: low to high</option>
                     <option value="price_desc">Price: high to low</option>
                     <option value="best">Best course</option>
@@ -390,12 +510,12 @@ export default function Home() {
                 <CourseCard key={r.course.id} r={r} showDates={showDates} ride={ride} />
               ))}
 
-              {q && shown.length === 0 && results.length > 0 && (
+              {q && shown.length === 0 && catalogMatches.length === 0 && picked.length === 0 && (
                 <div className="empty">
                   <p>
-                    <strong>No courses match “{filter.trim()}”.</strong>
+                    <strong>No course matches “{filter.trim()}”.</strong>
                   </p>
-                  <p>Clear the filter to see all {results.length} nearby courses.</p>
+                  <p>Clear the search to see all {results.length} nearby courses.</p>
                 </div>
               )}
 
@@ -432,6 +552,16 @@ export default function Home() {
   );
 }
 
+function FlagMark() {
+  return (
+    <svg className="flagmark" width="18" height="20" viewBox="0 0 18 20" fill="none" aria-hidden="true">
+      <path d="M4 19.2V2.2" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" />
+      <path d="M4.6 2.6L14.5 5.1L4.6 8.4V2.6Z" fill="var(--flag)" />
+      <circle cx="4" cy="19.2" r="1.4" fill="currentColor" />
+    </svg>
+  );
+}
+
 function CourseCard({ r, showDates, ride }: { r: CourseResult; showDates: boolean; ride: Ride }) {
   const [expanded, setExpanded] = useState(false);
   const byDate = useMemo(() => {
@@ -452,7 +582,9 @@ function CourseCard({ r, showDates, ride }: { r: CourseResult; showDates: boolea
             <div className="card-title">{r.course.name}</div>
             <div className="card-meta">
               <span>
-                {r.course.town} · {r.distanceMiles} mi
+                {r.course.town}
+                {r.distanceMiles >= 0 ? ` · ${r.distanceMiles} mi` : ''}
+                {r.driveMinutes != null ? ` · ${r.driveMinutes} min` : ''}
               </span>
               {r.course.google_rating && (
                 <span className="rating">
@@ -492,7 +624,9 @@ function CourseCard({ r, showDates, ride }: { r: CourseResult; showDates: boolea
           <div className="card-meta">
             <span className="livedot" title="Live availability">Live</span>
             <span>
-              {r.course.town} · {r.distanceMiles} mi
+              {r.course.town}
+              {r.distanceMiles >= 0 ? ` · ${r.distanceMiles} mi` : ''}
+              {r.driveMinutes != null ? ` · ${r.driveMinutes} min` : ''}
             </span>
             {r.course.google_rating && (
               <span className="rating">
@@ -502,7 +636,10 @@ function CourseCard({ r, showDates, ride }: { r: CourseResult; showDates: boolea
             )}
           </div>
         </div>
-        <span className="scorepill" title="YoGolf course score">{Math.round(r.course.score)} / 100</span>
+        <span className="ratingstamp" title="YoGolf course score">
+          <span className="n">{Math.round(r.course.score)}</span>
+          <span className="l">Score</span>
+        </span>
       </div>
 
       {byDate.map(([date, slots]) => {
@@ -510,12 +647,12 @@ function CourseCard({ r, showDates, ride }: { r: CourseResult; showDates: boolea
         return (
           <div key={date}>
             {showDates && <div className="datelabel">{fmtDateLabel(date)}</div>}
-            {!showDates && <div style={{ height: 10 }} />}
-            <div className="chiprail">
+            {!showDates && <div style={{ height: 12 }} />}
+            <div className="teegrid">
               {visible.map((s, i) => (
                 <a
                   key={`${s.time}-${s.holes}-${i}`}
-                  className="chip"
+                  className="teebox"
                   href={s.bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -535,15 +672,99 @@ function CourseCard({ r, showDates, ride }: { r: CourseResult; showDates: boolea
                   </span>
                 </a>
               ))}
-              {slots.length > LIMIT && (
-                <button className="morechips" onClick={() => setExpanded((v) => !v)}>
-                  {expanded ? 'Show fewer' : `+${slots.length - LIMIT} more`}
-                </button>
-              )}
             </div>
+            {slots.length > LIMIT && (
+              <button className="morechips" onClick={() => setExpanded((v) => !v)}>
+                {expanded ? 'Show fewer' : `+${slots.length - LIMIT} more times`}
+              </button>
+            )}
           </div>
         );
       })}
+    </div>
+  );
+}
+
+/** A course the user found via whole-catalog search; fetches its live times on demand. */
+function CatalogCard({
+  course,
+  params,
+  showDates,
+  ride,
+  onRemove,
+}: {
+  course: CatalogCourse;
+  params: string;
+  showDates: boolean;
+  ride: Ride;
+  onRemove: () => void;
+}) {
+  const [result, setResult] = useState<CourseResult | null>(null);
+  const [state, setState] = useState<'loading' | 'done' | 'error'>('loading');
+
+  useEffect(() => {
+    let live = true;
+    fetch(`/api/course?id=${encodeURIComponent(course.id)}&${params}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => {
+        if (!live) return;
+        if (d?.result) {
+          setResult(d.result);
+          setState('done');
+        } else setState('error');
+      })
+      .catch(() => live && setState('error'));
+    return () => {
+      live = false;
+    };
+  }, [course.id, params]);
+
+  return (
+    <div className="pickedwrap">
+      <button className="pickedx" onClick={onRemove} title="Remove" aria-label="Remove course">
+        ×
+      </button>
+      {state === 'loading' && (
+        <div className="card">
+          <div className="card-title">{course.name}</div>
+          <div className="card-meta">
+            <span>
+              {course.town} · {course.state}
+            </span>
+            <span className="nolive">Checking live times…</span>
+          </div>
+          <div className="skel" style={{ marginTop: 8 }}>
+            <div className="bar" style={{ width: '55%' }} />
+            <div className="bar" style={{ width: '80%' }} />
+          </div>
+        </div>
+      )}
+      {state === 'error' && (
+        <div className="card">
+          <div className="card-fallback">
+            <div>
+              <div className="card-title">{course.name}</div>
+              <div className="card-meta">
+                <span>
+                  {course.town} · {course.state}
+                </span>
+                <span className="nolive">Couldn’t load live times</span>
+              </div>
+            </div>
+            {(course.booking_url || course.website) && (
+              <a
+                className="linkout"
+                href={course.booking_url || course.website || '#'}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Check availability →
+              </a>
+            )}
+          </div>
+        </div>
+      )}
+      {state === 'done' && result && <CourseCard r={result} showDates={showDates} ride={ride} />}
     </div>
   );
 }

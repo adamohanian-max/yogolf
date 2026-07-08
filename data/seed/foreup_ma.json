@@ -2105,5 +2105,31 @@
     "provider": "fallback",
     "provider_config": {},
     "booking_url": "https://foreupsoftware.com/index.php/booking/23130"
+  },
+  {
+    "id": "ma-cedar-glen-golf-club",
+    "name": "Cedar Glen Golf Club",
+    "address": "60 Water St",
+    "town": "Saugus",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.497007,
+    "lng": -71.036435,
+    "phone": null,
+    "website": "http://www.cedarglengolfcourse.com/",
+    "holes_total": 18,
+    "google_rating": 3.6,
+    "google_reviews": 128,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "foreup course 22957, schedule 12411, bookingClass 51848 (Public) -- verified live 2026-07-07 iter9, 34-96 slots/day",
+    "provider": "foreup",
+    "provider_config": {
+      "courseId": 22957,
+      "scheduleId": 12411,
+      "bookingClass": 51848
+    },
+    "booking_url": "https://foreupsoftware.com/index.php/booking/22957"
   }
 ]
