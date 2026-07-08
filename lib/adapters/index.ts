@@ -12,6 +12,7 @@ import { teeonAdapter } from './teeon';
 import { quick18Adapter } from './quick18';
 import { eagleclubAdapter } from './eagleclub';
 import { golfnowAdapter } from './golfnow';
+import { easyteegolfAdapter } from './easyteegolf';
 import { fallbackAdapter } from './fallback';
 
 const registry: Record<string, Adapter> = {
@@ -28,6 +29,7 @@ const registry: Record<string, Adapter> = {
   quick18: quick18Adapter,
   eagleclub: eagleclubAdapter,
   golfnow: golfnowAdapter,
+  easyteegolf: easyteegolfAdapter,
   fallback: fallbackAdapter,
 };
 

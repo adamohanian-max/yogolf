@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ma-heritage-hill-country-club",
+    "name": "Heritage Hill Country Club",
+    "address": "17 Heritage Hill Dr",
+    "town": "Lakeville",
+    "state": "MA",
+    "zip": "02347",
+    "lat": 41.836939,
+    "lng": -70.949302,
+    "phone": "508-947-9991",
+    "website": "https://golfheritagehill.com/",
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "NEW course, not previously in roster at all (found via authoritative_ma.tsv vs courses.db gap analysis, 2026-07-08). clubcaddie shard cc34, apikey dffdabab (harvested from own site's /book-a-tee-time/ widget), courseId 103454 (read from widget DOM via headless browser). Verified live 2026-07-08: 70-122 slots/day. Kept in its own file (not clubcaddie_ma.json) to avoid build_clubcaddie_seed.ts wipe risk on re-run, same reasoning as ma-holly-ridge-golf-club.",
+    "provider": "clubcaddie",
+    "provider_config": {
+      "shard": "cc34",
+      "apikey": "dffdabab",
+      "courseId": 103454
+    },
+    "booking_url": "https://apimanager-cc34.clubcaddie.com/webapi/view/dffdabab"
+  }
+]

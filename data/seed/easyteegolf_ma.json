@@ -1,0 +1,26 @@
+[
+  {
+    "id": "ma-ellinwood-country-club",
+    "name": "Ellinwood Country Club",
+    "address": "1928 Pleasant St",
+    "town": "Athol",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.566732,
+    "lng": -72.218944,
+    "phone": "978-249-7460",
+    "website": "https://www.ellinwoodgolf.com/",
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "easyteegolf slug=ellinwood-country-club -- verified live 2026-07-08, plain server-rendered HTML tee sheet, no auth needed, 37-48 slots/day, real price per hole count (9 vs 18)",
+    "provider": "easyteegolf",
+    "provider_config": {
+      "slug": "ellinwood-country-club"
+    },
+    "booking_url": "https://app.easyteegolf.com/course/ellinwood-country-club/"
+  }
+]

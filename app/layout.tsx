@@ -42,6 +42,9 @@ export const metadata: Metadata = {
     description:
       "Search live tee times across every golf course near you. Filter by price, time, players, and holes.",
   },
+  other: {
+    "google-adsense-account": "ca-pub-1832367628724761",
+  },
 };
 
 export default function RootLayout({

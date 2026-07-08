@@ -1187,5 +1187,34 @@
       "bookingUrl": "https://a89cc128-41e4-4dc8-ad22-e24ddd3f1af3.play.teeitup.golf"
     },
     "booking_url": "https://a89cc128-41e4-4dc8-ad22-e24ddd3f1af3.play.teeitup.golf"
+  },
+  {
+    "id": "ma-the-woods-of-westminster",
+    "name": "The Woods of Westminster",
+    "address": "90 Bean Porridge Hill Rd",
+    "town": "Westminster",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.583766,
+    "lng": -71.873856,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "teeitup facility 14066, UUID alias ba85b61d-1403-471d-bef2-7744c5d5a019.book.teeitup.com -- verified live 2026-07-08, 51-66 slots/day. Found via own site's westminster-golf-club-ma.book.teeitup.com widget (naive alias guess resolved to nothing; real alias captured via headless browser network trace).",
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "ba85b61d-1403-471d-bef2-7744c5d5a019",
+      "facilityIds": [
+        14066
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://westminster-golf-club-ma.book.teeitup.com/"
+    },
+    "booking_url": "https://westminster-golf-club-ma.book.teeitup.com/"
   }
 ]

@@ -598,5 +598,36 @@
     "other_ratings": null,
     "is_public": 1,
     "notes": "chronogolf club 7231 (verified live 2026-07-07 iter5, 77 slots)"
+  },
+  {
+    "id": "ma-wyckoff-country-club",
+    "name": "Wyckoff Country Club",
+    "address": null,
+    "town": "Holyoke",
+    "state": "MA",
+    "zip": null,
+    "lat": 42.22629442750672,
+    "lng": -72.64132561349358,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 19685,
+      "courses": [
+        {
+          "id": 27816,
+          "holes": [18]
+        }
+      ],
+      "affiliationTypeId": 144867
+    },
+    "booking_url": "https://www.chronogolf.com/club/wyckoff-country-club-massachusetts-holyoke",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "NEW course, not previously in roster at all -- distinct from 'Holyoke Country Club' (a different, already-checked course in the same town with only a non-golf Square site). Found via chronogolf marketplace/v2/search?onlineBookingEnabled=true bulk sweep (2026-07-08). Verified live, real slots for 2026-07-10, 73/73 fully unrestricted (no members-only gating on any slot)."
   }
 ]

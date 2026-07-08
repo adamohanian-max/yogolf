@@ -1,0 +1,28 @@
+[
+  {
+    "id": "nh-breakfast-hill-golf-club",
+    "name": "Breakfast Hill Golf Club",
+    "address": "339 Breakfast Hill Rd",
+    "town": "Greenland",
+    "state": "NH",
+    "zip": "03840",
+    "lat": 43.017582,
+    "lng": -70.81419,
+    "phone": "603-436-5001",
+    "website": "https://www.breakfasthill.com/",
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "First NH course -- yogolf's roster/adapters were MA-only before this (app/page.tsx and app/about/page.tsx still say 'covers Massachusetts', stale copy now, not updated here since that's a product/scope decision). golfnow facilityId=9928 -- verified live 2026-07-08, real lat/lng/address pulled from GolfNow's own facility data (not guessed), no auth/Cloudflare, matches the same golfnow adapter already used for ma-kelley-greens-golf-course. No new code needed -- lib/db.ts/lib/search.ts have no MA-specific hardcoding (confirmed via grep), purely lat/lng radius search, so this integrates cleanly.",
+    "provider": "golfnow",
+    "provider_config": {
+      "facilityId": 9928,
+      "lat": 43.017582,
+      "lng": -70.81419
+    },
+    "booking_url": "https://www.golfnow.com/tee-times/facility/9928-breakfast-hill-golf-club/search"
+  }
+]

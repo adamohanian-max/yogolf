@@ -1,0 +1,28 @@
+[
+  {
+    "id": "ma-holly-ridge-golf-club",
+    "name": "Holly Ridge Golf Club",
+    "address": "121 Country Club Rd",
+    "town": "Sandwich",
+    "state": "MA",
+    "zip": null,
+    "lat": 41.68355,
+    "lng": -70.45448,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "NEW course, not previously in roster at all (found via authoritative_ma.tsv vs courses.db gap analysis, 2026-07-08). clubcaddie config (shard cc37, apikey cffdabab, courseId 103453) was harvested in an earlier session but skipped since no base record existed yet to attach it to -- this file supplies that base directly. Kept in its own file rather than clubcaddie_ma.json since build_clubcaddie_seed.ts regenerates that file from a hardcoded list and would wipe this entry (no resolvable 'match' base, same risk class as yogolf-cps-seed-bug). Verified live: 34-66 slots/day.",
+    "provider": "clubcaddie",
+    "provider_config": {
+      "shard": "cc37",
+      "apikey": "cffdabab",
+      "courseId": 103453
+    },
+    "booking_url": "https://apimanager-cc37.clubcaddie.com/webapi/view/cffdabab"
+  }
+]
