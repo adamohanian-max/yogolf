@@ -80,6 +80,18 @@ a { color: inherit; text-decoration: none; }
   min-height: calc(100vh - 60px);
 }
 
+.sitefooter {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px 32px 40px;
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+.sitefooter a { color: var(--ink-soft); }
+.sitefooter a:hover { color: var(--flag-ink); }
+
 /* ---------- search panel ---------- */
 
 .panel {

@@ -548,6 +548,13 @@ export default function Home() {
           )}
         </main>
       </div>
+
+      <footer className="sitefooter">
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </footer>
     </>
   );
 }
