@@ -12,8 +12,7 @@ async function search(page: import('@playwright/test').Page, opts: { zip: string
   await page.goto('/');
   await page.fill('#zip', opts.zip);
   if (opts.radius) await page.selectOption('#radius', opts.radius);
-  await page.fill('input[aria-label="From date"]', DATE);
-  await page.fill('input[aria-label="To date"]', DATE);
+  await page.fill('input[aria-label="Date"]', DATE);
   await page.click('.searchbtn');
 }
 
@@ -71,8 +70,7 @@ test('players filter constrains open spots', async ({ page }) => {
   await page.fill('#zip', '02134');
   await page.selectOption('#radius', '40');
   await page.getByRole('group', { name: 'Number of players' }).getByRole('button', { name: '4' }).click();
-  await page.fill('input[aria-label="From date"]', DATE);
-  await page.fill('input[aria-label="To date"]', DATE);
+  await page.fill('input[aria-label="Date"]', DATE);
   await page.click('.searchbtn');
   await expect(page.locator('.chip').first()).toBeVisible({ timeout: 30_000 });
   const spots = await page.locator('.chip .s').allTextContents();
@@ -87,8 +85,7 @@ test('a far-offshore point yields no courses in range', async ({ page }) => {
   // Geocode a real zip but tiny radius in the ocean-adjacent Nantucket far end
   await page.fill('#zip', '02134');
   await page.selectOption('#radius', '5');
-  await page.fill('input[aria-label="From date"]', DATE);
-  await page.fill('input[aria-label="To date"]', DATE);
+  await page.fill('input[aria-label="Date"]', DATE);
   await page.click('.searchbtn');
   // Either shows results or a graceful empty state — never crashes.
   await expect(page.locator('.results-head, .empty, .card').first()).toBeVisible({ timeout: 30_000 });
