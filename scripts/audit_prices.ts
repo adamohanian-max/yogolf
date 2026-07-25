@@ -39,7 +39,7 @@ interface Row {
   flags: string[];
 }
 
-async function priceOf(course: Course, holes: 9 | 18, date: string): Promise<TeeTimeSlot[]> {
+async function priceOf(course: Course, holes: 9 | 18 | 0, date: string): Promise<TeeTimeSlot[]> {
   try {
     const res = await getAdapter(course.provider).fetchTeeTimes(course, { date, players: 1, holes });
     return Array.isArray(res) ? res : [];
