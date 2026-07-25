@@ -75,35 +75,37 @@ export const teeitupAdapter: Adapter = {
     const data = await fetchJson<TeeItUpDay[]>(url, {
       headers: { 'x-be-alias': cfg.alias },
     });
+    // For "both" (holes===0) emit a SEPARATE slot per hole count, priced from that
+    // hole's rates — never a single slot mixing 9- and 18-hole rates. Collapsing
+    // them and taking Math.min mislabels the 9-hole rate as the 18-hole price
+    // (e.g. a $15 nine-hole rate shown as "$15 · 18h"). Mirrors chronogolf, which
+    // already loops holes. A rate with no hole count is treated as 18-hole.
+    const wantHoles: (9 | 18)[] = params.holes === 0 ? [18, 9] : [params.holes];
     const slots: TeeTimeSlot[] = [];
     for (const day of data ?? []) {
       for (const t of day.teetimes ?? []) {
         const open = t.maxPlayers ?? t.players ?? 0;
         if (open < params.players) continue;
-        const rates = (t.rates ?? []).filter(
-          (r) => params.holes === 0 || Number(r.holes ?? 18) === params.holes
-        );
-        if (params.holes !== 0 && rates.length === 0 && (t.rates ?? []).length > 0) continue;
-        const prices = rates
-          .map((r) => centsToDollars(r.greenFeeWalking) ?? centsToDollars(r.greenFeeCart))
-          .filter((p): p is number => p != null);
-        const cartPrices = rates
-          .map((r) => centsToDollars(r.greenFeeCart))
-          .filter((p): p is number => p != null);
-        const holes: TeeTimeSlot['holes'] =
-          params.holes !== 0
-            ? params.holes
-            : rates.length && rates.every((r) => Number(r.holes) === 9)
-              ? 9
-              : 18;
-        slots.push({
-          time: toCourseLocalISO(t.teetime, tz), // UTC → course-local wall clock
-          price: prices.length ? Math.min(...prices) : null,
-          cartPrice: cartPrices.length ? Math.min(...cartPrices) : null,
-          spots: open,
-          holes,
-          bookingUrl: course.booking_url,
-        });
+        const allRates = t.rates ?? [];
+        for (const h of wantHoles) {
+          const rates = allRates.filter((r) => Number(r.holes ?? 18) === h);
+          if (rates.length === 0) continue;
+          const prices = rates
+            .map((r) => centsToDollars(r.greenFeeWalking) ?? centsToDollars(r.greenFeeCart))
+            .filter((p): p is number => p != null);
+          const cartPrices = rates
+            .map((r) => centsToDollars(r.greenFeeCart))
+            .filter((p): p is number => p != null);
+          if (prices.length === 0 && cartPrices.length === 0) continue;
+          slots.push({
+            time: toCourseLocalISO(t.teetime, tz), // UTC → course-local wall clock
+            price: prices.length ? Math.min(...prices) : null,
+            cartPrice: cartPrices.length ? Math.min(...cartPrices) : null,
+            spots: open,
+            holes: h,
+            bookingUrl: course.booking_url,
+          });
+        }
       }
     }
     return slots;

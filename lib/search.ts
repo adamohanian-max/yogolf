@@ -3,7 +3,7 @@ import { haversineMiles, boundingBox } from './distance';
 import { getAdapter } from './adapters';
 import { cacheGet, cacheSet } from './cache';
 import type { AdapterResult, Course, CourseResult, SearchCriteria, TeeTimeSlot } from './types';
-import { effectivePrice } from './types';
+import { effectivePrice, representativePrice } from './types';
 
 const ADAPTER_TIMEOUT_MS = 9000;
 const CACHE_TTL_MS = 120_000;
@@ -131,10 +131,9 @@ export function sortResults(
   sort: SearchCriteria['sort'],
   ride: SearchCriteria['ride'] = 'any'
 ): CourseResult[] {
-  const cheapest = (r: CourseResult) => {
-    const prices = r.slots.map((s) => effectivePrice(s, ride)).filter((p): p is number => p != null);
-    return prices.length ? Math.min(...prices) : Infinity;
-  };
+  // Representative (median 18-hole) price, not the absolute cheapest slot — see
+  // representativePrice in lib/types (mirrors the client sort in app/page.tsx).
+  const cheapest = (r: CourseResult) => representativePrice(r.slots, ride);
   const copy = [...results];
   switch (sort) {
     case 'nearest':
@@ -152,7 +151,5 @@ export function sortResults(
         if (pb === Infinity) return -1;
         return pb - pa;
       });
-    case 'best':
-      return copy.sort((a, b) => b.course.score - a.course.score);
   }
 }

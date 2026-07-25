@@ -39,6 +39,33 @@ export function effectivePrice(slot: TeeTimeSlot, ride: Ride): number | null {
   return slot.price;
 }
 
+/**
+ * A single number that represents a course's price for SORTING and summaries —
+ * distinct from the honest per-slot prices shown in the grid.
+ *
+ * Using the absolute cheapest slot (Math.min over everything) misrepresents a
+ * course: an off-peak twilight or a 9-hole rate makes a $50 18-hole course look
+ * like a $15 course. Instead take the MEDIAN of the 18-hole rates (falling back
+ * to 9-hole, then anything) so the low tail (twilight/junior/senior) and any high
+ * outliers don't stand in for the course. Returns Infinity when no price is known
+ * (so priced courses sort ahead of "see price" ones).
+ */
+export function representativePrice(slots: TeeTimeSlot[], ride: Ride): number {
+  const pricesFor = (holes: readonly (9 | 18 | 0)[]): number[] =>
+    slots
+      .filter((s) => holes.includes(s.holes))
+      .map((s) => effectivePrice(s, ride))
+      .filter((p): p is number => p != null);
+  // Prefer full-round (18 or unspecified) rates; fall back to 9-hole, then any.
+  let prices = pricesFor([18, 0]);
+  if (!prices.length) prices = pricesFor([9]);
+  if (!prices.length) prices = pricesFor([9, 18, 0]);
+  if (!prices.length) return Infinity;
+  prices.sort((a, b) => a - b);
+  const mid = Math.floor(prices.length / 2);
+  return prices.length % 2 ? prices[mid] : (prices[mid - 1] + prices[mid]) / 2;
+}
+
 export interface AdapterUnavailable {
   unavailable: true;
   bookingUrl: string;
@@ -68,7 +95,9 @@ export interface SearchCriteria {
   maxPrice: number | null;
   holes: 9 | 18 | 0;
   ride: Ride;
-  sort: 'nearest' | 'drive' | 'price_asc' | 'price_desc' | 'best';
+  // 'best' (score sort) is dormant while the scoring algorithm is reworked; the
+  // score is still computed/stored (lib/score.ts, DB), just not exposed as a sort.
+  sort: 'nearest' | 'drive' | 'price_asc' | 'price_desc';
 }
 
 export interface CourseResult {

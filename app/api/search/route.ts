@@ -44,7 +44,7 @@ function parseCriteria(req: NextRequest): SearchCriteria | { error: string } {
   const maxPrice = maxPriceRaw ? parseFloat(maxPriceRaw) : null;
 
   const sortRaw = q.get('sort') ?? 'nearest';
-  const sort = (['nearest', 'drive', 'price_asc', 'price_desc', 'best'] as const).includes(
+  const sort = (['nearest', 'drive', 'price_asc', 'price_desc'] as const).includes(
     sortRaw as never
   )
     ? (sortRaw as SearchCriteria['sort'])

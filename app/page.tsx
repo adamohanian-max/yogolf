@@ -2,9 +2,10 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { CourseResult, Ride, TeeTimeSlot } from '@/lib/types';
-import { effectivePrice } from '@/lib/types';
+import { effectivePrice, representativePrice } from '@/lib/types';
 
-type Sort = 'nearest' | 'drive' | 'price_asc' | 'price_desc' | 'best';
+// 'best' (score sort) is dormant pending the scoring rework — see lib/score.ts.
+type Sort = 'nearest' | 'drive' | 'price_asc' | 'price_desc';
 type Holes = 'both' | '9' | '18';
 
 interface CatalogCourse {
@@ -44,9 +45,12 @@ function fmtDateLabel(date: string): string {
   return d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 }
 
-function cheapest(r: CourseResult, ride: Ride): number {
-  const prices = r.slots.map((s) => effectivePrice(s, ride)).filter((p): p is number => p != null);
-  return prices.length ? Math.min(...prices) : Infinity;
+// Price used to ORDER courses — a representative (median 18-hole) rate, not the
+// absolute cheapest slot, so an off-peak/twilight/9-hole rate doesn't make a
+// course look far cheaper than it plays. The per-slot grid still shows real
+// prices. See representativePrice in lib/types.
+function sortPrice(r: CourseResult, ride: Ride): number {
+  return representativePrice(r.slots, ride);
 }
 
 const TIME_OPTIONS: { v: string; label: string }[] = [];
@@ -193,15 +197,14 @@ export default function Home() {
     const cmp: Record<Sort, (a: CourseResult, b: CourseResult) => number> = {
       nearest: (a, b) => a.distanceMiles - b.distanceMiles,
       drive: (a, b) => (a.driveMinutes ?? Infinity) - (b.driveMinutes ?? Infinity),
-      price_asc: (a, b) => cheapest(a, ride) - cheapest(b, ride),
+      price_asc: (a, b) => sortPrice(a, ride) - sortPrice(b, ride),
       price_desc: (a, b) => {
-        const pa = cheapest(a, ride), pb = cheapest(b, ride);
+        const pa = sortPrice(a, ride), pb = sortPrice(b, ride);
         if (pa === Infinity && pb === Infinity) return 0;
         if (pa === Infinity) return 1;
         if (pb === Infinity) return -1;
         return pb - pa;
       },
-      best: (a, b) => b.course.score - a.course.score,
     };
     withTimes.sort(cmp[sort]);
     without.sort((a, b) => a.distanceMiles - b.distanceMiles);
@@ -488,7 +491,6 @@ export default function Home() {
                     <option value="drive">Fastest drive</option>
                     <option value="price_asc">Price: low to high</option>
                     <option value="price_desc">Price: high to low</option>
-                    <option value="best">Best course</option>
                   </select>
                 </div>
               </div>
@@ -636,10 +638,8 @@ function CourseCard({ r, showDates, ride }: { r: CourseResult; showDates: boolea
             )}
           </div>
         </div>
-        <span className="ratingstamp" title="YoGolf course score">
-          <span className="n">{Math.round(r.course.score)}</span>
-          <span className="l">Score</span>
-        </span>
+        {/* Course "Score" badge is dormant while the scoring algorithm is reworked
+            (lib/score.ts still computes it; the sort + this badge are hidden). */}
       </div>
 
       {byDate.map(([date, slots]) => {

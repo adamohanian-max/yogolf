@@ -43,20 +43,9 @@ test('Boston search returns courses with live tee-time chips and real prices', a
   expect(href).toMatch(/^https?:\/\//);
 });
 
-test('best-course sort orders by score', async ({ page }) => {
-  await search(page, { zip: '02134', radius: '40' });
-  await expect(page.locator('.card').first()).toBeVisible({ timeout: 30_000 });
-  await page.waitForFunction(() => {
-    const el = document.querySelector('.results-head .count');
-    return el && /live tee times/.test(el.textContent || '');
-  }, { timeout: 30_000 });
-
-  await page.selectOption('#sort', 'best');
-  const scores = await page.locator('.scorepill').allTextContents();
-  const nums = scores.map((s) => parseInt(s, 10)).filter((n) => !Number.isNaN(n));
-  const sorted = [...nums].sort((a, b) => b - a);
-  expect(nums).toEqual(sorted);
-});
+// 'best-course sort orders by score' test removed: the score sort is dormant
+// while the scoring algorithm is reworked (option + Score badge hidden). Restore
+// alongside re-enabling the sort in app/page.tsx.
 
 test('fastest-drive sort shows drive times in non-decreasing order', async ({ page }) => {
   await search(page, { zip: '02134', radius: '40' });
