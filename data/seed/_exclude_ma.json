@@ -1,5 +1,5 @@
 {
-  "_comment": "Applied by seed.ts and the build_* scripts. junkPatterns are case-insensitive regex fragments matched against course name (test/admin/duplicate/non-golf ForeUp accounts). privateClubs are members-only MA clubs with no public tee times \u2014 excluded per 'public courses only'. Semi-private courses that sell public tee times are intentionally KEPT. `closed` (permanently closed) and `knownGap` (a public course we knowingly cannot cover) are reasoned exemptions read ONLY by scripts/audit_coverage.ts: a roster course listed here counts as reconciled instead of failing the coverage gate. Each entry is {name, reason}.",
+  "_comment": "Applied by seed.ts and the build_* scripts, GLOBALLY across all states (not MA-scoped despite the filename). junkPatterns are case-insensitive regex fragments matched against course name (test/admin/duplicate/non-golf ForeUp accounts). privateClubs are members-only MA clubs with no public tee times \u2014 excluded per 'public courses only'. Semi-private courses that sell public tee times are intentionally KEPT. `closed` (permanently closed) and `knownGap` (a public course we knowingly cannot cover) are reasoned exemptions read ONLY by scripts/audit_coverage.ts: a roster course listed here counts as reconciled instead of failing the coverage gate. Each entry is {name, reason}. 2026-07-08: removed the `^old ` junkPattern -- it was meant to catch 'Old Pakachoag Golf Course' (already separately excluded by exact id in duplicateIds), but as the roster expanded past MA it started wrongly killing legitimately-named courses like 'Old Tappan Golf Course' (NJ, a real town name, not a stale duplicate). Prefer exact duplicateIds over broad name-prefix patterns when the collision risk isn't MA-local. Also removed `tennis$` for the same reason: its real target (`ma-trull-brook-tennis`, a stale duplicate listing) is already covered by exact id in duplicateIds, but the bare regex was killing real golf-and-tennis clubs whose name legitimately ends in 'Tennis' (e.g. Colonial Golf & Tennis, PA) once the roster expanded past MA. 2026-07-08 (round 22): also removed the bare `\\bspa\\b` pattern for the same reason -- it was killing 'Grand Geneva Resort & Spa' (WI, real, live, verified). Unlike the two prior fixes, I couldn't confirm an exact duplicateIds entry this specific pattern was protecting against, but the more specific `club and spa` phrase pattern (still present, a few entries below) almost certainly covers whatever real junk case this was meant for, and a bare word-boundary match on 'spa' is exactly the kind of overly-broad pattern that keeps colliding with real golf resorts (spa amenities are extremely common at nicer courses) as the roster grows past MA.",
   "junkPatterns": [
     "\\bdemo\\b",
     "\\btest\\b",
@@ -8,11 +8,8 @@
     "\\bdelete\\b",
     "cancel(l)?ed",
     "\\binactive\\b",
-    "^old ",
     "catering",
     "\\bllc\\b",
-    "tennis$",
-    "\\bspa\\b",
     "management",
     "goulart",
     "\\bgolf rx\\b",
@@ -30,6 +27,7 @@
   ],
   "duplicateIds": [
     "ma-old-pakachoag-golf-course",
+    "ma-old-newbury-golf-club",
     "ma-the-captains-golf-course-ma",
     "ma-whaling-city-golf-course-old",
     "ma-mink-meadows",
@@ -71,10 +69,51 @@
     "Oakley Country Club",
     "Brae Burn Country Club",
     "The Country Club",
-    "Ledgemont Country Club"
+    "Ledgemont Country Club",
+    "Bellevue Golf Club",
+    "Blue Hill Country Club",
+    "Crestwood Country Club",
+    "Indian Ridge Country Club",
+    "Thomson Country Club"
   ],
   "closed": [],
   "knownGap": [
+    {
+      "name": "Hickory Hills Golf Course",
+      "reason": "2026-07-24 roster_failures.tsv triage. Golfmassachusetts spells it 'Hickory Hills' (plural); the real course in Methuen is 'Hickory Hill Golf Course' (singular) and IS shipped live via foreup (ma-hickory-hill-golf-course, course 19557/schedule 1829). Excused here only so the plural directory spelling stops nagging the coverage audit — it is genuinely covered."
+    },
+    {
+      "name": "Elmcrest Country Club",
+      "reason": "2026-07-24 roster_failures.tsv triage. Public (E. Longmeadow) but no confirmed live online booking: its chronogolf /club/ page is a dead SEO stub (onlineBookingEnabled=false, same pattern as Pine Grove). No other provider found. Uncoverable until it turns on online booking or adopts a supported provider."
+    },
+    {
+      "name": "Skyline Country Club",
+      "reason": "2026-07-24 roster_failures.tsv triage. Public/semi (Lanesboro, Berkshires) but chronogolf page is a dead stub (onlineBookingEnabled=false). No live online booking found."
+    },
+    {
+      "name": "The Orchards",
+      "reason": "2026-07-24 roster_failures.tsv triage. The Orchards Golf Club (S. Hadley), public/semi but chronogolf page is a dead stub (onlineBookingEnabled=false); leans on membership. No live online booking found."
+    },
+    {
+      "name": "Hillcrest Country Club",
+      "reason": "2026-07-24 roster_failures.tsv triage. Public 9-hole (Leicester) but phone-only/walk-up — no online tee-time booking on any supported provider."
+    },
+    {
+      "name": "Lakeview Golf Club",
+      "reason": "2026-07-24 roster_failures.tsv triage. Public 9-hole (Wenham); official site defunct, no online booking on any supported provider — phone-only."
+    },
+    {
+      "name": "Pine Oaks Golf Club",
+      "reason": "2026-07-24 roster_failures.tsv triage. Public 9-hole (S. Easton); walk-in / 'no tee times needed' — no online booking to cover."
+    },
+    {
+      "name": "The Golf Course at Wyndhurst Manor",
+      "reason": "2026-07-24 roster_failures.tsv triage. Public resort course (Lenox, Miraval) but books through Miraval's proprietary resort system, not any of the supported providers — no standard-platform tee sheet to adapt."
+    },
+    {
+      "name": "Old Newbury Golf Club",
+      "reason": "same physical course as 'Ould Newbury Golf Club' (correct spelling; identical phone 978-465-9888 area, same road) under an old/misspelled roster name — already covered live via foreup under ma-ould-newbury-golf-club; the town field differs ('Newbury' vs 'Newburyport') so the automatic town-grouped dedupe (lib/dedupe.ts sameCourse()) didn't merge them. Surfaced 2026-07-08 as a side effect of removing the overly-broad '^old ' junkPattern (see junkPatterns comment) which had been silently suppressing this roster row for an unrelated reason."
+    },
     {
       "name": "St. Marks Golf Club at St Marks School",
       "reason": "same physical course as 'Southborough Golf Club' (identical address/rating/website southboroughgolfclub.com) under a different roster name — already covered live via golfrev under ma-southborough-golf-club; kept as a separate roster line item because the two names don't share enough tokens for the automatic town-grouped dedupe (lib/dedupe.ts sameCourse()) to merge them"

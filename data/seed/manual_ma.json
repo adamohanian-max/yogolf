@@ -25,5 +25,175 @@
     "list_bonuses": 1,
     "is_public": 1,
     "notes": "Donald Ross muni, CPS site also hosts William J. Devine (courseId 1)"
+  },
+  {
+    "id": "ma-four-oaks-country-club",
+    "name": "Four Oaks Country Club",
+    "address": "80 Meadow Creek Drive",
+    "town": "Dracut",
+    "state": "MA",
+    "zip": "01826",
+    "lat": 42.6854209,
+    "lng": -71.2967719,
+    "phone": "978-455-0054",
+    "website": null,
+    "holes_total": 18,
+    "provider": "cps",
+    "provider_config": {
+      "host": "fouroaks.cps.golf",
+      "siteName": "fouroaks",
+      "courseId": 1,
+      "v4": true,
+      "needsTxn": true
+    },
+    "booking_url": "https://fouroaks.cps.golf/onlineresweb/search-teetime",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "Public course, CPS v4 site (needs RegisterTransactionId). Verified live 2026-07-24: courseId 1, GreenFee18 $56-66, 18-36 slots on near dates. Missing until now because its golfmassachusetts detail-page slug is four-oaks-cc, which the old slugVariants never guessed (see build_authoritative slug abbreviations + roster_failures.tsv)."
+  },
+  {
+    "id": "ma-quail-ridge-country-club",
+    "name": "Quail Ridge Country Club",
+    "address": "49 Skyline Drive",
+    "town": "Acton",
+    "state": "MA",
+    "zip": "01720",
+    "lat": 42.5047922,
+    "lng": -71.427235,
+    "phone": "978-264-0399",
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "quailridge-country-club",
+      "facilityIds": [
+        13011
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://quailridge-country-club.book.teeitup.golf/"
+    },
+    "booking_url": "https://quailridge-country-club.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "Semi-private, sells public tee times via TeeItUp facility 13011. Verified live 2026-07-24: 13-30 slots on near dates. Missing until now because Acton has no listing in the golfmassachusetts directory (the sole roster source) — surfaced by the provider-account reverse audit gap."
+  },
+  {
+    "id": "ma-twin-brooks-golf-course",
+    "name": "Twin Brooks Golf Course",
+    "address": null,
+    "town": "Hyannis",
+    "state": "MA",
+    "zip": "02601",
+    "lat": 41.654883,
+    "lng": -70.279287,
+    "phone": null,
+    "website": null,
+    "holes_total": 9,
+    "provider": "chronogolf",
+    "provider_config": {
+      "clubId": 7443,
+      "courses": [
+        {
+          "id": 8493,
+          "holes": [
+            9
+          ]
+        }
+      ],
+      "affiliationTypeId": 30594
+    },
+    "booking_url": "https://www.chronogolf.com/club/twin-brooks-golf-course-massachusetts",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "Public 9-hole par-3 behind the Cape Cod Irish Village resort, Hyannis. Chronogolf onlineBookingEnabled=true, verified live 2026-07-24: 49 slots. Roster failure triage (round surfaced by roster_failures.tsv)."
+  },
+  {
+    "id": "ma-sun-valley-golf-course",
+    "name": "Sun Valley Golf Course",
+    "address": null,
+    "town": "Rehoboth",
+    "state": "MA",
+    "zip": "02769",
+    "lat": 41.8216853,
+    "lng": -71.2928266,
+    "phone": null,
+    "website": null,
+    "holes_total": 18,
+    "provider": "teeitup",
+    "provider_config": {
+      "alias": "sun-valley-golf-course",
+      "facilityIds": [
+        3863
+      ],
+      "timeZone": "America/New_York",
+      "bookingUrl": "https://sun-valley-golf-course.book.teeitup.golf/"
+    },
+    "booking_url": "https://sun-valley-golf-course.book.teeitup.golf/",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "Public, TeeItUp facility 3863. Verified live 2026-07-24: 75-81 slots. Surfaced by roster_failures.tsv triage."
+  },
+  {
+    "id": "ma-hickory-hill-golf-course",
+    "name": "Hickory Hill Golf Course",
+    "address": null,
+    "town": "Methuen",
+    "state": "MA",
+    "zip": "01844",
+    "lat": 42.6951924,
+    "lng": -71.2354778,
+    "phone": "978-686-0822",
+    "website": null,
+    "holes_total": 18,
+    "provider": "foreup",
+    "provider_config": {
+      "courseId": 19557,
+      "scheduleId": 1829,
+      "bookingClass": 1443
+    },
+    "booking_url": "https://foreupsoftware.com/index.php/booking/19557/1829",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "Public, ForeUp course 19557 / schedule 1829 / bookingClass 1443 (Online Bookings). Verified live 2026-07-24: 37 slots, GreenFee $40. Directory spells it 'Hickory Hills' (plural); real/foreup name is singular. Surfaced by roster_failures.tsv triage."
+  },
+  {
+    "id": "ma-touisset-country-club",
+    "name": "Touisset Country Club",
+    "address": null,
+    "town": "Swansea",
+    "state": "MA",
+    "zip": "02777",
+    "lat": 41.7400852,
+    "lng": -71.2265127,
+    "phone": null,
+    "website": null,
+    "holes_total": 9,
+    "provider": "quick18",
+    "provider_config": {
+      "subdomain": "touisset",
+      "courseId": 18412
+    },
+    "booking_url": "https://touisset.quick18.com/teetimes",
+    "google_rating": null,
+    "google_reviews": null,
+    "golfpass_rating": null,
+    "other_ratings": null,
+    "is_public": 1,
+    "notes": "Public 9-hole, Quick18 subdomain touisset / courseId 18412. Verified live 2026-07-24: live matrix slots. Surfaced by roster_failures.tsv triage."
   }
 ]

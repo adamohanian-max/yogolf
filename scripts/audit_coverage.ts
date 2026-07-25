@@ -99,9 +99,28 @@ for (const row of roster) {
   missing.push(row);
 }
 
+// Roster scrape failures: dropdown names build_authoritative couldn't resolve to
+// a detail page (checked-in roster_failures.tsv). They carry no row — no town,
+// crucially no access type — so we can't know if a failure is a public course we
+// must ship (like Four Oaks was) or just a members-only club with a stub page
+// (most of them are). We can't hard-fail without knowing access, so surface every
+// untriaged failure as a loud WARNING each run: it can never vanish silently, and
+// a human resolves it by either shipping the course or excusing it in
+// _exclude_ma.json (which then drops it from this list).
+const failPath = path.join(seedDir, 'roster_failures.tsv');
+const failedNames = fs.existsSync(failPath)
+  ? fs.readFileSync(failPath, 'utf8').split('\n').slice(1).map((l) => l.trim()).filter(Boolean)
+  : [];
+const untriagedFailures = failedNames.filter((n) => {
+  const s = slug(n);
+  return !covered.has(s) && !excused.has(s) && !junkRe.some((re) => re.test(n));
+});
+
 // Reverse: catalog courses not in the roster (informational only).
+// MA-scoped: the roster is MA-only, so a non-MA catalog course is not an orphan,
+// it's simply out of this audit's scope (the catalog is national).
 const rosterSlugs = new Set(roster.map((r) => slug(r.name)));
-const orphan = catalog.filter((c) => c.is_public && !rosterSlugs.has(slug(c.name)));
+const orphan = catalog.filter((c) => c.state === 'MA' && c.is_public && !rosterSlugs.has(slug(c.name)));
 
 const required = roster.filter((r) => REQUIRED.has(r.access)).length;
 console.log(
@@ -112,6 +131,20 @@ console.log(
 if (orphan.length) {
   console.log(`\n${orphan.length} catalog course(s) not in roster (check spelling/classification):`);
   for (const c of orphan.slice(0, 40)) console.log(`  - ${c.name} (${c.town})`);
+}
+
+if (untriagedFailures.length) {
+  console.warn(
+    `\n⚠ ${untriagedFailures.length} directory name(s) in roster_failures.tsv untriaged ` +
+      '(scraped no detail page, neither shipped nor excused):'
+  );
+  for (const n of untriagedFailures) console.warn(`  - ${n}`);
+  console.warn(
+    '\nThe golfmassachusetts directory lists these but build_authoritative could not fetch a ' +
+      'detail page (usually an unguessed URL slug). Triage each: if public, add it to a provider ' +
+      'seed; if members-only/closed, add it to _exclude_ma.json (privateClubs/closed/knownGap). ' +
+      'Non-fatal — access is unknown for an unscraped course — but it will nag until resolved.'
+  );
 }
 
 if (missing.length) {

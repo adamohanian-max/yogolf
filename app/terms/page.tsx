@@ -50,7 +50,7 @@ export default function TermsPage() {
 
         <h2 style={{ fontSize: 16, marginTop: 20 }}>Contact</h2>
         <p>
-          <a href="mailto:hello@yogolf.net">hello@yogolf.net</a>.
+          <a href="mailto:adamohanian@gmail.com">adamohanian@gmail.com</a>.
         </p>
       </div>
     </div>

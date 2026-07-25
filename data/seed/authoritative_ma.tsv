@@ -43,7 +43,7 @@ Charter Oak Country Club	Hudson	private	42.387453	-71.508737	15 Brent Dr	golfmas
 Chatham Seaside Links	Chatham	public	41.685	-69.953318	209 Seaview St	golfmassachusetts
 Chelmsford Country Club	Chelmsford	public	42.574187	-71.369232	66 Park Rd	golfmassachusetts
 Chemawa Golf Course	North Attleboro	public	41.939205	-71.367478	350 Cushman Rd	golfmassachusetts
-Chequessett Club	Wellfleet	public				local
+Chequessett Club	Wellfleet	public			Chequessett Neck Rd	local
 Chequessett Yacht & Country Club	Wellfleet	semi	41.93701	-70.0358	Chequessett Neck Rd	golfmassachusetts
 Cherry Hill Golf Course	North Amherst	public	42.420733	-72.527853	323 Montague Rd	golfmassachusetts
 Chicopee Country Club	Chicopee	public	42.179489	-72.51889	1290 Burnett Rd	golfmassachusetts
@@ -92,6 +92,7 @@ Ferncroft Country Club	Middleton	private	42.60114	-70.974903	10 Village Road	gol
 Firefly Golf Course	Seekonk	public	41.818795	-71.338807	320 Fall River Ave	golfmassachusetts
 Fore Kicks Golf & Indoor Sports Complex	Norfolk	public	42.090468	-71.297517	10 Pine St	golfmassachusetts
 Forest Park Country Club	Adams	public	42.6209	-73.12524	Forest Park Ave	golfmassachusetts
+Four Oaks Country Club	Dracut	private	42.6854209	-71.2967719	80 Meadow Creek Drive	golfmassachusetts
 Foxborough Country Club	Foxborough	semi	42.04619	-71.250279	33 Walnut St	golfmassachusetts
 Framingham Country Club	Framingham	private	42.29288	-71.47062	Gates St	golfmassachusetts
 Franconia Golf Course	Springfield	public	42.064152	-72.539442	619 Dwight Rd	golfmassachusetts
@@ -106,7 +107,6 @@ Glen Ellen Country Club	Millis	public	42.183729	-71.392894	84 Orchard St	golfmas
 Granite Links Golf Club	Quincy	semi	42.208121	-71.053689	100 Quarry Hills Dr	golfmassachusetts
 GreatHorse	Hampden	public	42.070153	-72.434677	128 Wilbraham Rd	golfmassachusetts
 Green Harbor Golf Club	Marshfield	public	42.083376	-70.695877	624 Webster St	golfmassachusetts
-Green Hill Golf Course (MA)	Worcester	public				local
 Greenock Country Club	Lee	semi	42.30158	-73.26096	W Park St	golfmassachusetts
 Groton Country Club	Groton	public	42.601041	-71.557932	94 Lovers Ln	golfmassachusetts
 Hardwick Crossing Country Club	Gillbertville 	public				local
@@ -195,6 +195,7 @@ Northampton Country Club	Leeds	semi	42.347394	-72.700688	135 Main St	golfmassach
 Northfield Golf Club	Northfield	semi	42.703835	-72.449097	31 Holton St	golfmassachusetts
 Norton Country Club	Norton	semi	41.976299	-71.233321	188 Oak St	golfmassachusetts
 Norwood Country Club	Norwood	public	42.197937	-71.186209	400 Providence Hwy	golfmassachusetts
+Oak Hill Country Club	Fitchburg	private	42.561801	-71.829097	840 Oak Hill Rd	golfmassachusetts
 Oak Ridge Golf Club	Gill	public	42.642323	-72.528117	231 W Gill Rd	golfmassachusetts
 Ocean Edge Resort & Golf Club	Brewster	resort	41.752029	-70.059675	832 Village Dr	golfmassachusetts
 Old Newbury Golf Club	Newbury	semi	42.8367	-70.8179	Route 1	golfmassachusetts
@@ -210,6 +211,7 @@ Paul Harney Golf Club	East Falmouth	public	41.627356	-70.541546	74 Club Valley D
 Pembroke Country Club	Pembroke	semi	42.0745	-70.82371	W Elm St	golfmassachusetts
 Petersham Country Club	Petersham	semi	42.524415	-72.184952	240 N Main St	golfmassachusetts
 Pine Brook Country Club	Weston	private	42.342578	-71.277342	42 Newton St	golfmassachusetts
+Pine Grove Golf Course	Northampton	semi	42.295905	-72.671741	254 Wilson Rd	golfmassachusetts
 Pine Knoll Executive Golf Course	East Longmeadow	public	42.084967	-72.480434	380 Porter Rd	golfmassachusetts
 Pine Meadows Golf Course	Lexington	public	42.456987	-71.251747	255 Cedar St	golfmassachusetts
 Pinecrest Golf Club	Holliston	public				local
@@ -222,6 +224,7 @@ Poquoy Brook Golf Course	Lakeville	public	41.880541	-70.963262	20 Leonard St	gol
 Presidents Golf Course	North Quincy	public	42.268524	-71.039734	357 W Squantum St	golfmassachusetts
 Quaboag Country Club	Monson	public	42.14082	-72.31066	Palmer Rd	golfmassachusetts
 Quail Hollow Country Club	Oakham	semi	42.360463	-72.089674	1822 Turnpike Rd	golfmassachusetts
+Quail Ridge Country Club	Acton	public			49 Skyline Drive	local
 Quashnet Valley Country Club	Mashpee	semi	41.625523	-70.503563	309 Old Barnstable Rd	golfmassachusetts
 Red Tail Golf Club	Devens	public	42.5335	-71.60081	15 Bulge Rd	golfmassachusetts
 Reedy Meadow Golf Course	Lynnfield	public				local
@@ -269,6 +272,7 @@ Stoneham Oaks Golf Course	Stoneham	public	42.480703	-71.110815	101 Montvale Ave	
 Stow Acres Country Club	Stow	public	42.416241	-71.526924	58 Randall Rd	golfmassachusetts
 Stowaway Golf Course	Stow	public	42.424781	-71.476436	121 White Pond Rd	golfmassachusetts
 Strawberry Valley Golf Club	Abington	public	42.096643	-70.950341	164 Washington St	golfmassachusetts
+Sun Valley Golf Course	Rehoboth	public				local
 Swansea Country Club	Swansea	semi	41.761699	-71.269178	299 Market St	golfmassachusetts
 Swanson Meadows Golf Course	North Billerica	public				local
 Taconic Golf Club	Williamstown	semi	42.7094	-73.20216	Meacham St	golfmassachusetts
@@ -293,9 +297,11 @@ The Tournament Players Club of Boston	Norton	private	41.982975	-71.223297	405 Ar
 The Woods of Westminster	Westminster	public	42.583766	-71.873856	90 Bean Porridge Hill Rd	golfmassachusetts
 Thomas Memorial Golf & Country Club	Turners Falls	semi	42.59352	-72.55936	Country Club Ln	golfmassachusetts
 Thorny Lea Golf Club	Brockton	private	42.073384	-71.048545	159 Torrey St	golfmassachusetts
+Touisset Country Club	Swansea	public				local
 Townsend Ridge Country Club	Townsend	public	42.668509	-71.721424	40 Scales Ln	golfmassachusetts
 Trull Brook Golf Course	Tewksbury	public	42.648617	-71.265887	170 River Rd	golfmassachusetts
 Turner Hill Golf and Racquet Club	Ipswich	private	42.724001	-70.86625	5 Manor House Lane	golfmassachusetts
+Twin Brooks Golf Course	Hyannis	public				local
 Twin Springs Golf Course	Bolton	public	42.440284	-71.652945	295 Wilder Rd	golfmassachusetts
 Tyngsboro Country Club	Tyngsboro	public	42.6711	-71.415	Pawtuckett Blvd	golfmassachusetts
 Unicorn Golf Course	Stoneham	public	42.489294	-71.112996	460 William St	golfmassachusetts
@@ -310,23 +316,25 @@ Wampatuck Country Club	Canton	private	42.163211	-71.125533	99 Pleasant Garden Rd
 Waubeeka Golf Links	Williamstown	public	42.656953	-73.239874	137 New Ashford Rd	golfmassachusetts
 Waverly Oaks Golf Club	Plymouth	public	41.884838	-70.624901	444 Long Pond Rd	golfmassachusetts
 Wayland Country Club	Wayland	public	42.374149	-71.377066	121 Old Sudbury Rd	golfmassachusetts
+Weathervane Golf Club	Weymouth	public				local
+Wedgewood Pines Country Club	Stow	private	42.442143	-71.538087	215 Harvard Rd	golfmassachusetts
 Wellesley Country Club	Wellesley Hills	private	42.300606	-71.260595	294 Wellesley Ave	golfmassachusetts
 Wenham Country Club	Wenham	semi	42.60022	-70.888869	94 Main St	golfmassachusetts
 Wentworth Hills Golf & Country Club	Plainville	semi	42.012132	-71.374191	27 Bow St	golfmassachusetts
 West Bridgewater Country Club	West Bridgewater	public				local
 Westborough Country Club	Westborough	semi	42.263391	-71.624114	121 W Main St	golfmassachusetts
 Westminster Country Club	Westminster	semi	42.541547	-71.931691	51 Ellis Rd	golfmassachusetts
-Westminster Golf and Country Club	Westminster	public				local
+Westminster Golf and Country Club	Westminster	public			51 Ellis Rd	local
 Weston Golf Club	Weston	private	42.361191	-71.289117	275 Meadowbrook Rd	golfmassachusetts
 Westover Golf Club	Granby	public	42.21711	-72.52729	S St	golfmassachusetts
-Whaling City Golf Course	New Bedford	public				local
+Whaling City Golf Course	New Bedford	public			561 Hathaway Rd	local
 Whaling City Golf Course at New Bedford	New Bedford	public	41.653292	-70.961043	561 Hathaway Rd	golfmassachusetts
 White Cliffs Country Club	Plymouth	private	41.943767	-70.630889	1 Cliff Dr	golfmassachusetts
 White Pines Golf Course	Brockton	public	42.04348	-71.017461	549 Copeland St	golfmassachusetts
 Whitinsville Golf Club	Whitinsville	private	42.107025	-71.659638	179 Fletcher St	golfmassachusetts
 Wianno Club	Osterville	private	41.618226	-70.38488	389 Parker Rd	golfmassachusetts
 Widows Walk Golf Course	Scituate	public	42.20031	-70.772667	250 The Driftway	golfmassachusetts
-William Devine Golf Course At Franklin Park	Dorchester	public				local
+William Devine Golf Course At Franklin Park	Dorchester	public			1 Circuit Dr	local
 William J. Devine Franklin Park Golf Course	Dorchester	public	42.302101	-71.089738	1 Circuit Dr	golfmassachusetts
 Willowbend	Mashpee	private	41.624616	-70.459254	100 Willow Bend Dr	golfmassachusetts
 Willowdale Golf Course	Mansfield	public	42.017803	-71.22508	54 Willow St	golfmassachusetts

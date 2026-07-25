@@ -87,6 +87,18 @@ function slugVariants(name: string): string[] {
   ]) {
     if (full.endsWith(suffix)) variants.push(full.slice(0, -suffix.length));
   }
+  // The directory also abbreviates the trailing designation instead of dropping
+  // it ("Four Oaks Country Club" → four-oaks-cc, not four-oaks-country-club).
+  // Without these the detail page 302-redirects to the index and the course is
+  // silently lost (see parseDetail's name-key guard, which turns that miss loud).
+  for (const [long, abbr] of [
+    ['-country-club', '-cc'],
+    ['-golf-club', '-gc'],
+    ['-golf-course', '-gc'],
+    ['-golf-links', '-gl'],
+  ] as const) {
+    if (full.endsWith(long)) variants.push(full.slice(0, -long.length) + abbr);
+  }
   return [...new Set(variants)];
 }
 
@@ -150,14 +162,20 @@ type Parsed = Omit<Row, 'source'>;
  * "Course Type:" line for stub pages that carry no marker.
  */
 function parseDetail(html: string, fallbackName: string): Parsed | null {
-  const m = html.match(MARKER);
-  if (m) {
+  // A bad slug 302-redirects to the directory index, whose first map marker is
+  // some featured course. Trusting it would silently bind THIS course's slot to
+  // an unrelated record (and never flag a failure). Require a marker whose name
+  // matches the course we asked for; otherwise treat the page as a miss so the
+  // caller falls through to the next slug variant and, failing all, to failures.
+  const want = key(fallbackName);
+  for (const m of html.matchAll(new RegExp(MARKER, 'g'))) {
     // Marker carries a real "… MA <zip>" address, so trust its town verbatim
     // (many valid courses sit in villages not in the town-centroid list).
     const [, , markerName, addr, lat, lng, courseType] = m;
-    const name = markerName.replace(/&amp;/g, '&').trim() || fallbackName;
+    const name = markerName.replace(/&amp;/g, '&').trim();
+    if (key(name) !== want) continue;
     return {
-      name,
+      name: name || fallbackName,
       town: parseTown(addr),
       access: classify(name, courseType),
       lat,
@@ -172,6 +190,7 @@ function parseDetail(html: string, fallbackName: string): Parsed | null {
   if (!title) return null;
   const name = title[1].replace(/&amp;/g, '&').trim();
   const town = title[2].replace(/\s+/g, ' ').trim();
+  if (key(name) !== want) return null; // wrong course served for this slug
   if (!maTowns.has(town.toLowerCase())) return null;
   const ct = html.match(/Course Type:\s*([^<]+)</i);
   return {
@@ -249,6 +268,20 @@ async function main() {
   }
   console.log(`  unioned ${unioned} local-only names not in the directory`);
 
+  // Dropdown names that never resolved to a detail page AND weren't recovered by
+  // the local union are genuinely lost — the directory advertises them but we
+  // captured no roster row. Persist them to a CHECKED-IN file the coverage audit
+  // reconciles, so a scrape miss can't silently shrink the roster (this is how
+  // "Four Oaks Country Club" vanished: its slug is four-oaks-cc, which no variant
+  // guessed, and the failed name was only logged, never tracked).
+  const lost = failed.filter((n) => !rows.has(key(n))).sort((a, b) => a.localeCompare(b));
+  const failPath = path.join(seedDir, 'roster_failures.tsv');
+  fs.writeFileSync(
+    failPath,
+    'name\n' + lost.join('\n') + (lost.length ? '\n' : '')
+  );
+  console.log(`  ${lost.length} dropdown name(s) lost (no detail page) → ${path.relative(process.cwd(), failPath)}`);
+
   const sorted = [...rows.values()].sort((a, b) => a.name.localeCompare(b.name));
   const header = 'name\ttown\taccess\tlat\tlng\taddress\tsource';
   const body = sorted
@@ -289,7 +322,10 @@ function localNames(): { name: string; town: string; address?: string }[] {
   if (fs.existsSync(db)) {
     const conn = new Database(db, { readonly: true });
     try {
-      for (const r of conn.prepare('SELECT name, town, address FROM courses').all() as {
+      // MA only: this is the MA roster. Since the catalog expanded past MA, an
+      // unscoped SELECT unions every state's courses into authoritative_ma.tsv,
+      // ballooning it to a national list and breaking the MA coverage audit.
+      for (const r of conn.prepare("SELECT name, town, address FROM courses WHERE state='MA'").all() as {
         name: string;
         town: string;
         address: string | null;

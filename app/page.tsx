@@ -311,24 +311,17 @@ export default function Home() {
 
           <div className="field">
             <label>Date</label>
-            <div className="row2">
-              <input
-                type="date"
-                className="control"
-                value={dateFrom}
-                min={todayStr()}
-                onChange={(e) => setDateFrom(e.target.value)}
-                aria-label="From date"
-              />
-              <input
-                type="date"
-                className="control"
-                value={dateTo}
-                min={dateFrom}
-                onChange={(e) => setDateTo(e.target.value)}
-                aria-label="To date"
-              />
-            </div>
+            <input
+              type="date"
+              className="control"
+              value={dateFrom}
+              min={todayStr()}
+              onChange={(e) => {
+                setDateFrom(e.target.value);
+                setDateTo(e.target.value);
+              }}
+              aria-label="Date"
+            />
           </div>
 
           <div className="field">

@@ -55,7 +55,7 @@ export default function PrivacyPage() {
 
         <h2 style={{ fontSize: 16, marginTop: 20 }}>Contact</h2>
         <p>
-          Questions about this policy: <a href="mailto:hello@yogolf.net">hello@yogolf.net</a>.
+          Questions about this policy: <a href="mailto:adamohanian@gmail.com">adamohanian@gmail.com</a>.
         </p>
       </div>
     </div>

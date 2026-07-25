@@ -17,7 +17,7 @@ export default function ContactPage() {
         <h1>Contact</h1>
         <p className="sub">Course listings, corrections, partnerships, feedback.</p>
         <p>
-          Email <a href="mailto:hello@yogolf.net">hello@yogolf.net</a> and we&apos;ll get
+          Email <a href="mailto:adamohanian@gmail.com">adamohanian@gmail.com</a> and we&apos;ll get
           back to you.
         </p>
         <p>
