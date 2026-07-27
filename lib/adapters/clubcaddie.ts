@@ -21,10 +21,14 @@ interface RawSlot {
 
 function parseSlots(html: string): RawSlot[] {
   const slots: RawSlot[] = [];
-  // Each slot: a URL-encoded JSON tail (…HoleRate_9…HoleRate_18…) immediately
-  // followed by the hidden Date/fromtime inputs.
+  // Each slot embeds Highest*/Lowest* rate fields (URL-encoded JSON) followed by
+  // the hidden Date/fromtime inputs. Use HighestPriceHoleRate_* — the standard
+  // (non-discounted) public green fee. LowestPriceHoleRate_* is the cheapest rate
+  // CLASS (senior/twilight/resident/member) that a typical public golfer can't
+  // book, and showing it badly under-prices the course (e.g. Trull Brook's real
+  // 18-hole rate is $75.41, but LowestPriceHoleRate_18 is a restricted $40).
   const re =
-    /LowestPriceHoleRate_18%22%3A(null|\d+(?:\.\d+)?)%2C%22LowestPriceHoleRate_9%22%3A(null|\d+(?:\.\d+)?)[\s\S]{0,400}?name="Date" value="(\d{4}-\d{2}-\d{2})">\s*<input type="hidden" name="fromtime" value="(\d{2}:\d{2}:\d{2})"/g;
+    /HighestPriceHoleRate_18%22%3A(null|\d+(?:\.\d+)?)%2C%22HighestPriceHoleRate_9%22%3A(null|\d+(?:\.\d+)?)[\s\S]{0,800}?name="Date" value="(\d{4}-\d{2}-\d{2})">\s*<input type="hidden" name="fromtime" value="(\d{2}:\d{2}:\d{2})"/g;
   let m: RegExpExecArray | null;
   while ((m = re.exec(html))) {
     slots.push({
